@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import {
   DownloadOutlined,
   SearchOutlined,
@@ -285,7 +287,11 @@ export default function ClawHub() {
               {/* SKILL.md 内容 */}
               {detailData.metaContent?.skillMd && (
                 <Section title="SKILL.md">
-                  <pre className={styles.skillMdContent}>{detailData.metaContent.skillMd}</pre>
+                  <div className={styles.skillMdContent}>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {detailData.metaContent.skillMd}
+                    </ReactMarkdown>
+                  </div>
                 </Section>
               )}
 
