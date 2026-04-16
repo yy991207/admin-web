@@ -8,15 +8,19 @@ import {
   GlobalOutlined,
   LockOutlined,
   PoweroffOutlined,
+  EyeOutlined,
 } from '@ant-design/icons'
-import { Button, Table, Tag, Input, Modal, Form, message, Popconfirm, Space, Switch, Tooltip } from 'antd'
+import { Button, Table, Tag, Input, Modal, Form, message, Popconfirm, Space, Switch, Tooltip, Select, Segmented } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import {
   fetchAgents,
+  fetchAllAgents,
+  fetchAgentDetail,
   createAgent,
   updateAgent,
   deleteAgent,
   toggleAgent,
+  setAgentVisibility,
   type AdminAgent,
 } from '../../services/agentService'
 import styles from '../SystemSkills/SystemSkills.module.less'
@@ -25,27 +29,39 @@ export default function Agents() {
   const [loading, setLoading] = useState(false)
   const [agents, setAgents] = useState<AdminAgent[]>([])
   const [searchText, setSearchText] = useState('')
+  const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all')
   const [createModalOpen, setCreateModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
+  const [detailModalOpen, setDetailModalOpen] = useState(false)
   const [editingAgent, setEditingAgent] = useState<AdminAgent | null>(null)
+  const [viewingAgent, setViewingAgent] = useState<AdminAgent | null>(null)
+  const [detailLoading, setDetailLoading] = useState(false)
   const [createForm] = Form.useForm()
   const [editForm] = Form.useForm()
 
   const loadAgents = useCallback(async () => {
     setLoading(true)
     try {
-      const res = await fetchAgents()
-      if (res.success) {
-        setAgents(res.data.agents)
+      let agentsData: { agents: AdminAgent[] }
+      if (statusFilter === 'all') {
+        const res = await fetchAllAgents()
+        agentsData = res
       } else {
-        message.error(res.msg || '加载失败')
+        const isActive = statusFilter === 'active'
+        const res = await fetchAgents(isActive)
+        if (!res.success) {
+          message.error(res.msg || '加载失败')
+          return
+        }
+        agentsData = res.data
       }
+      setAgents(agentsData.agents)
     } catch {
       message.error('网络请求失败')
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [statusFilter])
 
   useEffect(() => {
     loadAgents()
@@ -79,12 +95,30 @@ export default function Agents() {
     }
   }
 
+  const handleVisibilityChange = async (agent_id: string, is_public: boolean) => {
+    try {
+      const res = await setAgentVisibility(agent_id, is_public)
+      if (res.success) {
+        message.success(is_public ? '已设为公开' : '已设为私有')
+        loadAgents()
+      } else {
+        message.error(res.msg || '操作失败')
+      }
+    } catch {
+      message.error('网络请求失败')
+    }
+  }
+
   const handleCreate = async (values: {
     agent_name: string
     description: string
+    avatar_url?: string
     agent_prompt: string
-    is_public: boolean
+    enabled_skills: string[]
+    resource_ids: string[]
+    preset_questions: Array<{ question: string; answer: string }>
     enable_web_search: boolean
+    is_public: boolean
   }) => {
     try {
       const res = await createAgent(values)
@@ -106,9 +140,13 @@ export default function Agents() {
     editForm.setFieldsValue({
       agent_name: agent.agent_name,
       description: agent.description,
+      avatar_url: agent.avatar_url || '',
       agent_prompt: agent.agent_prompt,
-      is_public: agent.is_public,
+      enabled_skills: agent.enabled_skills || [],
+      resource_ids: agent.resource_ids || [],
+      preset_questions: agent.preset_questions || [],
       enable_web_search: agent.enable_web_search,
+      is_public: agent.is_public,
     })
     setEditModalOpen(true)
   }
@@ -116,9 +154,13 @@ export default function Agents() {
   const handleUpdate = async (values: {
     agent_name: string
     description: string
+    avatar_url?: string
     agent_prompt: string
-    is_public: boolean
+    enabled_skills: string[]
+    resource_ids: string[]
+    preset_questions: Array<{ question: string; answer: string }>
     enable_web_search: boolean
+    is_public: boolean
   }) => {
     if (!editingAgent) return
     try {
@@ -133,6 +175,26 @@ export default function Agents() {
       }
     } catch {
       message.error('更新失败')
+    }
+  }
+
+  const handleViewDetail = async (agent: AdminAgent) => {
+    setViewingAgent(null)
+    setDetailLoading(true)
+    setDetailModalOpen(true)
+    try {
+      const res = await fetchAgentDetail(agent.agent_id)
+      if (res.success) {
+        setViewingAgent(res.data)
+      } else {
+        message.error(res.msg || '获取详情失败')
+        setViewingAgent(agent) // fallback to list data
+      }
+    } catch {
+      message.error('网络请求失败')
+      setViewingAgent(agent)
+    } finally {
+      setDetailLoading(false)
     }
   }
 
@@ -175,20 +237,27 @@ export default function Agents() {
       dataIndex: 'is_public',
       key: 'is_public',
       width: 80,
-      render: (isPublic: boolean) =>
-        isPublic ? (
-          <Tag color="green" icon={<GlobalOutlined />}>
-            公开
-          </Tag>
-        ) : (
-          <Tag icon={<LockOutlined />}>私有</Tag>
-        ),
+      render: (isPublic: boolean, record: AdminAgent) => (
+        <Switch
+          size="small"
+          checked={isPublic}
+          checkedChildren={<GlobalOutlined />}
+          unCheckedChildren={<LockOutlined />}
+          onChange={(checked) => handleVisibilityChange(record.agent_id, checked)}
+        />
+      ),
     },
     {
       title: '技能数',
       key: 'skills',
       width: 80,
       render: (_: unknown, record: AdminAgent) => record.enabled_skills?.length || 0,
+    },
+    {
+      title: '知识库',
+      key: 'resources',
+      width: 80,
+      render: (_: unknown, record: AdminAgent) => record.resource_ids?.length || 0,
     },
     {
       title: '更新时间',
@@ -200,9 +269,12 @@ export default function Agents() {
     {
       title: '操作',
       key: 'actions',
-      width: 200,
+      width: 220,
       render: (_: unknown, record: AdminAgent) => (
         <Space size={4}>
+          <Button type="link" size="small" icon={<EyeOutlined />} style={{ padding: '0 4px' }} onClick={() => handleViewDetail(record)}>
+            详情
+          </Button>
           <Button type="link" size="small" icon={<EditOutlined />} style={{ padding: '0 4px' }} onClick={() => handleEdit(record)}>
             编辑
           </Button>
@@ -246,13 +318,24 @@ export default function Agents() {
       </div>
 
       <div className={styles.tableCard}>
-        <Input.Search
-          placeholder="搜索智能体名称或描述..."
-          allowClear
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          className={styles.tableSearch}
-        />
+        <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12 }}>
+          <Segmented
+            options={[
+              { label: '全部', value: 'all' },
+              { label: '已启用', value: 'active' },
+              { label: '已停用', value: 'inactive' },
+            ]}
+            value={statusFilter}
+            onChange={(v) => setStatusFilter(v as typeof statusFilter)}
+          />
+          <Input.Search
+            placeholder="搜索智能体名称或描述..."
+            allowClear
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{ flex: 1, maxWidth: 320 }}
+          />
+        </div>
         <Table
           columns={columns}
           dataSource={filteredAgents}
@@ -282,8 +365,17 @@ export default function Agents() {
           <Form.Item label="描述" name="description" rules={[{ required: true }]}>
             <Input.TextArea rows={2} placeholder="智能体功能描述" />
           </Form.Item>
+          <Form.Item label="头像URL" name="avatar_url">
+            <Input placeholder="https://..." />
+          </Form.Item>
           <Form.Item label="智能体提示词" name="agent_prompt" rules={[{ required: true }]}>
             <Input.TextArea rows={6} placeholder="智能体的 system prompt" />
+          </Form.Item>
+          <Form.Item label="启用技能" name="enabled_skills" initialValue={[]}>
+            <Select mode="tags" placeholder="输入技能ID，回车添加" />
+          </Form.Item>
+          <Form.Item label="知识库文档" name="resource_ids" initialValue={[]}>
+            <Select mode="tags" placeholder="输入文档ID，回车添加" />
           </Form.Item>
           <Form.Item label="公开" name="is_public" valuePropName="checked" initialValue={true}>
             <Switch />
@@ -310,8 +402,17 @@ export default function Agents() {
             <Form.Item label="描述" name="description" rules={[{ required: true }]}>
               <Input.TextArea rows={2} />
             </Form.Item>
+            <Form.Item label="头像URL" name="avatar_url">
+              <Input />
+            </Form.Item>
             <Form.Item label="智能体提示词" name="agent_prompt" rules={[{ required: true }]}>
               <Input.TextArea rows={6} />
+            </Form.Item>
+            <Form.Item label="启用技能" name="enabled_skills">
+              <Select mode="tags" placeholder="输入技能ID，回车添加" />
+            </Form.Item>
+            <Form.Item label="知识库文档" name="resource_ids">
+              <Select mode="tags" placeholder="输入文档ID，回车添加" />
             </Form.Item>
             <Form.Item label="公开" name="is_public" valuePropName="checked">
               <Switch />
@@ -321,6 +422,78 @@ export default function Agents() {
             </Form.Item>
           </Form>
         )}
+      </Modal>
+
+      {/* 详情弹窗 */}
+      <Modal
+        title="智能体详情"
+        open={detailModalOpen}
+        onCancel={() => { setDetailModalOpen(false); setViewingAgent(null) }}
+        footer={null}
+        width={720}
+      >
+        {detailLoading ? (
+          <div style={{ textAlign: 'center', padding: 40 }}>加载中...</div>
+        ) : viewingAgent ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <strong>名称：</strong>{viewingAgent.agent_name}
+            </div>
+            <div>
+              <strong>ID：</strong>{viewingAgent.agent_id}
+            </div>
+            <div>
+              <strong>描述：</strong>{viewingAgent.description}
+            </div>
+            <div>
+              <strong>头像：</strong>{viewingAgent.avatar_url || '无'}
+            </div>
+            <div>
+              <strong>状态：</strong>
+              <Tag color={viewingAgent.is_active ? 'blue' : 'default'} style={{ marginLeft: 8 }}>
+                {viewingAgent.is_active ? '已启用' : '已停用'}
+              </Tag>
+            </div>
+            <div>
+              <strong>可见性：</strong>
+              <Tag color={viewingAgent.is_public ? 'green' : 'default'} style={{ marginLeft: 8 }}>
+                {viewingAgent.is_public ? '公开' : '私有'}
+              </Tag>
+            </div>
+            <div>
+              <strong>网络搜索：</strong>{viewingAgent.enable_web_search ? '已启用' : '未启用'}
+            </div>
+            <div>
+              <strong>技能：</strong>{viewingAgent.enabled_skills?.join(', ') || '无'}
+            </div>
+            <div>
+              <strong>知识库：</strong>{viewingAgent.resource_ids?.join(', ') || '无'}
+            </div>
+            <div>
+              <strong>预置问题：</strong>
+              {viewingAgent.preset_questions?.length ? (
+                <ul style={{ margin: '4px 0 0 16px', padding: 0 }}>
+                  {viewingAgent.preset_questions.map((q, i) => (
+                    <li key={i}><strong>{q.question}</strong>：{q.answer}</li>
+                  ))}
+                </ul>
+              ) : '无'}
+            </div>
+            <div>
+              <strong>提示词：</strong>
+              <pre style={{
+                background: '#f5f5f5', padding: 12, borderRadius: 6,
+                whiteSpace: 'pre-wrap', wordBreak: 'break-word', fontSize: 12, margin: '4px 0 0',
+              }}>
+                {viewingAgent.agent_prompt}
+              </pre>
+            </div>
+            <div style={{ display: 'flex', gap: 16, fontSize: 12, color: '#999' }}>
+              <span>创建时间：{viewingAgent.created_at?.slice(0, 19).replace('T', ' ')}</span>
+              <span>更新时间：{viewingAgent.updated_at?.slice(0, 19).replace('T', ' ')}</span>
+            </div>
+          </div>
+        ) : null}
       </Modal>
     </div>
   )

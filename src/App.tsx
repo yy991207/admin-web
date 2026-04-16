@@ -4,6 +4,7 @@ import SystemSkills from './pages/SystemSkills/SystemSkills'
 import Templates from './pages/Templates/Templates'
 import Agents from './pages/Agents/Agents'
 import Tasks from './pages/Tasks/Tasks'
+import Commands from './pages/Commands/Commands'
 import ClawHub from './pages/ClawHub/ClawHub'
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="templates" element={<Templates />} />
           <Route path="agents" element={<Agents />} />
           <Route path="tasks" element={<Tasks />} />
+          <Route path="commands" element={<Commands />} />
           <Route path="clawhub" element={<ClawHub />} />
         </Route>
       </Routes>

@@ -330,7 +330,7 @@ export default function ClawHub() {
 
 // --- 子组件 ---
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className={styles.detailSection}>
       <h3 className={styles.sectionTitle}>{title}</h3>
@@ -339,7 +339,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   )
 }
 
-function Row({ label, value, mono }: { label: string; value: React.ReactNode; mono?: boolean }) {
+export function Row({ label, value, mono }: { label: string; value: React.ReactNode; mono?: boolean }) {
   return (
     <div className={styles.detailRow}>
       <span className={styles.detailLabel}>{label}</span>

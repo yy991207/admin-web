@@ -40,16 +40,37 @@ async function request<T>(url: string, options?: RequestInit): Promise<ApiRespon
   return res.json()
 }
 
-export async function fetchAgents(): Promise<ApiResponse<AgentListResponse>> {
-  return request<AgentListResponse>(buildUrl('api/v1/admin/agents'))
+export async function fetchAgents(isActive: boolean): Promise<ApiResponse<AgentListResponse>> {
+  const url = buildUrl(`api/v1/admin/agents?is_active=${isActive}`)
+  return request<AgentListResponse>(url)
+}
+
+/** 后端不支持 is_active=null，需分别请求后合并 */
+export async function fetchAllAgents(): Promise<AgentListResponse> {
+  const [activeRes, inactiveRes] = await Promise.all([fetchAgents(true), fetchAgents(false)])
+  return {
+    agents: [
+      ...(activeRes.success ? activeRes.data.agents : []),
+      ...(inactiveRes.success ? inactiveRes.data.agents : []),
+    ],
+    total: (activeRes.success ? activeRes.data.total : 0) + (inactiveRes.success ? inactiveRes.data.total : 0),
+  }
+}
+
+export async function fetchAgentDetail(agent_id: string): Promise<ApiResponse<AdminAgent>> {
+  return request<AdminAgent>(buildUrl(`api/v1/admin/agents/${agent_id}`))
 }
 
 export async function createAgent(data: {
   agent_name: string
   description: string
+  avatar_url?: string | null
   agent_prompt: string
-  is_public?: boolean
+  enabled_skills?: string[]
+  resource_ids?: string[]
+  preset_questions?: Array<{ question: string; answer: string }>
   enable_web_search?: boolean
+  is_public?: boolean
 }): Promise<ApiResponse<{ agent_id: string }>> {
   return request(buildUrl('api/v1/admin/agents'), {
     method: 'POST',
@@ -62,9 +83,14 @@ export async function updateAgent(
   data: {
     agent_name?: string
     description?: string
+    avatar_url?: string | null
     agent_prompt?: string
-    is_public?: boolean
-    enable_web_search?: boolean
+    enabled_skills?: string[] | null
+    resource_ids?: string[] | null
+    preset_questions?: Array<{ question: string; answer: string }> | null
+    enable_web_search?: boolean | null
+    is_active?: boolean | null
+    is_public?: boolean | null
   },
 ): Promise<ApiResponse<{ agent_id: string }>> {
   return request(buildUrl(`api/v1/admin/agents/${agent_id}`), {

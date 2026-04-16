@@ -3,6 +3,7 @@ import {
   FileTextOutlined,
   RobotOutlined,
   CheckSquareOutlined,
+  CodeOutlined,
   CloudOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -22,6 +23,7 @@ const SYSTEM_ITEMS: NavItem[] = [
   { key: 'templates', label: 'Templates', icon: <FileTextOutlined />, path: '/templates' },
   { key: 'agents', label: 'Agents', icon: <RobotOutlined />, path: '/agents' },
   { key: 'tasks', label: 'Tasks', icon: <CheckSquareOutlined />, path: '/tasks' },
+  { key: 'commands', label: 'Commands', icon: <CodeOutlined />, path: '/commands' },
 ]
 
 const EXTRA_ITEMS: NavItem[] = [
