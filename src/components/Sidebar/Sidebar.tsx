@@ -44,10 +44,6 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
 
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
-      <div className={styles.logo}>
-        <div className={styles.logoIcon} />
-        {!collapsed && <span className={styles.logoText}>Admin Console</span>}
-      </div>
       <button className={styles.toggleBtn} onClick={onToggle}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </button>
