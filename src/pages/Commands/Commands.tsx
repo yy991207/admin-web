@@ -7,6 +7,9 @@ import {
   StopOutlined,
   PoweroffOutlined,
   EyeOutlined,
+  ArrowUpOutlined,
+  ArrowDownOutlined,
+  OrderedListOutlined,
 } from '@ant-design/icons'
 import { Button, Table, Tag, Input, Modal, Form, Popconfirm, Space, Tooltip, Segmented, App } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
@@ -18,8 +21,11 @@ import {
   updateCommand,
   deleteCommand,
   toggleCommand,
+  reorderCommands,
   type AdminCommand,
 } from '../../services/commandService'
+import AttachmentsEditor from '../../components/AttachmentsEditor/AttachmentsEditor'
+import type { Attachment } from '../../components/AttachmentsEditor/AttachmentsEditor'
 import styles from '../SystemSkills/SystemSkills.module.less'
 
 export default function Commands() {
@@ -39,11 +45,19 @@ function CommandsContent() {
   const [createModalOpen, setCreateModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
   const [detailModalOpen, setDetailModalOpen] = useState(false)
+  const [reorderModalOpen, setReorderModalOpen] = useState(false)
+  const [reorderList, setReorderList] = useState<AdminCommand[]>([])
   const [editingCommand, setEditingCommand] = useState<AdminCommand | null>(null)
   const [viewingCommand, setViewingCommand] = useState<AdminCommand | null>(null)
   const [detailLoading, setDetailLoading] = useState(false)
   const [createForm] = Form.useForm()
   const [editForm] = Form.useForm()
+
+  // Attachments 编辑状态
+  const [createAttachments, setCreateAttachments] = useState<Attachment[]>([])
+  const [editAttachments, setEditAttachments] = useState<Attachment[]>([])
+  const [isCreateUploading, setIsCreateUploading] = useState(false)
+  const [isEditUploading, setIsEditUploading] = useState(false)
 
   const loadCommands = useCallback(async () => {
     setLoading(true)
@@ -117,12 +131,17 @@ function CommandsContent() {
         description: values.description || null,
         icon: values.icon || null,
         sort_order: values.sort_order ?? 0,
-        attachments: [],
+        attachments: createAttachments.map(a => ({
+          file_name: a.file_name,
+          url: a.url,
+          resource_id: a.resource_id || null,
+        })),
       })
       if (res.success) {
         message.success('创建成功')
         setCreateModalOpen(false)
         createForm.resetFields()
+        setCreateAttachments([])
         loadCommands()
       } else {
         message.error(res.msg || '创建失败')
@@ -141,6 +160,11 @@ function CommandsContent() {
       icon: command.icon || '',
       sort_order: command.sort_order,
     })
+    setEditAttachments((command.attachments || []).map(a => ({
+      file_name: a.file_name,
+      url: a.url,
+      resource_id: a.resource_id || null,
+    })))
     setEditModalOpen(true)
   }
 
@@ -159,11 +183,17 @@ function CommandsContent() {
         template: values.template,
         icon: values.icon || null,
         sort_order: values.sort_order,
+        attachments: editAttachments.map(a => ({
+          file_name: a.file_name,
+          url: a.url,
+          resource_id: a.resource_id || null,
+        })),
       })
       if (res.success) {
         message.success('更新成功')
         setEditModalOpen(false)
         setEditingCommand(null)
+        setEditAttachments([])
         loadCommands()
       } else {
         message.error(res.msg || '更新失败')
@@ -193,6 +223,54 @@ function CommandsContent() {
     }
   }
 
+  const openReorderModal = async () => {
+    try {
+      const res = await fetchCommands(true)
+      if (res.success) {
+        const sorted = [...res.data.commands].sort((a, b) => a.sort_order - b.sort_order)
+        setReorderList(sorted)
+        setReorderModalOpen(true)
+      } else {
+        message.error(res.msg || '加载失败')
+      }
+    } catch {
+      message.error('网络请求失败')
+    }
+  }
+
+  const moveUp = (index: number) => {
+    if (index === 0) return
+    const newList = [...reorderList]
+    ;[newList[index - 1], newList[index]] = [newList[index], newList[index - 1]]
+    setReorderList(newList)
+  }
+
+  const moveDown = (index: number) => {
+    if (index === reorderList.length - 1) return
+    const newList = [...reorderList]
+    ;[newList[index], newList[index + 1]] = [newList[index + 1], newList[index]]
+    setReorderList(newList)
+  }
+
+  const handleReorderSave = async () => {
+    const items = reorderList.map((cmd, idx) => ({
+      id: cmd.command_id,
+      sort_order: idx + 1,
+    }))
+    try {
+      const res = await reorderCommands(items)
+      if (res.success) {
+        message.success('排序已保存')
+        setReorderModalOpen(false)
+        loadCommands()
+      } else {
+        message.error(res.msg || '保存失败')
+      }
+    } catch {
+      message.error('网络请求失败')
+    }
+  }
+
   const filteredCommands = commands.filter(
     (c) =>
       c.name.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -206,6 +284,7 @@ function CommandsContent() {
       dataIndex: 'command_id',
       key: 'id',
       width: 160,
+      ellipsis: true,
       render: (id: string) => <span style={{ fontFamily: 'monospace', fontSize: 12 }}>{id}</span>,
     },
     {
@@ -213,33 +292,37 @@ function CommandsContent() {
       dataIndex: 'icon',
       key: 'icon',
       width: 60,
+      align: 'center',
       render: (icon: string | null) => icon ? <span style={{ fontSize: 20 }}>{icon}</span> : '—',
     },
     {
       title: '名称',
       dataIndex: 'name',
       key: 'name',
-      width: 140,
+      width: 120,
+      ellipsis: true,
       render: (name: string) => <span style={{ fontWeight: 500 }}>{name}</span>,
     },
     {
       title: '描述',
       dataIndex: 'description',
       key: 'description',
+      width: 200,
       ellipsis: true,
     },
     {
       title: '排序',
       dataIndex: 'sort_order',
       key: 'sort_order',
-      width: 70,
+      width: 60,
+      align: 'center',
       render: (v: number) => <span style={{ fontFamily: 'monospace' }}>{v}</span>,
     },
     {
       title: '状态',
       dataIndex: 'is_active',
       key: 'is_active',
-      width: 80,
+      width: 90,
       render: (isActive: boolean) =>
         isActive ? (
           <Tag color="blue" icon={<CheckCircleOutlined />}>
@@ -253,13 +336,14 @@ function CommandsContent() {
       title: '更新时间',
       dataIndex: 'updated_at',
       key: 'updated_at',
-      width: 120,
+      width: 100,
       render: (v: string) => v?.slice(0, 10),
     },
     {
       title: '操作',
       key: 'actions',
-      width: 220,
+      width: 180,
+      fixed: 'right',
       render: (_: unknown, record: AdminCommand) => (
         <Space size={4}>
           <Button type="link" size="small" icon={<EyeOutlined />} style={{ padding: '0 4px' }} onClick={() => handleViewDetail(record)}>
@@ -297,10 +381,13 @@ function CommandsContent() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <h1 className={styles.pageTitle}>Commands</h1>
-          <p className={styles.pageDesc}>管理官方指令，支持创建、编辑、删除、启用/停用和排序</p>
+          <h1 className={styles.pageTitle}>推荐指令</h1>
+          <p className={styles.pageDesc}>管理推荐指令，支持创建、编辑、删除、启用/停用和排序</p>
         </div>
         <Space>
+          <Button icon={<OrderedListOutlined />} onClick={openReorderModal}>
+            排序管理
+          </Button>
           <Button type="primary" icon={<PlusOutlined />} onClick={() => setCreateModalOpen(true)}>
             创建指令
           </Button>
@@ -344,9 +431,12 @@ function CommandsContent() {
       <Modal
         title="创建指令"
         open={createModalOpen}
-        onCancel={() => { setCreateModalOpen(false); createForm.resetFields() }}
+        onCancel={() => { setCreateModalOpen(false); createForm.resetFields(); setCreateAttachments([]) }}
         onOk={createForm.submit}
-        width={640}
+        confirmLoading={isCreateUploading}
+        okButtonProps={{ disabled: isCreateUploading }}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="指令ID" name="id" rules={[{ required: true }]}>
@@ -367,6 +457,9 @@ function CommandsContent() {
           <Form.Item label="排序权重" name="sort_order" initialValue={0}>
             <Input type="number" />
           </Form.Item>
+          <Form.Item label="附件">
+            <AttachmentsEditor attachments={createAttachments} onChange={setCreateAttachments} onUploadingChange={setIsCreateUploading} />
+          </Form.Item>
         </Form>
       </Modal>
 
@@ -374,9 +467,12 @@ function CommandsContent() {
       <Modal
         title="编辑指令"
         open={editModalOpen}
-        onCancel={() => { setEditModalOpen(false); setEditingCommand(null) }}
+        onCancel={() => { setEditModalOpen(false); setEditingCommand(null); setEditAttachments([]) }}
         onOk={editForm.submit}
-        width={640}
+        confirmLoading={isEditUploading}
+        okButtonProps={{ disabled: isEditUploading }}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         {editingCommand && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>
@@ -397,6 +493,9 @@ function CommandsContent() {
             </Form.Item>
             <Form.Item label="排序权重" name="sort_order">
               <Input type="number" />
+            </Form.Item>
+            <Form.Item label="附件">
+              <AttachmentsEditor attachments={editAttachments} onChange={setEditAttachments} onUploadingChange={setIsEditUploading} />
             </Form.Item>
           </Form>
         )}
@@ -436,7 +535,19 @@ function CommandsContent() {
               <strong>排序权重：</strong>{viewingCommand.sort_order}
             </div>
             <div>
-              <strong>附件：</strong>{viewingCommand.attachments?.length || 0} 个
+              <strong>附件：</strong>
+              {viewingCommand.attachments?.length === 0 ? (
+                '无'
+              ) : (
+                <div style={{ marginTop: 8 }}>
+                  {viewingCommand.attachments?.map((att, idx) => (
+                    <div key={idx} style={{ marginBottom: 4 }}>
+                      <a href={att.url} target="_blank" rel="noopener noreferrer">{att.file_name}</a>
+                      {att.resource_id && <Tag color="green" style={{ marginLeft: 8 }}>已解析</Tag>}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div>
               <strong>模板：</strong>
@@ -453,6 +564,53 @@ function CommandsContent() {
             </div>
           </div>
         ) : null}
+      </Modal>
+
+      {/* 排序管理弹窗 */}
+      <Modal
+        title="排序管理"
+        open={reorderModalOpen}
+        onCancel={() => setReorderModalOpen(false)}
+        onOk={handleReorderSave}
+        okText="保存排序"
+        width={480}
+      >
+        <p style={{ marginBottom: 12, color: '#666' }}>拖动或使用上下箭头调整已启用指令的显示顺序</p>
+        {reorderList.map((cmd, index) => (
+          <div
+            key={cmd.command_id}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              padding: '8px 12px',
+              borderBottom: '1px solid #f0f0f0',
+              background: index % 2 === 0 ? '#fafafa' : '#fff',
+            }}
+          >
+            <span style={{ width: 30, color: '#999' }}>{index + 1}</span>
+            <span style={{ width: 32, fontSize: 18 }}>{cmd.icon || '—'}</span>
+            <span style={{ flex: 1, fontWeight: 500 }}>{cmd.name}</span>
+            <Space size={0}>
+              <Button
+                type="text"
+                size="small"
+                icon={<ArrowUpOutlined />}
+                disabled={index === 0}
+                onClick={() => moveUp(index)}
+              />
+              <Button
+                type="text"
+                size="small"
+                icon={<ArrowDownOutlined />}
+                disabled={index === reorderList.length - 1}
+                onClick={() => moveDown(index)}
+              />
+            </Space>
+          </div>
+        ))}
+        {reorderList.length === 0 && (
+          <div style={{ textAlign: 'center', padding: 24, color: '#999' }}>暂无已启用的指令</div>
+        )}
       </Modal>
     </div>
   )

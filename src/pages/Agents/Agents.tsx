@@ -210,19 +210,21 @@ export default function Agents() {
       dataIndex: 'agent_name',
       key: 'agent_name',
       width: 160,
+      ellipsis: true,
       render: (name: string) => <span style={{ fontWeight: 500 }}>{name}</span>,
     },
     {
       title: '描述',
       dataIndex: 'description',
       key: 'description',
+      width: 200,
       ellipsis: true,
     },
     {
       title: '状态',
       dataIndex: 'is_active',
       key: 'is_active',
-      width: 80,
+      width: 90,
       render: (isActive: boolean) =>
         isActive ? (
           <Tag color="blue" icon={<CheckCircleOutlined />}>
@@ -233,43 +235,31 @@ export default function Agents() {
         ),
     },
     {
-      title: '可见性',
-      dataIndex: 'is_public',
-      key: 'is_public',
-      width: 80,
-      render: (isPublic: boolean, record: AdminAgent) => (
-        <Switch
-          size="small"
-          checked={isPublic}
-          checkedChildren={<GlobalOutlined />}
-          unCheckedChildren={<LockOutlined />}
-          onChange={(checked) => handleVisibilityChange(record.agent_id, checked)}
-        />
-      ),
-    },
-    {
       title: '技能数',
       key: 'skills',
-      width: 80,
+      width: 70,
+      align: 'center',
       render: (_: unknown, record: AdminAgent) => record.enabled_skills?.length || 0,
     },
     {
       title: '知识库',
       key: 'resources',
-      width: 80,
+      width: 70,
+      align: 'center',
       render: (_: unknown, record: AdminAgent) => record.resource_ids?.length || 0,
     },
     {
       title: '更新时间',
       dataIndex: 'updated_at',
       key: 'updated_at',
-      width: 120,
+      width: 100,
       render: (v: string) => v?.slice(0, 10),
     },
     {
       title: '操作',
       key: 'actions',
-      width: 220,
+      width: 180,
+      fixed: 'right',
       render: (_: unknown, record: AdminAgent) => (
         <Space size={4}>
           <Button type="link" size="small" icon={<EyeOutlined />} style={{ padding: '0 4px' }} onClick={() => handleViewDetail(record)}>
@@ -307,7 +297,7 @@ export default function Agents() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <h1 className={styles.pageTitle}>Agents</h1>
+          <h1 className={styles.pageTitle}>智能体</h1>
           <p className={styles.pageDesc}>管理官方智能体，支持创建、编辑、删除、启用/停用和可见性设置</p>
         </div>
         <Space>
@@ -356,7 +346,8 @@ export default function Agents() {
         open={createModalOpen}
         onCancel={() => { setCreateModalOpen(false); createForm.resetFields() }}
         onOk={createForm.submit}
-        width={640}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="智能体名称" name="agent_name" rules={[{ required: true }]}>
@@ -392,7 +383,8 @@ export default function Agents() {
         open={editModalOpen}
         onCancel={() => { setEditModalOpen(false); setEditingAgent(null) }}
         onOk={editForm.submit}
-        width={640}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         {editingAgent && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>

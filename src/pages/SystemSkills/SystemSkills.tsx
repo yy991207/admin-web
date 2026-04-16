@@ -346,6 +346,7 @@ export default function SystemSkills() {
       dataIndex: 'name',
       key: 'name',
       width: 180,
+      ellipsis: true,
       render: (name: string) => (
         <div className={styles.skillName}>
           <div className={styles.skillIcon}>
@@ -360,12 +361,13 @@ export default function SystemSkills() {
       dataIndex: 'chinese_name',
       key: 'chinese_name',
       width: 100,
+      ellipsis: true,
     },
     {
       title: '描述',
       dataIndex: 'description',
       key: 'description',
-      width: 260,
+      width: 200,
       ellipsis: { showTitle: false },
       render: (text: string) => (
         <span title={text} style={{ display: 'block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -377,7 +379,7 @@ export default function SystemSkills() {
       title: '状态',
       dataIndex: 'enabled',
       key: 'enabled',
-      width: 80,
+      width: 90,
       render: (enabled: boolean) =>
         enabled ? (
           <Tag color="blue" icon={<CheckCircleOutlined />}>
@@ -392,18 +394,20 @@ export default function SystemSkills() {
       dataIndex: 'source',
       key: 'source',
       width: 80,
+      ellipsis: true,
     },
     {
       title: '更新时间',
       dataIndex: 'updated_at',
       key: 'updated_at',
-      width: 120,
+      width: 100,
       render: (v: string) => v?.slice(0, 10),
     },
     {
       title: '操作',
       key: 'actions',
       width: 170,
+      fixed: 'right',
       render: (_: unknown, record: SystemSkill) => (
         <Space size={4}>
           <Button type="link" size="small" icon={<InfoCircleOutlined />} style={{ padding: '0 4px' }} onClick={() => handleViewDetail(record)}>
@@ -432,7 +436,7 @@ export default function SystemSkills() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <h1 className={styles.pageTitle}>System Skills</h1>
+          <h1 className={styles.pageTitle}>系统技能</h1>
           <p className={styles.pageDesc}>
             管理系统技能列表，支持创建、编辑、删除和从 ClawHub 安装
           </p>
@@ -463,7 +467,7 @@ export default function SystemSkills() {
             showTotal: (t) => `共 ${t} 条记录`,
             showSizeChanger: false,
           }}
-          scroll={{ x: 900 }}
+          scroll={{ x: 740 }}
         />
       </div>
 
@@ -473,7 +477,8 @@ export default function SystemSkills() {
         open={createModalOpen}
         onCancel={() => { setCreateModalOpen(false); createForm.resetFields(); setConfigFields([]) }}
         onOk={createForm.submit}
-        width={640}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="技能名称" name="name" rules={[{ required: true }]} tooltip="技能的唯一标识，创建后不可修改">
@@ -506,7 +511,8 @@ export default function SystemSkills() {
         open={editModalOpen}
         onCancel={() => { setEditModalOpen(false); setEditingSkill(null); setEditConfigFields([]) }}
         onOk={editForm.submit}
-        width={640}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         {editingSkill && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>

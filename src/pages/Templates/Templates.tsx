@@ -136,6 +136,7 @@ export default function Templates() {
       dataIndex: 'template_name',
       key: 'template_name',
       width: 160,
+      ellipsis: true,
       render: (name: string) => <span style={{ fontWeight: 500 }}>{name}</span>,
     },
     {
@@ -149,12 +150,13 @@ export default function Templates() {
       title: '描述',
       dataIndex: 'description',
       key: 'description',
+      width: 200,
       ellipsis: true,
     },
     {
       title: '状态',
       key: 'status',
-      width: 80,
+      width: 90,
       render: (_: unknown, record: AdminTemplate) =>
         record.is_active ? (
           <Tag color="blue" icon={<CheckCircleOutlined />}>
@@ -169,6 +171,7 @@ export default function Templates() {
       dataIndex: 'is_public',
       key: 'is_public',
       width: 80,
+      align: 'center',
       render: (isPublic: boolean) =>
         isPublic ? (
           <Tag color="green" icon={<GlobalOutlined />}>
@@ -182,13 +185,14 @@ export default function Templates() {
       title: '更新时间',
       dataIndex: 'updated_at',
       key: 'updated_at',
-      width: 120,
+      width: 100,
       render: (v: string) => v?.slice(0, 10),
     },
     {
       title: '操作',
       key: 'actions',
       width: 120,
+      fixed: 'right',
       render: (_: unknown, record: AdminTemplate) => (
         <Space size={4}>
           <Button type="link" size="small" icon={<EditOutlined />} style={{ padding: '0 4px' }} onClick={() => handleEdit(record)}>
@@ -214,7 +218,7 @@ export default function Templates() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <h1 className={styles.pageTitle}>Templates</h1>
+          <h1 className={styles.pageTitle}>模板管理</h1>
           <p className={styles.pageDesc}>管理智能体模板，支持创建、编辑、删除和配置</p>
         </div>
         <Space>
@@ -252,7 +256,8 @@ export default function Templates() {
         open={createModalOpen}
         onCancel={() => { setCreateModalOpen(false); createForm.resetFields() }}
         onOk={createForm.submit}
-        width={640}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="模板名称" name="template_name" rules={[{ required: true }]}>
@@ -282,7 +287,8 @@ export default function Templates() {
         open={editModalOpen}
         onCancel={() => { setEditModalOpen(false); setEditingTemplate(null) }}
         onOk={editForm.submit}
-        width={640}
+        width={720}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
       >
         {editingTemplate && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>

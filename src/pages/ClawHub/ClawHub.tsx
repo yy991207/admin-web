@@ -112,7 +112,7 @@ export default function ClawHub() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <h1 className={styles.pageTitle}>ClawHub</h1>
+          <h1 className={styles.pageTitle}>技能市场</h1>
           <p className={styles.pageDesc}>浏览和安装 ClawHub 上的系统技能</p>
         </div>
       </div>

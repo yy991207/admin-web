@@ -2,7 +2,7 @@ import {
   ThunderboltOutlined,
   FileTextOutlined,
   RobotOutlined,
-  CheckSquareOutlined,
+  TrophyOutlined,
   CodeOutlined,
   CloudOutlined,
   MenuFoldOutlined,
@@ -19,15 +19,15 @@ interface NavItem {
 }
 
 const SYSTEM_ITEMS: NavItem[] = [
-  { key: 'skills', label: 'System Skills', icon: <ThunderboltOutlined />, path: '/skills' },
-  { key: 'templates', label: 'Templates', icon: <FileTextOutlined />, path: '/templates' },
-  { key: 'agents', label: 'Agents', icon: <RobotOutlined />, path: '/agents' },
-  { key: 'tasks', label: 'Tasks', icon: <CheckSquareOutlined />, path: '/tasks' },
-  { key: 'commands', label: 'Commands', icon: <CodeOutlined />, path: '/commands' },
+  { key: 'skills', label: '系统技能', icon: <ThunderboltOutlined />, path: '/skills' },
+  { key: 'templates', label: '模板管理', icon: <FileTextOutlined />, path: '/templates' },
+  { key: 'agents', label: '智能体', icon: <RobotOutlined />, path: '/agents' },
+  { key: 'practices', label: '最佳实践', icon: <TrophyOutlined />, path: '/practices' },
+  { key: 'commands', label: '推荐指令', icon: <CodeOutlined />, path: '/commands' },
 ]
 
 const EXTRA_ITEMS: NavItem[] = [
-  { key: 'clawhub', label: 'ClawHub', icon: <CloudOutlined />, path: '/clawhub' },
+  { key: 'clawhub', label: '技能市场', icon: <CloudOutlined />, path: '/clawhub' },
 ]
 
 interface SidebarProps {
@@ -61,7 +61,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
         )}
         {!collapsed && (
           <>
-            <div className={styles.navSection}>SYSTEM</div>
+            <div className={styles.navSection}>后台管理</div>
             <nav className={styles.nav}>
               {SYSTEM_ITEMS.map((item) => (
                 <div
