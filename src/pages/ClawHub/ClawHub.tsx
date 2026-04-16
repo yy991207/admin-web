@@ -4,6 +4,10 @@ import {
   SearchOutlined,
   CheckCircleOutlined,
   InfoCircleOutlined,
+  StarOutlined,
+  DownloadOutlined as DownloadIcon,
+  UserOutlined,
+  TagOutlined,
 } from '@ant-design/icons'
 import { Button, Input, message, Modal, Popconfirm, Spin, Tag } from 'antd'
 import {
@@ -12,8 +16,20 @@ import {
   installClawhubSkill,
   fetchClawhubDetail,
   type ClawhubSkill,
+  type ClawhubSkillDetail,
 } from '../../services/skillService'
 import styles from './ClawHub.module.less'
+
+function formatTimestamp(ts?: number): string {
+  if (!ts) return '-'
+  return new Date(ts).toLocaleString('zh-CN')
+}
+
+function formatNumber(n?: number): string {
+  if (n === undefined || n === null) return '0'
+  if (n >= 10000) return `${(n / 10000).toFixed(1)}万`
+  return n.toString()
+}
 
 export default function ClawHub() {
   const [loading, setLoading] = useState(false)
@@ -21,7 +37,8 @@ export default function ClawHub() {
   const [searchText, setSearchText] = useState('')
   const [detailModalOpen, setDetailModalOpen] = useState(false)
   const [detailLoading, setDetailLoading] = useState(false)
-  const [detailSkill, setDetailSkill] = useState<ClawhubSkill | null>(null)
+  const [detailData, setDetailData] = useState<ClawhubSkillDetail | null>(null)
+  const [installingSlug, setInstallingSlug] = useState<string | null>(null)
 
   const loadSkills = useCallback(async (keyword?: string) => {
     setLoading(true)
@@ -52,11 +69,11 @@ export default function ClawHub() {
   const handleViewDetail = async (skill: ClawhubSkill) => {
     setDetailModalOpen(true)
     setDetailLoading(true)
-    setDetailSkill(null)
+    setDetailData(null)
     try {
       const res = await fetchClawhubDetail(skill.name)
       if (res.success) {
-        setDetailSkill(res.data)
+        setDetailData(res.data)
       } else {
         message.error(res.msg || '获取详情失败')
         setDetailModalOpen(false)
@@ -69,19 +86,25 @@ export default function ClawHub() {
     }
   }
 
-  const handleInstall = async (skill: ClawhubSkill) => {
+  const handleInstall = async (slug: string, displayName: string) => {
+    setInstallingSlug(slug)
     try {
-      const res = await installClawhubSkill(skill.name)
+      const res = await installClawhubSkill(slug)
       if (res.success) {
-        message.success(`技能 "${skill.chinese_name || skill.name}" 已安装`)
+        message.success(`技能 "${displayName}" 已安装`)
         loadSkills(searchText || undefined)
+        setDetailModalOpen(false)
       } else {
         message.error(res.msg || '安装失败')
       }
     } catch {
       message.error('安装失败')
+    } finally {
+      setInstallingSlug(null)
     }
   }
+
+  const currentInstallSlug = detailData?.skill?.slug
 
   return (
     <div className={styles.page}>
@@ -146,7 +169,7 @@ export default function ClawHub() {
                     <Popconfirm
                       title="确认安装"
                       description={`确定要安装技能 "${skill.chinese_name || skill.name}" 吗？`}
-                      onConfirm={() => handleInstall(skill)}
+                      onConfirm={() => handleInstall(skill.name, skill.chinese_name || skill.name)}
                       okText="确定"
                       cancelText="取消"
                     >
@@ -164,69 +187,167 @@ export default function ClawHub() {
 
       {/* 技能详情弹窗 */}
       <Modal
-        title="技能详情"
+        title={
+          <span style={{ fontSize: 18 }}>
+            {detailData?.skill?.displayName || '技能详情'}
+          </span>
+        }
         open={detailModalOpen}
         onCancel={() => setDetailModalOpen(false)}
         footer={null}
-        width={640}
+        width={720}
       >
         <Spin spinning={detailLoading}>
-          {detailSkill && (
+          {detailData && (
             <div className={styles.detailContent}>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>名称</span>
-                <span>{detailSkill.chinese_name || detailSkill.name}</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Slug</span>
-                <span style={{ fontFamily: 'monospace', color: 'var(--gray-400)' }}>{detailSkill.name}</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>描述</span>
-                <span>{detailSkill.description || '暂无描述'}</span>
-              </div>
-              {detailSkill.template && (
-                <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>模板</span>
-                  <span style={{ fontFamily: 'monospace', wordBreak: 'break-all' }}>{detailSkill.template}</span>
+              {/* 基本信息 */}
+              <Section title="基本信息">
+                <Row label="Slug" value={detailData.skill.slug} mono />
+                <Row label="显示名称" value={detailData.skill.displayName} />
+                <Row label="摘要" value={detailData.skill.summary} />
+                {detailData.skill.tags.length > 0 && (
+                  <Row label="标签" value={
+                    <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                      {detailData.skill.tags.map(t => <Tag key={t} icon={<TagOutlined />}>{t}</Tag>)}
+                    </div>
+                  } />
+                )}
+              </Section>
+
+              {/* 统计数据 */}
+              <Section title="统计数据">
+                <div className={styles.statsGrid}>
+                  <StatCard label="下载" value={detailData.skill.stats.downloads} icon={<DownloadIcon />} />
+                  <StatCard label="收藏" value={detailData.skill.stats.stars} icon={<StarOutlined />} />
+                  <StatCard label="当前安装" value={detailData.skill.stats.installsCurrent} icon={<CheckCircleOutlined />} />
+                  <StatCard label="总安装" value={detailData.skill.stats.installsAllTime} icon={<DownloadIcon />} />
                 </div>
+              </Section>
+
+              {/* 版本信息 */}
+              <Section title="版本信息">
+                <Row label="当前版本" value={detailData.latestVersion.version} />
+                <Row label="发布时间" value={formatTimestamp(detailData.latestVersion.createdAt)} />
+                <Row label="许可证" value={detailData.latestVersion.license || '-'} />
+                {detailData.latestVersion.changelog && (
+                  <Row label="更新日志" value={detailData.latestVersion.changelog} />
+                )}
+              </Section>
+
+              {/* 作者信息 */}
+              <Section title="作者">
+                <Row label="用户名" value={detailData.owner.handle} />
+                <Row label="显示名称" value={detailData.owner.displayName} />
+              </Section>
+
+              {/* Meta 内容 */}
+              {detailData.metaContent && Object.keys(detailData.metaContent).filter(k => k !== 'skillMd').length > 0 && (
+                <Section title="元数据">
+                  {detailData.metaContent.DisplayDescription && (
+                    <Row label="描述" value={detailData.metaContent.DisplayDescription} />
+                  )}
+                  {detailData.metaContent.Files && detailData.metaContent.Files.length > 0 && (
+                    <Row label="文件" value={
+                      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                        {detailData.metaContent.Files.map(f => <Tag key={f}>{f}</Tag>)}
+                      </div>
+                    } />
+                  )}
+                  {detailData.metaContent.Keywords && detailData.metaContent.Keywords.length > 0 && (
+                    <Row label="关键词" value={
+                      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                        {detailData.metaContent.Keywords.map(k => <Tag key={k}>{k}</Tag>)}
+                      </div>
+                    } />
+                  )}
+                  {detailData.metaContent.License && (
+                    <Row label="许可证" value={detailData.metaContent.License} />
+                  )}
+                  {detailData.metaContent.latest && (
+                    <>
+                      <Row label="最新版本" value={detailData.metaContent.latest.version} />
+                      <Row label="发布时间" value={formatTimestamp(detailData.metaContent.latest.publishedAt)} />
+                      {detailData.metaContent.latest.commit && (
+                        <Row label="Commit" value={
+                          <a href={detailData.metaContent.latest.commit} target="_blank" rel="noreferrer" style={{ fontFamily: 'monospace', fontSize: 12, wordBreak: 'break-all' }}>
+                            {detailData.metaContent.latest.commit}
+                          </a>
+                        } />
+                      )}
+                    </>
+                  )}
+                  {detailData.metaContent.owner && (
+                    <Row label="所有者" value={detailData.metaContent.owner} />
+                  )}
+                </Section>
               )}
-              {detailSkill.placeholders && detailSkill.placeholders.length > 0 && (
-                <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>占位符</span>
-                  <span>{detailSkill.placeholders.join(', ')}</span>
-                </div>
+
+              {/* SKILL.md 内容 */}
+              {detailData.metaContent?.skillMd && (
+                <Section title="SKILL.md">
+                  <pre className={styles.skillMdContent}>{detailData.metaContent.skillMd}</pre>
+                </Section>
               )}
-              {detailSkill.config_fields && detailSkill.config_fields.length > 0 && (
-                <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>配置字段</span>
-                  <pre style={{ fontSize: 12, background: 'var(--gray-50)', padding: 8, borderRadius: 4, overflow: 'auto', maxWidth: '100%' }}>
-                    {JSON.stringify(detailSkill.config_fields, null, 2)}
-                  </pre>
-                </div>
-              )}
+
+              {/* 时间信息 */}
+              <Section title="时间">
+                <Row label="创建时间" value={formatTimestamp(detailData.skill.createdAt)} />
+                <Row label="更新时间" value={formatTimestamp(detailData.skill.updatedAt)} />
+              </Section>
+
+              {/* 操作按钮 */}
               <div className={styles.detailActions}>
-                {detailSkill.is_selected ? (
+                {currentInstallSlug && skills.find(s => s.name === currentInstallSlug)?.is_selected ? (
                   <Button disabled icon={<CheckCircleOutlined />}>已安装</Button>
-                ) : (
+                ) : currentInstallSlug ? (
                   <Popconfirm
                     title="确认安装"
-                    description={`确定要安装技能 "${detailSkill.chinese_name || detailSkill.name}" 吗？`}
-                    onConfirm={() => {
-                      handleInstall(detailSkill)
-                      setDetailModalOpen(false)
-                    }}
+                    description={`确定要安装技能 "${detailData.skill.displayName}" 吗？`}
+                    onConfirm={() => handleInstall(currentInstallSlug, detailData.skill.displayName)}
                     okText="确定"
                     cancelText="取消"
+                    disabled={installingSlug === currentInstallSlug}
                   >
-                    <Button type="primary" icon={<DownloadOutlined />}>安装</Button>
+                    <Button type="primary" icon={<DownloadOutlined />} loading={installingSlug === currentInstallSlug}>
+                      安装
+                    </Button>
                   </Popconfirm>
-                )}
+                ) : null}
               </div>
             </div>
           )}
         </Spin>
       </Modal>
+    </div>
+  )
+}
+
+// --- 子组件 ---
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className={styles.detailSection}>
+      <h3 className={styles.sectionTitle}>{title}</h3>
+      {children}
+    </div>
+  )
+}
+
+function Row({ label, value, mono }: { label: string; value: React.ReactNode; mono?: boolean }) {
+  return (
+    <div className={styles.detailRow}>
+      <span className={styles.detailLabel}>{label}</span>
+      <span className={mono ? styles.detailValueMono : styles.detailValue}>{value}</span>
+    </div>
+  )
+}
+
+function StatCard({ label, value, icon }: { label: string; value: number; icon: React.ReactNode }) {
+  return (
+    <div className={styles.statCard}>
+      <span className={styles.statCardIcon}>{icon}</span>
+      <span className={styles.statCardLabel}>{label}</span>
+      <span className={styles.statCardValue}>{formatNumber(value)}</span>
     </div>
   )
 }

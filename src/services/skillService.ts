@@ -35,6 +35,7 @@ export interface SystemSkillListResponse {
   total: number
 }
 
+// ClawHub list item (returned by browse/search)
 export interface ClawhubSkill {
   name: string
   chinese_name: string
@@ -43,6 +44,52 @@ export interface ClawhubSkill {
   placeholders: string[] | null
   config_fields: ConfigField[] | null
   is_selected: boolean
+}
+
+// ClawHub detail response structure
+export interface ClawhubSkillDetail {
+  skill: {
+    slug: string
+    displayName: string
+    summary: string
+    tags: string[]
+    stats: {
+      downloads: number
+      stars: number
+      installsCurrent: number
+      installsAllTime: number
+    }
+    createdAt: number
+    updatedAt: number
+  }
+  latestVersion: {
+    version: string
+    createdAt: number
+    changelog: string
+    license: string | null
+  }
+  owner: {
+    handle: string
+    displayName: string
+    image: string | null
+  }
+  history: unknown[]
+  metaContent: {
+    DisplayDescription?: string
+    Files?: string[]
+    Keywords?: string[]
+    License?: string
+    displayName?: string
+    history?: unknown[]
+    latest?: {
+      commit: string
+      publishedAt: number
+      version: string
+    }
+    owner?: string
+    skillMd?: string
+    [key: string]: unknown
+  }
 }
 
 export interface ClawhubSkillListResponse {
@@ -140,8 +187,8 @@ export async function browseClawhub(limit = 20): Promise<ApiResponse<ClawhubSkil
   )
 }
 
-export async function fetchClawhubDetail(slug: string): Promise<ApiResponse<ClawhubSkill>> {
-  return request<ClawhubSkill>(buildUrl(`api/v1/admin/skills/clawhub/${slug}/detail`))
+export async function fetchClawhubDetail(slug: string): Promise<ApiResponse<ClawhubSkillDetail>> {
+  return request<ClawhubSkillDetail>(buildUrl(`api/v1/admin/skills/clawhub/${slug}/detail`))
 }
 
 export async function installClawhubSkill(slug: string): Promise<ApiResponse<{ name: string }>> {
