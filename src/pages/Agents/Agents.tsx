@@ -24,7 +24,6 @@ import styles from '../SystemSkills/SystemSkills.module.less'
 export default function Agents() {
   const [loading, setLoading] = useState(false)
   const [agents, setAgents] = useState<AdminAgent[]>([])
-  const [total, setTotal] = useState(0)
   const [searchText, setSearchText] = useState('')
   const [createModalOpen, setCreateModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
@@ -38,7 +37,6 @@ export default function Agents() {
       const res = await fetchAgents()
       if (res.success) {
         setAgents(res.data.agents)
-        setTotal(res.data.total)
       } else {
         message.error(res.msg || '加载失败')
       }
@@ -233,8 +231,6 @@ export default function Agents() {
     },
   ]
 
-  const activeCount = agents.filter((a) => a.is_active).length
-
   return (
     <div className={styles.page}>
       <div className={styles.pageHeader}>
@@ -252,17 +248,6 @@ export default function Agents() {
             创建智能体
           </Button>
         </Space>
-      </div>
-
-      <div className={styles.statsBar}>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{total}</div>
-          <div className={styles.statLabel}>总智能体数</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{activeCount}</div>
-          <div className={styles.statLabel}>已启用</div>
-        </div>
       </div>
 
       <div className={styles.tableCard}>

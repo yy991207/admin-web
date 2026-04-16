@@ -24,7 +24,6 @@ import styles from './SystemSkills.module.less'
 export default function SystemSkills() {
   const [loading, setLoading] = useState(false)
   const [skills, setSkills] = useState<SystemSkill[]>([])
-  const [total, setTotal] = useState(0)
   const [searchText, setSearchText] = useState('')
   const [createModalOpen, setCreateModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
@@ -40,7 +39,6 @@ export default function SystemSkills() {
       const res = await fetchSystemSkills()
       if (res.success) {
         setSkills(res.data.skills)
-        setTotal(res.data.total)
       } else {
         message.error(res.msg || '加载失败')
       }
@@ -266,8 +264,6 @@ export default function SystemSkills() {
     },
   ]
 
-  const enabledCount = skills.filter((s) => s.enabled).length
-
   return (
     <div className={styles.page}>
       <div className={styles.pageHeader}>
@@ -288,21 +284,6 @@ export default function SystemSkills() {
             创建技能
           </Button>
         </Space>
-      </div>
-
-      <div className={styles.statsBar}>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{total}</div>
-          <div className={styles.statLabel}>总技能数</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{enabledCount}</div>
-          <div className={styles.statLabel}>已启用</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>guoren</div>
-          <div className={styles.statLabel}>当前来源</div>
-        </div>
       </div>
 
       <div className={styles.tableCard}>

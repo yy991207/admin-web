@@ -26,7 +26,6 @@ const STATUS_MAP: Record<string, { color: string; icon: React.ReactNode; label: 
 export default function Tasks() {
   const [loading, setLoading] = useState(false)
   const [tasks, setTasks] = useState<AgentTask[]>([])
-  const [total, setTotal] = useState(0)
   const [searchText, setSearchText] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('')
   const [userId] = useState('guoren')
@@ -37,7 +36,6 @@ export default function Tasks() {
       const res = await fetchTasks(userId)
       if (res.success) {
         setTasks(res.data.tasks || [])
-        setTotal(res.data.tasks?.length || 0)
       } else {
         message.error(res.msg || '加载失败')
       }
@@ -139,9 +137,6 @@ export default function Tasks() {
     },
   ]
 
-  const runningCount = tasks.filter((t) => t.status === 'running').length
-  const completedCount = tasks.filter((t) => t.status === 'completed').length
-
   return (
     <div className={styles.page}>
       <div className={styles.pageHeader}>
@@ -153,21 +148,6 @@ export default function Tasks() {
           </div>
           <h1 className={styles.pageTitle}>Tasks</h1>
           <p className={styles.pageDesc}>查看和管理智能体任务列表</p>
-        </div>
-      </div>
-
-      <div className={styles.statsBar}>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{total}</div>
-          <div className={styles.statLabel}>总任务数</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{runningCount}</div>
-          <div className={styles.statLabel}>运行中</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{completedCount}</div>
-          <div className={styles.statLabel}>已完成</div>
         </div>
       </div>
 

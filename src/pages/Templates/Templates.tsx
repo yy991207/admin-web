@@ -22,7 +22,6 @@ import styles from '../SystemSkills/SystemSkills.module.less'
 export default function Templates() {
   const [loading, setLoading] = useState(false)
   const [templates, setTemplates] = useState<AdminTemplate[]>([])
-  const [total, setTotal] = useState(0)
   const [searchText, setSearchText] = useState('')
   const [createModalOpen, setCreateModalOpen] = useState(false)
   const [editModalOpen, setEditModalOpen] = useState(false)
@@ -36,7 +35,6 @@ export default function Templates() {
       const res = await fetchTemplates()
       if (res.success) {
         setTemplates(res.data.templates)
-        setTotal(res.data.templates.length)
       } else {
         message.error(res.msg || '加载失败')
       }
@@ -212,8 +210,6 @@ export default function Templates() {
     },
   ]
 
-  const activeCount = templates.filter((t) => t.is_active).length
-
   return (
     <div className={styles.page}>
       <div className={styles.pageHeader}>
@@ -231,17 +227,6 @@ export default function Templates() {
             创建模板
           </Button>
         </Space>
-      </div>
-
-      <div className={styles.statsBar}>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{total}</div>
-          <div className={styles.statLabel}>总模板数</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{activeCount}</div>
-          <div className={styles.statLabel}>已启用</div>
-        </div>
       </div>
 
       <div className={styles.tableCard}>
