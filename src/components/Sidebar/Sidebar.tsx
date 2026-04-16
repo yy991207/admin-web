@@ -1,5 +1,4 @@
 import {
-  DashboardOutlined,
   ThunderboltOutlined,
   FileTextOutlined,
   RobotOutlined,
@@ -19,7 +18,6 @@ interface NavItem {
 }
 
 const SYSTEM_ITEMS: NavItem[] = [
-  { key: 'dashboard', label: 'Dashboard', icon: <DashboardOutlined />, path: '/dashboard' },
   { key: 'skills', label: 'System Skills', icon: <ThunderboltOutlined />, path: '/skills' },
   { key: 'templates', label: 'Templates', icon: <FileTextOutlined />, path: '/templates' },
   { key: 'agents', label: 'Agents', icon: <RobotOutlined />, path: '/agents' },

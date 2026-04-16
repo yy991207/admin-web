@@ -214,11 +214,6 @@ export default function Templates() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <div className={styles.breadcrumb}>
-            <span>System</span>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbActive}>Templates</span>
-          </div>
           <h1 className={styles.pageTitle}>Templates</h1>
           <p className={styles.pageDesc}>管理智能体模板，支持创建、编辑、删除和配置</p>
         </div>

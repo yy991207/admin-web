@@ -268,11 +268,6 @@ export default function SystemSkills() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <div className={styles.breadcrumb}>
-            <span>System</span>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbActive}>Skills</span>
-          </div>
           <h1 className={styles.pageTitle}>System Skills</h1>
           <p className={styles.pageDesc}>
             管理系统技能列表，支持创建、编辑、删除和从 ClawHub 安装

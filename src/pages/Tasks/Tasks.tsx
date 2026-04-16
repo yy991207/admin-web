@@ -141,11 +141,6 @@ export default function Tasks() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <div className={styles.breadcrumb}>
-            <span>System</span>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbActive}>Tasks</span>
-          </div>
           <h1 className={styles.pageTitle}>Tasks</h1>
           <p className={styles.pageDesc}>查看和管理智能体任务列表</p>
         </div>

@@ -235,11 +235,6 @@ export default function Agents() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <div className={styles.breadcrumb}>
-            <span>System</span>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbActive}>Agents</span>
-          </div>
           <h1 className={styles.pageTitle}>Agents</h1>
           <p className={styles.pageDesc}>管理官方智能体，支持创建、编辑、删除、启用/停用和可见性设置</p>
         </div>
