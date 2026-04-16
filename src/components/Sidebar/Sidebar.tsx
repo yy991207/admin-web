@@ -44,10 +44,19 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
 
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
-      <button className={styles.toggleBtn} onClick={onToggle} title={collapsed ? '展开' : '收起'}>
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </button>
+      {!collapsed && (
+        <button className={styles.toggleBtn} onClick={onToggle} title="收起">
+          <MenuFoldOutlined />
+        </button>
+      )}
       <div className={styles.navContent}>
+        {collapsed && (
+          <nav className={styles.nav}>
+            <div className={styles.navItem} onClick={onToggle} title="展开">
+              <span className={styles.navIcon}><MenuUnfoldOutlined /></span>
+            </div>
+          </nav>
+        )}
         {!collapsed && (
           <>
             <div className={styles.navSection}>SYSTEM</div>
