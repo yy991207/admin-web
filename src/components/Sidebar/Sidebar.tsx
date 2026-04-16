@@ -44,56 +44,58 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
 
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
-      <button className={styles.toggleBtn} onClick={onToggle}>
+      <button className={styles.toggleBtn} onClick={onToggle} title={collapsed ? '展开' : '收起'}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </button>
-      {!collapsed && (
-        <>
-          <div className={styles.navSection}>SYSTEM</div>
+      <div className={styles.navContent}>
+        {!collapsed && (
+          <>
+            <div className={styles.navSection}>SYSTEM</div>
+            <nav className={styles.nav}>
+              {SYSTEM_ITEMS.map((item) => (
+                <div
+                  key={item.key}
+                  className={`${styles.navItem} ${isActive(item.path) ? styles.active : ''}`}
+                  onClick={() => item.path && navigate(item.path)}
+                >
+                  <span className={styles.navIcon}>{item.icon}</span>
+                  <span className={styles.navLabel}>{item.label}</span>
+                </div>
+              ))}
+            </nav>
+            <div className={styles.divider} />
+            <nav className={styles.nav}>
+              {EXTRA_ITEMS.map((item) => (
+                <div
+                  key={item.key}
+                  className={`${styles.navItem} ${isActive(item.path) ? styles.active : ''}`}
+                  onClick={() => item.path && navigate(item.path)}
+                >
+                  <span className={styles.navIcon}>{item.icon}</span>
+                  <span className={styles.navLabel}>{item.label}</span>
+                </div>
+              ))}
+            </nav>
+          </>
+        )}
+        {collapsed && (
           <nav className={styles.nav}>
-            {SYSTEM_ITEMS.map((item) => (
+            {[...SYSTEM_ITEMS, ...EXTRA_ITEMS].map((item) => (
               <div
                 key={item.key}
                 className={`${styles.navItem} ${isActive(item.path) ? styles.active : ''}`}
                 onClick={() => item.path && navigate(item.path)}
+                title={item.label}
               >
                 <span className={styles.navIcon}>{item.icon}</span>
-                <span className={styles.navLabel}>{item.label}</span>
               </div>
             ))}
           </nav>
-          <div className={styles.divider} />
-          <nav className={styles.nav}>
-            {EXTRA_ITEMS.map((item) => (
-              <div
-                key={item.key}
-                className={`${styles.navItem} ${isActive(item.path) ? styles.active : ''}`}
-                onClick={() => item.path && navigate(item.path)}
-              >
-                <span className={styles.navIcon}>{item.icon}</span>
-                <span className={styles.navLabel}>{item.label}</span>
-              </div>
-            ))}
-          </nav>
-        </>
-      )}
-      {collapsed && (
-        <nav className={styles.nav}>
-          {[...SYSTEM_ITEMS, ...EXTRA_ITEMS].map((item) => (
-            <div
-              key={item.key}
-              className={`${styles.navItem} ${isActive(item.path) ? styles.active : ''}`}
-              onClick={() => item.path && navigate(item.path)}
-              title={item.label}
-            >
-              <span className={styles.navIcon}>{item.icon}</span>
-            </div>
-          ))}
-        </nav>
-      )}
-      <div className={styles.userSection}>
-        <div className={styles.userAvatar}>G</div>
-        {!collapsed && <span className={styles.userName}>guoren</span>}
+        )}
+        <div className={styles.userSection}>
+          <div className={styles.userAvatar}>G</div>
+          {!collapsed && <span className={styles.userName}>guoren</span>}
+        </div>
       </div>
     </aside>
   )
