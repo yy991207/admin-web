@@ -3,12 +3,14 @@ import {
   DownloadOutlined,
   SearchOutlined,
   CheckCircleOutlined,
+  InfoCircleOutlined,
 } from '@ant-design/icons'
-import { Button, Input, message, Popconfirm, Spin, Tag } from 'antd'
+import { Button, Input, message, Modal, Popconfirm, Spin, Tag } from 'antd'
 import {
   browseClawhub,
   searchClawhub,
   installClawhubSkill,
+  fetchClawhubDetail,
   type ClawhubSkill,
 } from '../../services/skillService'
 import styles from './ClawHub.module.less'
@@ -17,6 +19,9 @@ export default function ClawHub() {
   const [loading, setLoading] = useState(false)
   const [skills, setSkills] = useState<ClawhubSkill[]>([])
   const [searchText, setSearchText] = useState('')
+  const [detailModalOpen, setDetailModalOpen] = useState(false)
+  const [detailLoading, setDetailLoading] = useState(false)
+  const [detailSkill, setDetailSkill] = useState<ClawhubSkill | null>(null)
 
   const loadSkills = useCallback(async (keyword?: string) => {
     setLoading(true)
@@ -42,6 +47,26 @@ export default function ClawHub() {
 
   const handleSearch = () => {
     loadSkills(searchText || undefined)
+  }
+
+  const handleViewDetail = async (skill: ClawhubSkill) => {
+    setDetailModalOpen(true)
+    setDetailLoading(true)
+    setDetailSkill(null)
+    try {
+      const res = await fetchClawhubDetail(skill.name)
+      if (res.success) {
+        setDetailSkill(res.data)
+      } else {
+        message.error(res.msg || '获取详情失败')
+        setDetailModalOpen(false)
+      }
+    } catch {
+      message.error('网络请求失败')
+      setDetailModalOpen(false)
+    } finally {
+      setDetailLoading(false)
+    }
   }
 
   const handleInstall = async (skill: ClawhubSkill) => {
@@ -110,6 +135,9 @@ export default function ClawHub() {
                   </div>
                 )}
                 <div className={styles.cardFooter}>
+                  <Button size="small" icon={<InfoCircleOutlined />} onClick={() => handleViewDetail(skill)}>
+                    详情
+                  </Button>
                   {skill.is_selected ? (
                     <Button size="small" disabled icon={<CheckCircleOutlined />}>
                       已安装
@@ -133,6 +161,72 @@ export default function ClawHub() {
           </div>
         )}
       </Spin>
+
+      {/* 技能详情弹窗 */}
+      <Modal
+        title="技能详情"
+        open={detailModalOpen}
+        onCancel={() => setDetailModalOpen(false)}
+        footer={null}
+        width={640}
+      >
+        <Spin spinning={detailLoading}>
+          {detailSkill && (
+            <div className={styles.detailContent}>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>名称</span>
+                <span>{detailSkill.chinese_name || detailSkill.name}</span>
+              </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>Slug</span>
+                <span style={{ fontFamily: 'monospace', color: 'var(--gray-400)' }}>{detailSkill.name}</span>
+              </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>描述</span>
+                <span>{detailSkill.description || '暂无描述'}</span>
+              </div>
+              {detailSkill.template && (
+                <div className={styles.detailRow}>
+                  <span className={styles.detailLabel}>模板</span>
+                  <span style={{ fontFamily: 'monospace', wordBreak: 'break-all' }}>{detailSkill.template}</span>
+                </div>
+              )}
+              {detailSkill.placeholders && detailSkill.placeholders.length > 0 && (
+                <div className={styles.detailRow}>
+                  <span className={styles.detailLabel}>占位符</span>
+                  <span>{detailSkill.placeholders.join(', ')}</span>
+                </div>
+              )}
+              {detailSkill.config_fields && detailSkill.config_fields.length > 0 && (
+                <div className={styles.detailRow}>
+                  <span className={styles.detailLabel}>配置字段</span>
+                  <pre style={{ fontSize: 12, background: 'var(--gray-50)', padding: 8, borderRadius: 4, overflow: 'auto', maxWidth: '100%' }}>
+                    {JSON.stringify(detailSkill.config_fields, null, 2)}
+                  </pre>
+                </div>
+              )}
+              <div className={styles.detailActions}>
+                {detailSkill.is_selected ? (
+                  <Button disabled icon={<CheckCircleOutlined />}>已安装</Button>
+                ) : (
+                  <Popconfirm
+                    title="确认安装"
+                    description={`确定要安装技能 "${detailSkill.chinese_name || detailSkill.name}" 吗？`}
+                    onConfirm={() => {
+                      handleInstall(detailSkill)
+                      setDetailModalOpen(false)
+                    }}
+                    okText="确定"
+                    cancelText="取消"
+                  >
+                    <Button type="primary" icon={<DownloadOutlined />}>安装</Button>
+                  </Popconfirm>
+                )}
+              </div>
+            </div>
+          )}
+        </Spin>
+      </Modal>
     </div>
   )
 }
