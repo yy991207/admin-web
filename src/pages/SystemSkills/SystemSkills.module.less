@@ -1,0 +1,109 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--gray-400);
+}
+
+.breadcrumbSep {
+  color: var(--gray-400);
+}
+
+.breadcrumbActive {
+  color: var(--geist-foreground);
+  font-weight: 500;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--geist-foreground);
+  margin: 0;
+}
+
+.pageDesc {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.statsBar {
+  display: flex;
+  gap: 24px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-radius: var(--radius-comfortable);
+  border: 1px solid var(--gray-100);
+}
+
+.statValue {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--geist-foreground);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.tableCard {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-comfortable);
+  overflow: hidden;
+}
+
+.tableSearch {
+  margin: 16px;
+  width: 320px;
+}
+
+.tableSearch :global(.ant-input) {
+  border-radius: var(--radius-standard);
+}
+
+.skillName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.skillIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-500);
+  flex-shrink: 0;
+}

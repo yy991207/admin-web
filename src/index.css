@@ -1,0 +1,98 @@
+/* Vercel-inspired design tokens */
+:root {
+  --geist-foreground: #171717;
+  --geist-background: #ffffff;
+  --gray-900: #171717;
+  --gray-600: #4d4d4d;
+  --gray-500: #666666;
+  --gray-400: #808080;
+  --gray-100: #ebebeb;
+  --gray-50: #fafafa;
+  --link-color: #0072f5;
+  --badge-blue-bg: #ebf5ff;
+  --badge-blue-text: #0068d6;
+  --danger-color: #ff5b4f;
+  --radius-standard: 6px;
+  --radius-comfortable: 8px;
+  --shadow-border: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  color: var(--geist-foreground);
+  background: var(--geist-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ant Design overrides for Vercel style */
+.ant-btn-primary {
+  background: var(--geist-foreground) !important;
+  border-color: var(--geist-foreground) !important;
+  border-radius: var(--radius-standard) !important;
+  font-weight: 500 !important;
+}
+
+.ant-btn-default {
+  border-radius: var(--radius-standard) !important;
+  border-color: var(--gray-100) !important;
+  color: var(--gray-600) !important;
+}
+
+.ant-btn-default:hover {
+  border-color: var(--gray-400) !important;
+  color: var(--geist-foreground) !important;
+}
+
+.ant-table {
+  font-size: 13px;
+}
+
+.ant-table-thead > tr > th {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-500);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--geist-background);
+  border-bottom: 1px solid var(--gray-100) !important;
+}
+
+.ant-table-tbody > tr > td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--gray-100) !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: var(--gray-50) !important;
+}
+
+.ant-table-wrapper {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-comfortable);
+}
+
+.ant-pagination-item-active {
+  border-color: var(--geist-foreground) !important;
+  background: var(--geist-foreground) !important;
+}
+
+.ant-pagination-item-active a {
+  color: var(--geist-background) !important;
+}
+
+.ant-input {
+  border-radius: var(--radius-standard) !important;
+}
+
+.ant-input:focus,
+.ant-input-focused {
+  box-shadow: 0 0 0 2px rgba(0, 114, 245, 0.2) !important;
+  border-color: var(--link-color) !important;
+}

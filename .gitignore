@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.log
+.env
+.env.*
+config.yaml
+.claude/
+.playwright-mcp/
+.DS_Store
