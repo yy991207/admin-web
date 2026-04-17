@@ -218,7 +218,7 @@ export default function Templates() {
     <div className={styles.page}>
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <h1 className={styles.pageTitle}>模板管理</h1>
+          <h1 className={styles.pageTitle}>智能体模板</h1>
           <p className={styles.pageDesc}>管理智能体模板，支持创建、编辑、删除和配置</p>
         </div>
         <Space>

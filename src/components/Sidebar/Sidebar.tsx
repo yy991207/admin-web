@@ -20,7 +20,7 @@ interface NavItem {
 
 const SYSTEM_ITEMS: NavItem[] = [
   { key: 'skills', label: '系统技能', icon: <ThunderboltOutlined />, path: '/skills' },
-  { key: 'templates', label: '模板管理', icon: <FileTextOutlined />, path: '/templates' },
+  { key: 'templates', label: '智能体模板', icon: <FileTextOutlined />, path: '/templates' },
   { key: 'agents', label: '智能体', icon: <RobotOutlined />, path: '/agents' },
   { key: 'practices', label: '最佳实践', icon: <TrophyOutlined />, path: '/practices' },
   { key: 'commands', label: '推荐指令', icon: <CodeOutlined />, path: '/commands' },
