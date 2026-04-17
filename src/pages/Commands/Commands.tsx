@@ -436,7 +436,7 @@ function CommandsContent() {
         confirmLoading={isCreateUploading}
         okButtonProps={{ disabled: isCreateUploading }}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="指令ID" name="id" rules={[{ required: true }]}>
@@ -472,7 +472,7 @@ function CommandsContent() {
         confirmLoading={isEditUploading}
         okButtonProps={{ disabled: isEditUploading }}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         {editingCommand && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>

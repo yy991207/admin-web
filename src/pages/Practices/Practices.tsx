@@ -536,7 +536,7 @@ function PracticesContent() {
         confirmLoading={isCreateUploading}
         okButtonProps={{ disabled: isCreateUploading }}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="实践ID" name="id" rules={[{ required: true }]}>
@@ -577,7 +577,7 @@ function PracticesContent() {
         confirmLoading={isEditUploading}
         okButtonProps={{ disabled: isEditUploading }}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         {editingPractice && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>

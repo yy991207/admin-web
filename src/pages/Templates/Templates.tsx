@@ -8,7 +8,7 @@ import {
   GlobalOutlined,
   LockOutlined,
 } from '@ant-design/icons'
-import { Button, Table, Tag, Input, Modal, Form, message, Popconfirm, Space, Switch } from 'antd'
+import { Button, Table, Tag, Input, Modal, Form, App, Popconfirm, Space, Switch } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import {
   fetchTemplates,
@@ -20,6 +20,7 @@ import {
 import styles from '../SystemSkills/SystemSkills.module.less'
 
 export default function Templates() {
+  const { message } = App.useApp()
   const [loading, setLoading] = useState(false)
   const [templates, setTemplates] = useState<AdminTemplate[]>([])
   const [searchText, setSearchText] = useState('')
@@ -43,7 +44,7 @@ export default function Templates() {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [message])
 
   useEffect(() => {
     loadTemplates()
@@ -257,7 +258,7 @@ export default function Templates() {
         onCancel={() => { setCreateModalOpen(false); createForm.resetFields() }}
         onOk={createForm.submit}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="模板名称" name="template_name" rules={[{ required: true }]}>
@@ -288,7 +289,7 @@ export default function Templates() {
         onCancel={() => { setEditModalOpen(false); setEditingTemplate(null) }}
         onOk={editForm.submit}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         {editingTemplate && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>

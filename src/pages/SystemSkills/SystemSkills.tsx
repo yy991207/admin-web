@@ -11,7 +11,7 @@ import {
   InfoCircleOutlined,
   MinusCircleOutlined,
 } from '@ant-design/icons'
-import { Button, Table, Tag, Input, Modal, Form, message, Popconfirm, Space, Upload, Spin, Select, Switch, Card } from 'antd'
+import { Button, Table, Tag, Input, Modal, Form, App, Popconfirm, Space, Upload, Spin, Select, Switch, Card } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import { fetchSystemSkills, fetchSystemSkillDetail, deleteSystemSkill, createSystemSkill, updateSystemSkill, uploadZipSkill, type SystemSkill, type ConfigField } from '../../services/skillService'
 import { Section, Row } from '../ClawHub/ClawHub'
@@ -148,6 +148,7 @@ function ConfigFieldDisplay({ fields }: { fields: ConfigField[] }) {
 }
 
 export default function SystemSkills() {
+  const { message } = App.useApp()
   const [loading, setLoading] = useState(false)
   const [skills, setSkills] = useState<SystemSkill[]>([])
   const [searchText, setSearchText] = useState('')
@@ -478,7 +479,7 @@ export default function SystemSkills() {
         onCancel={() => { setCreateModalOpen(false); createForm.resetFields(); setConfigFields([]) }}
         onOk={createForm.submit}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="技能名称" name="name" rules={[{ required: true }]} tooltip="技能的唯一标识，创建后不可修改">
@@ -512,7 +513,7 @@ export default function SystemSkills() {
         onCancel={() => { setEditModalOpen(false); setEditingSkill(null); setEditConfigFields([]) }}
         onOk={editForm.submit}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         {editingSkill && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>

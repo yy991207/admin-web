@@ -11,7 +11,7 @@ import {
   UserOutlined,
   TagOutlined,
 } from '@ant-design/icons'
-import { Button, Input, message, Modal, Popconfirm, Spin, Tag } from 'antd'
+import { Button, Input, App, Modal, Popconfirm, Spin, Tag } from 'antd'
 import {
   browseClawhub,
   searchClawhub,
@@ -34,6 +34,7 @@ function formatNumber(n?: number): string {
 }
 
 export default function ClawHub() {
+  const { message } = App.useApp()
   const [loading, setLoading] = useState(false)
   const [skills, setSkills] = useState<ClawhubSkill[]>([])
   const [searchText, setSearchText] = useState('')
@@ -58,7 +59,7 @@ export default function ClawHub() {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [message])
 
   useEffect(() => {
     loadSkills()

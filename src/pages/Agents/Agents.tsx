@@ -10,7 +10,7 @@ import {
   PoweroffOutlined,
   EyeOutlined,
 } from '@ant-design/icons'
-import { Button, Table, Tag, Input, Modal, Form, message, Popconfirm, Space, Switch, Tooltip, Select, Segmented } from 'antd'
+import { Button, Table, Tag, Input, Modal, Form, App, Popconfirm, Space, Switch, Tooltip, Select, Segmented } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import {
   fetchAgents,
@@ -26,6 +26,7 @@ import {
 import styles from '../SystemSkills/SystemSkills.module.less'
 
 export default function Agents() {
+  const { message } = App.useApp()
   const [loading, setLoading] = useState(false)
   const [agents, setAgents] = useState<AdminAgent[]>([])
   const [searchText, setSearchText] = useState('')
@@ -347,7 +348,7 @@ export default function Agents() {
         onCancel={() => { setCreateModalOpen(false); createForm.resetFields() }}
         onOk={createForm.submit}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         <Form form={createForm} layout="vertical" onFinish={handleCreate}>
           <Form.Item label="智能体名称" name="agent_name" rules={[{ required: true }]}>
@@ -384,7 +385,7 @@ export default function Agents() {
         onCancel={() => { setEditModalOpen(false); setEditingAgent(null) }}
         onOk={editForm.submit}
         width={720}
-        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
       >
         {editingAgent && (
           <Form form={editForm} layout="vertical" onFinish={handleUpdate}>
