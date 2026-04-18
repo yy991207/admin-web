@@ -6,6 +6,13 @@ interface AppConfig {
   token: string
 }
 
+export interface ApiResponse<T> {
+  success: boolean
+  code: string
+  msg: string
+  data: T
+}
+
 function parseYaml(raw: string): AppConfig {
   const result: Record<string, string> = {}
   for (const line of raw.split(/\r?\n/)) {
@@ -27,8 +34,27 @@ export function buildUrl(path: string): string {
 }
 
 export function authHeaders(): HeadersInit {
+  if (!config.token) {
+    return {}
+  }
+
   return {
     Authorization: `Bearer ${config.token}`,
-    'Content-Type': 'application/json',
   }
+}
+
+/**
+ * 管理后台请求统一从这里补鉴权头，避免每个 service 各自实现时漏传 token。
+ */
+export async function request<T>(url: string, options?: RequestInit): Promise<ApiResponse<T>> {
+  const isJson = options?.body && !(options.body instanceof FormData)
+  const res = await fetch(url, {
+    ...options,
+    headers: {
+      ...authHeaders(),
+      ...(isJson ? { 'Content-Type': 'application/json' } : {}),
+      ...options?.headers,
+    },
+  })
+  return res.json()
 }

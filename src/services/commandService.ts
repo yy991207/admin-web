@@ -1,4 +1,4 @@
-import { buildUrl } from './config'
+import { buildUrl, request, type ApiResponse } from './config'
 
 export interface AttachmentRequest {
   file_name: string
@@ -22,25 +22,6 @@ export interface AdminCommand {
 export interface CommandListResponse {
   commands: AdminCommand[]
   total: number
-}
-
-export interface ApiResponse<T> {
-  success: boolean
-  code: string
-  msg: string
-  data: T
-}
-
-async function request<T>(url: string, options?: RequestInit): Promise<ApiResponse<T>> {
-  const isJson = options?.body && !(options.body instanceof FormData)
-  const res = await fetch(url, {
-    ...options,
-    headers: {
-      ...(isJson ? { 'Content-Type': 'application/json' } : {}),
-      ...options?.headers,
-    },
-  })
-  return res.json()
 }
 
 export async function fetchCommands(isActive: boolean): Promise<ApiResponse<CommandListResponse>> {

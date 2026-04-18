@@ -15,7 +15,7 @@ import {
   RobotOutlined,
   MinusCircleOutlined,
 } from '@ant-design/icons'
-import { Button, Table, Tag, Input, Modal, Form, Popconfirm, Space, Tooltip, Segmented, App, Select, Divider } from 'antd'
+import { Button, Table, Tag, Input, InputNumber, Modal, Form, Popconfirm, Space, Tooltip, Segmented, App, Select, Divider } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import {
   fetchPractices,
@@ -27,7 +27,6 @@ import {
   reorderPractices,
   type AdminPractice,
   type PracticeMessage,
-  type PracticeAttachment,
 } from '../../services/practiceService'
 import { fetchCommands, type AdminCommand } from '../../services/commandService'
 import AttachmentsEditor from '../../components/AttachmentsEditor/AttachmentsEditor'
@@ -559,7 +558,7 @@ function PracticesContent() {
             <Input.TextArea rows={2} placeholder="实践描述" />
           </Form.Item>
           <Form.Item label="排序权重" name="sort_order" initialValue={0}>
-            <Input type="number" />
+            <InputNumber style={{ width: '100%' }} min={0} precision={0} />
           </Form.Item>
           <Divider />
           <MessagesEditor messages={createMessages} setMessages={setCreateMessages} />
@@ -601,7 +600,7 @@ function PracticesContent() {
               <Input.TextArea rows={2} />
             </Form.Item>
             <Form.Item label="排序权重" name="sort_order">
-              <Input type="number" />
+              <InputNumber style={{ width: '100%' }} min={0} precision={0} />
             </Form.Item>
             <Divider />
             <MessagesEditor messages={editMessages} setMessages={setEditMessages} />

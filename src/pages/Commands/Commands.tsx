@@ -11,7 +11,7 @@ import {
   ArrowDownOutlined,
   OrderedListOutlined,
 } from '@ant-design/icons'
-import { Button, Table, Tag, Input, Modal, Form, Popconfirm, Space, Tooltip, Segmented, App } from 'antd'
+import { Button, Table, Tag, Input, InputNumber, Modal, Form, Popconfirm, Space, Tooltip, Segmented, App } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import {
   fetchCommands,
@@ -455,7 +455,7 @@ function CommandsContent() {
             <Input placeholder="emoji 或图标字符" />
           </Form.Item>
           <Form.Item label="排序权重" name="sort_order" initialValue={0}>
-            <Input type="number" />
+            <InputNumber style={{ width: '100%' }} min={0} precision={0} />
           </Form.Item>
           <Form.Item label="附件">
             <AttachmentsEditor attachments={createAttachments} onChange={setCreateAttachments} onUploadingChange={setIsCreateUploading} />
@@ -492,7 +492,7 @@ function CommandsContent() {
               <Input />
             </Form.Item>
             <Form.Item label="排序权重" name="sort_order">
-              <Input type="number" />
+              <InputNumber style={{ width: '100%' }} min={0} precision={0} />
             </Form.Item>
             <Form.Item label="附件">
               <AttachmentsEditor attachments={editAttachments} onChange={setEditAttachments} onUploadingChange={setIsEditUploading} />

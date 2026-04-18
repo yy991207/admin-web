@@ -5,8 +5,6 @@ import {
   DeleteOutlined,
   CheckCircleOutlined,
   StopOutlined,
-  GlobalOutlined,
-  LockOutlined,
   PoweroffOutlined,
   EyeOutlined,
 } from '@ant-design/icons'
@@ -20,7 +18,6 @@ import {
   updateAgent,
   deleteAgent,
   toggleAgent,
-  setAgentVisibility,
   type AdminAgent,
 } from '../../services/agentService'
 import styles from '../SystemSkills/SystemSkills.module.less'
@@ -62,7 +59,7 @@ export default function Agents() {
     } finally {
       setLoading(false)
     }
-  }, [statusFilter])
+  }, [statusFilter, message])
 
   useEffect(() => {
     loadAgents()
@@ -87,20 +84,6 @@ export default function Agents() {
       const res = await toggleAgent(agent_id)
       if (res.success) {
         message.success('状态已更新')
-        loadAgents()
-      } else {
-        message.error(res.msg || '操作失败')
-      }
-    } catch {
-      message.error('网络请求失败')
-    }
-  }
-
-  const handleVisibilityChange = async (agent_id: string, is_public: boolean) => {
-    try {
-      const res = await setAgentVisibility(agent_id, is_public)
-      if (res.success) {
-        message.success(is_public ? '已设为公开' : '已设为私有')
         loadAgents()
       } else {
         message.error(res.msg || '操作失败')

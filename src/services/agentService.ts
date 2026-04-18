@@ -1,4 +1,4 @@
-import { buildUrl } from './config'
+import { buildUrl, request, type ApiResponse } from './config'
 
 export interface AdminAgent {
   agent_id: string
@@ -19,25 +19,6 @@ export interface AdminAgent {
 export interface AgentListResponse {
   agents: AdminAgent[]
   total: number
-}
-
-export interface ApiResponse<T> {
-  success: boolean
-  code: string
-  msg: string
-  data: T
-}
-
-async function request<T>(url: string, options?: RequestInit): Promise<ApiResponse<T>> {
-  const isJson = options?.body && !(options.body instanceof FormData)
-  const res = await fetch(url, {
-    ...options,
-    headers: {
-      ...(isJson ? { 'Content-Type': 'application/json' } : {}),
-      ...options?.headers,
-    },
-  })
-  return res.json()
 }
 
 export async function fetchAgents(isActive: boolean): Promise<ApiResponse<AgentListResponse>> {

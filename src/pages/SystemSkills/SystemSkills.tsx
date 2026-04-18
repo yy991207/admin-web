@@ -13,7 +13,6 @@ import {
   FileOutlined,
   FolderOutlined,
   FileTextOutlined,
-  CodeOutlined,
   ExpandOutlined,
 } from '@ant-design/icons'
 import { Button, Table, Tag, Input, Modal, Form, App, Popconfirm, Space, Upload, Spin, Select, Switch, Card, Tooltip, Empty, Tree } from 'antd'
@@ -96,6 +95,10 @@ function buildTree(files: Record<string, string>): TreeNode[] {
     return nodes
   }
   return sortNodes(root, true)
+}
+
+function hasOwnFile(files: Record<string, string>, path: string): boolean {
+  return Object.prototype.hasOwnProperty.call(files, path)
 }
 
 function FilesEditor({ value, onChange, msg }: { value: Record<string, string>; onChange: (v: Record<string, string>) => void; msg: { warning: (s: string) => void; error: (s: string) => void; success: (s: string) => void } }) {
@@ -183,6 +186,10 @@ function FilesEditor({ value, onChange, msg }: { value: Record<string, string>; 
     if (!renamingKey) return
     const trimmed = renameValue.trim()
     if (!trimmed) { setRenamingKey(null); return }
+    if (trimmed.includes('/')) {
+      msg.error('名称不能包含 /')
+      return
+    }
 
     const parts = renamingKey.split('/')
     const oldName = parts[parts.length - 1]
@@ -193,8 +200,19 @@ function FilesEditor({ value, onChange, msg }: { value: Record<string, string>; 
     const oldPrefix = renamingKey
 
     // 检查是否是文件夹
-    const isFolder = !value.hasOwnProperty(renamingKey)
+    const isFolder = !hasOwnFile(value, renamingKey)
     const next = { ...value }
+    const pathExists = Object.keys(next).some((key) => (
+      isFolder
+        ? key === newPrefix || key.startsWith(`${newPrefix}/`)
+        : key === newPrefix
+    ))
+
+    if (pathExists) {
+      msg.error('路径已存在')
+      setRenamingKey(null)
+      return
+    }
 
     if (isFolder) {
       // 重命名文件夹：更新所有子路径
@@ -206,13 +224,11 @@ function FilesEditor({ value, onChange, msg }: { value: Record<string, string>; 
         }
       }
       setExpandedKeys(prev => prev.map(k => k === oldPrefix || k.startsWith(`${oldPrefix}/`) ? `${newPrefix}${k.slice(oldPrefix.length)}` : k))
+      if (selectedPath && (selectedPath === oldPrefix || selectedPath.startsWith(`${oldPrefix}/`))) {
+        setSelectedPath(`${newPrefix}${selectedPath.slice(oldPrefix.length)}`)
+      }
     } else {
       // 重命名文件
-      if (next[newPrefix] !== undefined) {
-        msg.error('路径已存在')
-        setRenamingKey(null)
-        return
-      }
       next[newPrefix] = next[oldPrefix]
       delete next[oldPrefix]
       if (selectedPath === oldPrefix) setSelectedPath(newPrefix)
@@ -361,7 +377,7 @@ function FilesEditor({ value, onChange, msg }: { value: Record<string, string>; 
               onSelect={keys => {
                 const key = keys[0] as string
                 // 只选中文件（叶子节点）
-                if (key && value.hasOwnProperty(key)) {
+                if (key && hasOwnFile(value, key)) {
                   setSelectedPath(key)
                 }
               }}
@@ -599,7 +615,7 @@ export default function SystemSkills() {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [message])
 
   useEffect(() => {
     loadSkills()

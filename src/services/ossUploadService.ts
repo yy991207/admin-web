@@ -1,3 +1,5 @@
+import { config } from './config'
+
 type OssConfig = {
   token: string
   tenantId: string
@@ -9,48 +11,19 @@ const DEFAULT_OSS_SIGN_URL = 'https://test-guoren-api.grtcloud.net/jeecg-boot/op
 const DEFAULT_BUCKET_NAME = 'guoren-files-test'
 const DEFAULT_CONTENT_TYPE = 'text/plain'
 
-function parseYamlConfig(rawText: string): Record<string, string> {
-  const lines = rawText.split(/\r?\n/)
-  const config: Record<string, string> = {}
-
-  for (const line of lines) {
-    const trimmedLine = line.trim()
-    if (!trimmedLine || trimmedLine.startsWith('#') || trimmedLine.startsWith('//')) continue
-    const separatorIndex = trimmedLine.indexOf(':')
-    if (separatorIndex === -1) continue
-    const key = trimmedLine.slice(0, separatorIndex).trim()
-    const value = trimmedLine.slice(separatorIndex + 1).trim().replace(/^['"]|['"]$/g, '')
-    if (key) config[key] = value
-  }
-  return config
-}
-
 let cachedOssConfig: OssConfig | null = null
 
 async function loadOssConfig(): Promise<OssConfig> {
   if (cachedOssConfig) return cachedOssConfig
 
-  try {
-    const response = await fetch('/config.yaml')
-    const rawText = await response.text()
-    const config = parseYamlConfig(rawText)
-
-    cachedOssConfig = {
-      token: config.token || '',
-      tenantId: config.user_id || '1000',
-      ossSignUrl: DEFAULT_OSS_SIGN_URL,
-      bucketName: DEFAULT_BUCKET_NAME
-    }
-    return cachedOssConfig
-  } catch (error) {
-    console.error('加载 config.yaml 失败:', error)
-    return {
-      token: '',
-      tenantId: '1000',
-      ossSignUrl: DEFAULT_OSS_SIGN_URL,
-      bucketName: DEFAULT_BUCKET_NAME
-    }
+  cachedOssConfig = {
+    token: config.token || '',
+    tenantId: config.user_id || '1000',
+    ossSignUrl: DEFAULT_OSS_SIGN_URL,
+    bucketName: DEFAULT_BUCKET_NAME,
   }
+
+  return cachedOssConfig
 }
 
 async function getUploadSignUrl(bucketName: string, objectKey: string): Promise<string | null> {
@@ -64,14 +37,14 @@ async function getUploadSignUrl(bucketName: string, objectKey: string): Promise<
       headers: {
         'Content-Type': 'application/json',
         'x-access-token': token,
-        'x-tenant-id': tenantId
+        'x-tenant-id': tenantId,
       },
       body: JSON.stringify({
         bucketName,
         objectKey,
         method: 'PUT',
-        headers: { 'Content-Type': DEFAULT_CONTENT_TYPE }
-      })
+        headers: { 'Content-Type': DEFAULT_CONTENT_TYPE },
+      }),
     })
 
     const result = await response.json()
@@ -107,7 +80,7 @@ export async function uploadFileToOss(
       success: false,
       fileName: file.name,
       url: '',
-      error: '获取签名URL失败'
+      error: '获取签名URL失败',
     }
   }
 
@@ -128,14 +101,15 @@ export async function uploadFileToOss(
         resolve({
           success: true,
           fileName: file.name,
-          url: signedUrl.split('?')[0] // 去掉签名参数，获取实际 URL
+          // 去掉签名参数，返回实际文件地址
+          url: signedUrl.split('?')[0],
         })
       } else {
         resolve({
           success: false,
           fileName: file.name,
           url: '',
-          error: `上传失败: HTTP ${xhr.status}`
+          error: `上传失败: HTTP ${xhr.status}`,
         })
       }
     }
@@ -145,7 +119,7 @@ export async function uploadFileToOss(
         success: false,
         fileName: file.name,
         url: '',
-        error: '网络请求失败'
+        error: '网络请求失败',
       })
     }
 

@@ -1,5 +1,5 @@
 import { uploadFileToOss, type UploadResult } from './ossUploadService'
-import { buildUrl, config } from './config'
+import { authHeaders, buildUrl, config } from './config'
 
 export interface ParseTaskSubmission {
   task_id: string
@@ -53,6 +53,7 @@ async function submitParseTask(
   const response = await fetch(buildUrl('api/v1/agent/files/upload'), {
     method: 'POST',
     headers: {
+      ...authHeaders(),
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -78,6 +79,7 @@ async function getParseTaskStatus(taskId: string): Promise<ParseTaskStatus> {
   const response = await fetch(buildUrl(`api/v1/parse/${taskId}`), {
     method: 'GET',
     headers: {
+      ...authHeaders(),
       accept: 'application/json',
     },
   })
@@ -101,7 +103,7 @@ async function pollParseTaskUntilCompleted(
     const task = await getParseTaskStatus(taskId)
     const status = task.status?.toLowerCase()
 
-    onStatusChange?.('parsing', task.progress)
+    onStatusChange?.('parsing', task.progress ?? undefined)
 
     if (status === 'completed') {
       return task

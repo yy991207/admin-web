@@ -8,7 +8,6 @@ import {
   InfoCircleOutlined,
   StarOutlined,
   DownloadOutlined as DownloadIcon,
-  UserOutlined,
   TagOutlined,
 } from '@ant-design/icons'
 import { Button, Input, App, Modal, Popconfirm, Spin, Tag } from 'antd'

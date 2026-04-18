@@ -1,4 +1,4 @@
-import { buildUrl } from './config'
+import { authHeaders, buildUrl, request, type ApiResponse } from './config'
 
 export interface ConfigFieldOption {
   label: string
@@ -97,25 +97,6 @@ export interface ClawhubSkillListResponse {
   total: number
 }
 
-export interface ApiResponse<T> {
-  success: boolean
-  code: string
-  msg: string
-  data: T
-}
-
-async function request<T>(url: string, options?: RequestInit): Promise<ApiResponse<T>> {
-  const isJson = options?.body && !(options.body instanceof FormData)
-  const res = await fetch(url, {
-    ...options,
-    headers: {
-      ...(isJson ? { 'Content-Type': 'application/json' } : {}),
-      ...options?.headers,
-    },
-  })
-  return res.json()
-}
-
 export async function fetchSystemSkills(): Promise<ApiResponse<SystemSkillListResponse>> {
   return request<SystemSkillListResponse>(buildUrl('api/v1/admin/skills'))
 }
@@ -187,6 +168,7 @@ export async function uploadZipSkill(file: File): Promise<ApiResponse<unknown>> 
   const res = await fetch(buildUrl('api/v1/admin/skills/upload-zip'), {
     method: 'POST',
     body: formData,
+    headers: authHeaders(),
   })
   return res.json()
 }
