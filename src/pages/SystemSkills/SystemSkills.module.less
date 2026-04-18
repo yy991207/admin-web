@@ -205,3 +205,225 @@
   color: var(--gray-400);
   font-size: 12px;
 }
+
+/* 附件编辑器 */
+.filesEditor {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.filesToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--gray-100);
+  background: var(--gray-50);
+}
+
+.filesToolbarTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--geist-foreground);
+}
+
+.filesEmpty {
+  padding: 24px 0;
+}
+
+.filesBody {
+  display: flex;
+  min-height: 280px;
+}
+
+.filesTreePanel {
+  width: 280px;
+  min-width: 280px;
+  border-right: 1px solid var(--gray-100);
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 4px;
+}
+
+.filesTreePanel :global(.ant-tree) {
+  background: transparent;
+  font-size: 13px;
+}
+
+.filesTreePanel :global(.ant-tree-node-content-wrapper) {
+  border-radius: 4px;
+  padding: 2px 4px !important;
+}
+
+.filesTreePanel :global(.ant-tree-node-selected .ant-tree-node-content-wrapper) {
+  background: var(--gray-100) !important;
+}
+
+/* 树节点行 */
+.treeNodeRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.treeNodeIcon {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--gray-400);
+}
+
+.treeNodeName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--geist-foreground);
+}
+
+.treeNodeActions {
+  display: flex;
+  gap: 1px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.treeNodeRow:hover .treeNodeActions {
+  opacity: 1;
+}
+
+.treeActionBtn {
+  padding: 0 2px !important;
+  height: 20px !important;
+  width: 20px !important;
+}
+
+/* 右侧面板 */
+.fileContentPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.fileContentHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--gray-100);
+  background: var(--gray-50);
+}
+
+.fileContentPath {
+  font-size: 12px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: var(--gray-500);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileContentEditor {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  resize: none !important;
+}
+
+.fileContentEditorLargeWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  overflow-y: auto;
+  background: var(--gray-50);
+}
+
+.fileContentEditorLarge {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  border: 1px solid var(--gray-100) !important;
+  border-radius: var(--radius-standard) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  resize: none !important;
+  padding: 24px 32px !important;
+  background: var(--geist-background) !important;
+  width: 900px !important;
+  max-width: calc(100% - 48px);
+  min-height: 100%;
+  height: auto !important;
+}
+
+.fileContentEmpty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  font-size: 13px;
+  min-height: 280px;
+}
+
+/* 编辑弹窗左右分栏布局 */
+.editLayout {
+  display: flex;
+  gap: 0;
+  min-height: 420px;
+}
+
+.editSidebar {
+  width: 140px;
+  min-width: 140px;
+  background: var(--gray-50);
+  border-right: 1px solid var(--gray-100);
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.editSidebarItem {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: var(--gray-500);
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+  user-select: none;
+
+  &:hover {
+    color: var(--geist-foreground);
+    background: var(--gray-100);
+  }
+}
+
+.editSidebarActive {
+  color: var(--geist-foreground) !important;
+  background: var(--gray-100) !important;
+  border-left-color: var(--geist-foreground);
+  font-weight: 500;
+}
+
+.editContent {
+  flex: 1;
+  padding: 20px 24px;
+  min-width: 0;
+}
+
+.editContent :global(.ant-form-item) {
+  margin-bottom: 16px;
+}
+
+.editContent :global(.ant-form-item-label > label) {
+  font-size: 13px;
+  font-weight: 500;
+}

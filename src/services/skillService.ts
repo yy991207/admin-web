@@ -128,10 +128,16 @@ export async function createSystemSkill(data: {
   name: string
   chinese_name: string
   description: string
-  template: string
-  placeholders: string[]
-  config_fields: ConfigField[]
   skill_md_content: string
+  template?: string
+  placeholders?: string[]
+  config_fields?: ConfigField[]
+  files?: Record<string, string>
+  scripts?: Record<string, string>
+  references?: Record<string, string>
+  assets?: Record<string, string>
+  source?: string
+  enabled?: boolean
 }): Promise<ApiResponse<{ name: string }>> {
   return request(buildUrl('api/v1/admin/skills'), {
     method: 'POST',
@@ -148,6 +154,12 @@ export async function updateSystemSkill(
     placeholders?: string[]
     config_fields?: ConfigField[]
     skill_md_content?: string
+    files?: Record<string, string>
+    scripts?: Record<string, string>
+    references?: Record<string, string>
+    assets?: Record<string, string>
+    source?: string
+    enabled?: boolean
   },
 ): Promise<ApiResponse<{ name: string }>> {
   return request(buildUrl(`api/v1/admin/skills/${name}`), {
@@ -160,6 +172,13 @@ export async function deleteSystemSkill(name: string): Promise<ApiResponse<unkno
   return request(buildUrl(`api/v1/admin/skills/${name}`), {
     method: 'DELETE',
   })
+}
+
+export async function fetchSkillFileContent(
+  name: string,
+  filePath: string,
+): Promise<ApiResponse<{ content: string; is_binary: boolean }>> {
+  return request(buildUrl(`api/v1/admin/skills/${name}/files/${encodeURIComponent(filePath)}`))
 }
 
 export async function uploadZipSkill(file: File): Promise<ApiResponse<unknown>> {
