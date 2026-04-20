@@ -25,6 +25,7 @@ export interface SystemSkill {
   skill_md: string
   skill_path: string
   source: string
+  icon_url: string | null
   file_list: string[]
   created_at: string
   updated_at: string
@@ -119,6 +120,7 @@ export async function createSystemSkill(data: {
   assets?: Record<string, string>
   source?: string
   enabled?: boolean
+  icon_url?: string | null
 }): Promise<ApiResponse<{ name: string }>> {
   return request(buildUrl('api/v1/admin/skills'), {
     method: 'POST',
@@ -141,6 +143,7 @@ export async function updateSystemSkill(
     assets?: Record<string, string>
     source?: string
     enabled?: boolean
+    icon_url?: string | null
   },
 ): Promise<ApiResponse<{ name: string }>> {
   return request(buildUrl(`api/v1/admin/skills/${name}`), {

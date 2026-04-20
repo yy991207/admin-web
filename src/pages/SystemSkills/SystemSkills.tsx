@@ -20,6 +20,8 @@ import type { ColumnsType } from 'antd/es/table'
 import type { DataNode } from 'antd/es/tree'
 import { fetchSystemSkills, fetchSystemSkillDetail, deleteSystemSkill, createSystemSkill, updateSystemSkill, uploadZipSkill, fetchSkillFileContent, type SystemSkill, type ConfigField } from '../../services/skillService'
 import { Section, Row } from '../ClawHub/ClawHub'
+import ImagePicker, { ImagePreview } from '../../components/ImagePicker/ImagePicker'
+import { normalizeImageUrl } from '../../components/ImagePicker/imageUtils'
 import clawhubStyles from '../ClawHub/ClawHub.module.less'
 import styles from './SystemSkills.module.less'
 
@@ -600,6 +602,8 @@ export default function SystemSkills() {
   const [detailLoading, setDetailLoading] = useState(false)
   const [detailData, setDetailData] = useState<SystemSkill | null>(null)
   const [activeTab, setActiveTab] = useState<'basic' | 'configFields' | 'skillMd' | 'files'>('basic')
+  const [createIconUrl, setCreateIconUrl] = useState<string>('')
+  const [editIconUrl, setEditIconUrl] = useState<string>('')
 
   const loadSkills = useCallback(async () => {
     setLoading(true)
@@ -660,6 +664,7 @@ export default function SystemSkills() {
         files: Object.keys(createFiles).length > 0 ? createFiles : undefined,
         source: values.source,
         enabled: values.enabled,
+        icon_url: normalizeImageUrl(createIconUrl),
       })
       if (res.success) {
         message.success('创建成功')
@@ -667,6 +672,7 @@ export default function SystemSkills() {
         createForm.resetFields()
         setConfigFields([])
         setCreateFiles({})
+        setCreateIconUrl('')
         loadSkills()
       } else {
         message.error(res.msg || '创建失败')
@@ -682,6 +688,7 @@ export default function SystemSkills() {
     setEditModalOpen(true)
     setEditConfigFields(skill.config_fields || [])
     setEditFiles({})
+    setEditIconUrl(skill.icon_url || '')
     editForm.setFieldsValue({
       name: skill.name,
       chinese_name: skill.chinese_name,
@@ -742,6 +749,7 @@ export default function SystemSkills() {
         config_fields: editConfigFields.length > 0 ? editConfigFields : undefined,
         enabled: values.enabled,
         source: values.source,
+        icon_url: normalizeImageUrl(editIconUrl),
       }
       if (values.skill_md_content) {
         data.skill_md_content = values.skill_md_content
@@ -756,6 +764,7 @@ export default function SystemSkills() {
         setEditingSkill(null)
         setEditConfigFields([])
         setEditFiles({})
+        setEditIconUrl('')
         loadSkills()
       } else {
         message.error(res.msg || '更新失败')
@@ -819,11 +828,15 @@ export default function SystemSkills() {
       key: 'name',
       width: 180,
       ellipsis: true,
-      render: (name: string) => (
+      render: (name: string, record: SystemSkill) => (
         <div className={styles.skillName}>
-          <div className={styles.skillIcon}>
-            <ThunderboltOutlined />
-          </div>
+          {record.icon_url ? (
+            <ImagePreview url={record.icon_url} size={28} radius={6} alt={name} />
+          ) : (
+            <div className={styles.skillIcon}>
+              <ThunderboltOutlined />
+            </div>
+          )}
           <span>{name}</span>
         </div>
       ),
@@ -961,7 +974,7 @@ export default function SystemSkills() {
             }
           }
         }}
-        onCancel={() => { setCreateModalOpen(false); createForm.resetFields(); setConfigFields([]); setCreateFiles({}); setActiveTab('basic') }}
+        onCancel={() => { setCreateModalOpen(false); createForm.resetFields(); setConfigFields([]); setCreateFiles({}); setCreateIconUrl(''); setActiveTab('basic') }}
         width={960}
         styles={{ body: { maxHeight: '65vh', overflowY: 'auto', padding: 0 } }}
       >
@@ -1003,6 +1016,23 @@ export default function SystemSkills() {
                 </Form.Item>
                 <Form.Item label="中文名" name="chinese_name" rules={[{ required: true, message: '请输入中文名' }]}>
                   <Input placeholder="例如: AI 绘图" />
+                </Form.Item>
+                <Form.Item label="图标">
+                  <ImagePicker
+                    value={createIconUrl}
+                    onChange={setCreateIconUrl}
+                    category="icon"
+                    libraryTag="skill"
+                    entityLabel="图标"
+                    alt="技能图标"
+                    hint="三条路径都会把图片落入当前图片管理库，最终回填成技能图标地址。"
+                    getUploadName={() => createForm.getFieldValue('chinese_name') || createForm.getFieldValue('name') || '技能'}
+                    getDescription={() => createForm.getFieldValue('description') || ''}
+                    getPrompt={() => [
+                      createForm.getFieldValue('chinese_name') || createForm.getFieldValue('name') || '',
+                      createForm.getFieldValue('description') || '',
+                    ].filter(Boolean).join('，')}
+                  />
                 </Form.Item>
                 <Form.Item label="描述" name="description" rules={[{ required: true, message: '请输入描述' }]}>
                   <Input.TextArea rows={3} placeholder="技能功能描述" />
@@ -1047,7 +1077,7 @@ export default function SystemSkills() {
       <Modal
         title="编辑系统技能"
         open={editModalOpen}
-        onCancel={() => { setEditModalOpen(false); setEditingSkill(null); setEditConfigFields([]); setEditFiles({}); setActiveTab('basic') }}
+        onCancel={() => { setEditModalOpen(false); setEditingSkill(null); setEditConfigFields([]); setEditFiles({}); setEditIconUrl(''); setActiveTab('basic') }}
         onOk={async () => {
           try {
             await editForm.validateFields()
@@ -1104,6 +1134,23 @@ export default function SystemSkills() {
                   </Form.Item>
                   <Form.Item label="中文名" name="chinese_name" rules={[{ required: true, message: '请输入中文名' }]}>
                     <Input />
+                  </Form.Item>
+                  <Form.Item label="图标">
+                    <ImagePicker
+                      value={editIconUrl}
+                      onChange={setEditIconUrl}
+                      category="icon"
+                      libraryTag="skill"
+                      entityLabel="图标"
+                      alt="技能图标"
+                      hint="三条路径都会把图片落入当前图片管理库，最终回填成技能图标地址。"
+                      getUploadName={() => editForm.getFieldValue('chinese_name') || editForm.getFieldValue('name') || '技能'}
+                      getDescription={() => editForm.getFieldValue('description') || ''}
+                      getPrompt={() => [
+                        editForm.getFieldValue('chinese_name') || editForm.getFieldValue('name') || '',
+                        editForm.getFieldValue('description') || '',
+                      ].filter(Boolean).join('，')}
+                    />
                   </Form.Item>
                   <Form.Item label="描述" name="description" rules={[{ required: true, message: '请输入描述' }]}>
                     <Input.TextArea rows={3} />
@@ -1163,6 +1210,12 @@ export default function SystemSkills() {
                 <Row label="状态" value={detailData.enabled ? '已启用' : '已停用'} />
                 <Row label="来源" value={detailData.source} />
                 <Row label="描述" value={detailData.description} />
+                {detailData.icon_url && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 8 }}>
+                    <span style={{ color: 'var(--gray-500)' }}>图标：</span>
+                    <ImagePreview url={detailData.icon_url} size={64} radius={10} alt={detailData.name} />
+                  </div>
+                )}
               </Section>
 
               {/* 模板 */}

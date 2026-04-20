@@ -7,11 +7,8 @@ import {
   StopOutlined,
   PoweroffOutlined,
   EyeOutlined,
-  PictureOutlined,
-  UploadOutlined,
-  BulbOutlined,
 } from '@ant-design/icons'
-import { Button, Table, Tag, Input, Modal, Form, App, Popconfirm, Space, Switch, Tooltip, Select, Segmented, Image, Upload, Typography } from 'antd'
+import { Button, Table, Tag, Input, Modal, Form, App, Popconfirm, Space, Switch, Tooltip, Select, Segmented, Typography } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import {
   fetchAgents,
@@ -23,7 +20,8 @@ import {
   toggleAgent,
   type AdminAgent,
 } from '../../services/agentService'
-import { fetchImages, uploadImage, generateImage, type AdminImage } from '../../services/imageService'
+import ImagePicker, { ImagePreview } from '../../components/ImagePicker/ImagePicker'
+import { normalizeImageUrl } from '../../components/ImagePicker/imageUtils'
 import styles from '../SystemSkills/SystemSkills.module.less'
 
 type AgentFormValues = {
@@ -38,13 +36,6 @@ type AgentFormValues = {
   is_public: boolean
 }
 
-function normalizeTagList(value: string): string[] {
-  return value
-    .split(',')
-    .map((item) => item.trim())
-    .filter(Boolean)
-}
-
 function buildAgentAvatarPrompt(values: {
   agent_name: string
   description: string
@@ -56,75 +47,18 @@ function buildAgentAvatarPrompt(values: {
     .join('，')
 }
 
-function extractImageUrl(data: unknown): string {
-  if (!data || typeof data !== 'object') return ''
-  const record = data as Record<string, unknown>
-  const nestedImage = record.image && typeof record.image === 'object'
-    ? record.image as Record<string, unknown>
-    : null
-
-  return (
-    (typeof record.url === 'string' ? record.url : '') ||
-    (typeof record.image_url === 'string' ? record.image_url : '') ||
-    (typeof record.file_url === 'string' ? record.file_url : '') ||
-    (typeof record.oss_url === 'string' ? record.oss_url : '') ||
-    (nestedImage && typeof nestedImage.url === 'string' ? nestedImage.url : '') ||
-    (nestedImage && typeof nestedImage.image_url === 'string' ? nestedImage.image_url : '') ||
-    (nestedImage && typeof nestedImage.file_url === 'string' ? nestedImage.file_url : '') ||
-    (nestedImage && typeof nestedImage.oss_url === 'string' ? nestedImage.oss_url : '') ||
-    ''
-  )
-}
-
-function normalizeAvatarUrl(value: unknown): string | null {
-  if (typeof value !== 'string') return null
-  const trimmed = value.trim()
-  return trimmed ? trimmed : null
-}
-
 function buildAgentSubmitPayload(
   values: AgentFormValues,
   form: ReturnType<typeof Form.useForm>[0],
 ): AgentFormValues {
   return {
     ...values,
-    avatar_url: normalizeAvatarUrl(form.getFieldValue('avatar_url')),
+    avatar_url: normalizeImageUrl(form.getFieldValue('avatar_url')),
   }
 }
 
 function AgentAvatar(props: { url?: string | null; size?: number }) {
-  const { url, size = 40 } = props
-  const avatarUrl = normalizeAvatarUrl(url)
-
-  return (
-    <div
-      style={{
-        width: size,
-        height: size,
-        borderRadius: 12,
-        overflow: 'hidden',
-        background: '#fafafa',
-        border: '1px solid var(--gray-100)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexShrink: 0,
-      }}
-    >
-      {avatarUrl ? (
-        <Image
-          src={avatarUrl}
-          alt="智能体头像"
-          width={size}
-          height={size}
-          style={{ objectFit: 'cover' }}
-          preview={false}
-        />
-      ) : (
-        <PictureOutlined style={{ color: '#999', fontSize: Math.max(18, Math.round(size / 3)) }} />
-      )}
-    </div>
-  )
+  return <ImagePreview url={props.url} size={props.size ?? 40} alt="智能体头像" />
 }
 
 function AvatarSelector(props: {
@@ -135,266 +69,27 @@ function AvatarSelector(props: {
   promptField: string
   form: ReturnType<typeof Form.useForm>[0]
 }) {
-  const { message } = App.useApp()
   const { value, onChange, form, agentNameField, descriptionField, promptField } = props
-  const [libraryOpen, setLibraryOpen] = useState(false)
-  const [generateOpen, setGenerateOpen] = useState(false)
-  const [imagesLoading, setImagesLoading] = useState(false)
-  const [images, setImages] = useState<AdminImage[]>([])
-  const [imageKeyword, setImageKeyword] = useState('')
-  const [uploading, setUploading] = useState(false)
-  const [generating, setGenerating] = useState(false)
-  const [generateForm] = Form.useForm()
-
-  const syncAvatarValue = useCallback((nextValue: string) => {
-    form.setFieldValue('avatar_url', nextValue)
-    onChange?.(nextValue)
-  }, [form, onChange])
-
-  const loadAvatarImages = useCallback(async () => {
-    setImagesLoading(true)
-    try {
-      const res = await fetchImages({
-        category: 'avatar',
-        tags: 'agent',
-        keyword: imageKeyword || undefined,
-        limit: 100,
-      })
-      if (res.success) {
-        setImages(res.data.images || [])
-      } else {
-        message.error(res.msg || '加载头像库失败')
-      }
-    } catch {
-      message.error('网络请求失败')
-    } finally {
-      setImagesLoading(false)
-    }
-  }, [imageKeyword, message])
-
-  useEffect(() => {
-    if (libraryOpen) {
-      loadAvatarImages()
-    }
-  }, [libraryOpen, loadAvatarImages])
-
-  const handleUpload = async (file: File) => {
-    setUploading(true)
-    try {
-      const agentName = form.getFieldValue(agentNameField) || '智能体头像'
-      const res = await uploadImage({
-        file,
-        name: `${agentName}头像`,
-        category: 'avatar',
-        tags: ['agent'],
-        description: form.getFieldValue(descriptionField) || '',
-      })
-      if (res.success) {
-        const uploadedUrl = extractImageUrl(res.data)
-        if (uploadedUrl) {
-          syncAvatarValue(uploadedUrl)
-          message.success('头像上传成功')
-        } else {
-          message.warning('图片已上传到图片库，但返回结果里没有拿到图片地址')
-        }
-      } else {
-        message.error(res.msg || '头像上传失败')
-      }
-    } catch {
-      message.error('网络请求失败')
-    } finally {
-      setUploading(false)
-    }
-  }
-
-  const handleGenerate = async (values: {
-    style: string
-    size: string
-    extra_tags: string
-  }) => {
-    setGenerating(true)
-    try {
-      const agentName = form.getFieldValue(agentNameField) || '智能体'
-      const description = form.getFieldValue(descriptionField) || ''
-      const promptText = form.getFieldValue(promptField) || ''
-      const prompt = buildAgentAvatarPrompt({
-        agent_name: agentName,
-        description,
-        agent_prompt: promptText,
-      })
-      const extraTags = normalizeTagList(values.extra_tags)
-      const res = await generateImage({
-        prompt,
-        style: values.style || null,
-        size: values.size || '1024x1024',
-        name: `${agentName}头像`,
-        category: 'avatar',
-        tags: ['agent', ...extraTags],
-      })
-      if (res.success) {
-        const generatedUrl = extractImageUrl(res.data)
-        if (generatedUrl) {
-          syncAvatarValue(generatedUrl)
-        }
-        setGenerateOpen(false)
-        generateForm.resetFields()
-        message.success('AI 头像已生成并入库')
-      } else {
-        message.error(res.msg || 'AI 生成失败')
-      }
-    } catch {
-      message.error('网络请求失败')
-    } finally {
-      setGenerating(false)
-    }
-  }
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-        <AgentAvatar url={value} size={72} />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
-          <Space wrap>
-            <Button icon={<PictureOutlined />} onClick={() => { setLibraryOpen(true) }}>
-              从图片库选择
-            </Button>
-            <Upload
-              accept=".png,.jpg,.jpeg,.gif,.webp,.svg"
-              showUploadList={false}
-              beforeUpload={(file) => {
-                void handleUpload(file)
-                return false
-              }}
-            >
-              <Button loading={uploading} icon={<UploadOutlined />}>本地上传</Button>
-            </Upload>
-            <Button icon={<BulbOutlined />} onClick={() => { setGenerateOpen(true) }}>
-              AI 生成
-            </Button>
-            {value && (
-              <Button onClick={() => syncAvatarValue('')}>
-                清空头像
-              </Button>
-            )}
-          </Space>
-          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-            三条路径都会把图片落入当前图片管理库，最终回填成智能体的头像地址。
-          </Typography.Text>
-        </div>
-      </div>
-
-      <Modal
-        title="从图片库选择头像"
-        open={libraryOpen}
-        onCancel={() => setLibraryOpen(false)}
-        footer={null}
-        width={860}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <Input.Search
-            placeholder="搜索头像名称或标签..."
-            allowClear
-            value={imageKeyword}
-            onChange={(event) => setImageKeyword(event.target.value)}
-            onSearch={() => loadAvatarImages()}
-          />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: 16 }}>
-            {images.map((image) => (
-              <button
-                key={image.image_id}
-                type="button"
-                onClick={() => {
-                  syncAvatarValue(image.url)
-                  setLibraryOpen(false)
-                }}
-                style={{
-                  border: '1px solid var(--gray-100)',
-                  borderRadius: 12,
-                  background: '#fff',
-                  padding: 12,
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                }}
-              >
-                <div style={{ height: 120, borderRadius: 10, overflow: 'hidden', background: '#fafafa', marginBottom: 8 }}>
-                  <Image src={image.thumbnail_url || image.url} alt={image.name} width="100%" height={120} style={{ objectFit: 'cover' }} preview={false} />
-                </div>
-                <Typography.Text title={image.name} ellipsis={{ tooltip: image.name }} style={{ display: 'block', fontWeight: 500 }}>
-                  {image.name}
-                </Typography.Text>
-              </button>
-            ))}
-          </div>
-          {!imagesLoading && images.length === 0 && (
-            <div style={{ textAlign: 'center', color: '#999', padding: 24 }}>当前没有可选的智能体头像</div>
-          )}
-        </div>
-      </Modal>
-
-      <Modal
-        title="AI 生成头像"
-        open={generateOpen}
-        onCancel={() => {
-          setGenerateOpen(false)
-          generateForm.resetFields()
-        }}
-        onOk={async () => {
-          await generateForm.validateFields()
-          generateForm.submit()
-        }}
-        confirmLoading={generating}
-        width={640}
-      >
-        <Form
-          form={generateForm}
-          layout="vertical"
-          onFinish={handleGenerate}
-          initialValues={{
-            style: '卡通',
-            size: '1024x1024',
-            extra_tags: '',
-          }}
-        >
-          <Form.Item
-            label="生成依据"
-            extra="会自动把智能体名称、描述、提示词拼接起来发给 AI 生图接口。"
-          >
-            <Input.TextArea
-              value={buildAgentAvatarPrompt({
-                agent_name: form.getFieldValue(agentNameField) || '',
-                description: form.getFieldValue(descriptionField) || '',
-                agent_prompt: form.getFieldValue(promptField) || '',
-              })}
-              rows={4}
-              readOnly
-            />
-          </Form.Item>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            <Form.Item label="风格" name="style">
-              <Select
-                options={[
-                  { label: '写实', value: '写实' },
-                  { label: '卡通', value: '卡通' },
-                  { label: '水彩', value: '水彩' },
-                  { label: '油画', value: '油画' },
-                ]}
-              />
-            </Form.Item>
-            <Form.Item label="尺寸" name="size">
-              <Select
-                options={[
-                  { label: '1024 x 1024', value: '1024x1024' },
-                  { label: '1792 x 1024', value: '1792x1024' },
-                ]}
-              />
-            </Form.Item>
-          </div>
-          <Form.Item label="附加标签" name="extra_tags" extra="多个标签用英文逗号分隔，比如：蓝色, 专业, 助手">
-            <Input placeholder="蓝色, 专业, 助手" />
-          </Form.Item>
-        </Form>
-      </Modal>
-    </div>
+    <ImagePicker
+      value={value}
+      onChange={(v) => {
+        form.setFieldValue('avatar_url', v)
+        onChange?.(v)
+      }}
+      category="avatar"
+      libraryTag="agent"
+      entityLabel="头像"
+      alt="智能体头像"
+      hint="三条路径都会把图片落入当前图片管理库，最终回填成智能体的头像地址。"
+      getUploadName={() => form.getFieldValue(agentNameField) || '智能体'}
+      getDescription={() => form.getFieldValue(descriptionField) || ''}
+      getPrompt={() => buildAgentAvatarPrompt({
+        agent_name: form.getFieldValue(agentNameField) || '',
+        description: form.getFieldValue(descriptionField) || '',
+        agent_prompt: form.getFieldValue(promptField) || '',
+      })}
+    />
   )
 }
 
