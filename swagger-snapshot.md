@@ -1,0 +1,4636 @@
+- generic [ref=e3]:
+  - generic:
+    - img
+  - generic [ref=e5]:
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - heading "Document Parse API v1 OAS 3.1" [level=1] [ref=e10]:
+          - text: Document Parse API
+          - generic [ref=e11]:
+            - generic [ref=e13]: v1
+            - generic [ref=e15]: OAS 3.1
+        - link "/openapi.json" [ref=e16] [cursor=pointer]:
+          - /url: /openapi.json
+          - generic [ref=e17]: /openapi.json
+      - code [ref=e21]: "文档解析 API 服务 提供异步文档和视频解析服务。用户提交 OSS URL，系统异步解析并存储到向量数据库。 ## 功能特性 - 支持多种文档格式（PDF、DOCX、PPTX、XLSX、TXT、MD、HTML、CSV） - 支持视频转写（MP4、AVI、MOV、MKV、FLV、WEBM） - 异步处理（基于 Celery） - 任务状态查询 - 健康检查"
+    - generic [ref=e24]:
+      - generic [ref=e26]:
+        - heading "Agent Collapse operation" [level=3] [ref=e27] [cursor=pointer]:
+          - link "Agent" [ref=e28]:
+            - /url: "#/Agent"
+          - button "Collapse operation" [expanded] [ref=e29]:
+            - img [ref=e30]
+        - generic [ref=e33]:
+          - generic [ref=e36] [cursor=pointer]:
+            - button "POST /api/v1/agent Create Agent" [ref=e37]:
+              - generic [ref=e38]: POST
+              - generic [ref=e39]:
+                - link "/api/v1/agent" [ref=e41]:
+                  - /url: "#/Agent/create_agent_api_v1_agent_post"
+                  - generic [ref=e42]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent
+                - generic [ref=e43]: Create Agent
+            - generic "Copy to clipboard"
+            - button "post /api/v1/agent" [ref=e46]:
+              - img [ref=e47]
+          - generic [ref=e51] [cursor=pointer]:
+            - button "GET /api/v1/agent Get Agent" [ref=e52]:
+              - generic [ref=e53]: GET
+              - generic [ref=e54]:
+                - link "/api/v1/agent" [ref=e56]:
+                  - /url: "#/Agent/get_agent_api_v1_agent_get"
+                  - generic [ref=e57]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent
+                - generic [ref=e58]: Get Agent
+            - generic "Copy to clipboard"
+            - button "get /api/v1/agent" [ref=e61]:
+              - img [ref=e62]
+          - generic [ref=e66] [cursor=pointer]:
+            - button "PUT /api/v1/agent Update Agent" [ref=e67]:
+              - generic [ref=e68]: PUT
+              - generic [ref=e69]:
+                - link "/api/v1/agent" [ref=e71]:
+                  - /url: "#/Agent/update_agent_api_v1_agent_put"
+                  - generic [ref=e72]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent
+                - generic [ref=e73]: Update Agent
+            - generic "Copy to clipboard"
+            - button "put /api/v1/agent" [ref=e76]:
+              - img [ref=e77]
+          - generic [ref=e81] [cursor=pointer]:
+            - button "POST /api/v1/agent/files/upload Upload File For Agent" [ref=e82]:
+              - generic [ref=e83]: POST
+              - generic [ref=e84]:
+                - link "/api/v1/agent/files/upload" [ref=e86]:
+                  - /url: "#/Agent/upload_file_for_agent_api_v1_agent_files_upload_post"
+                  - generic [ref=e87]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent
+                    - text: /files
+                    - text: /upload
+                - generic [ref=e88]: Upload File For Agent
+            - generic "Copy to clipboard"
+            - button "post /api/v1/agent/files/upload" [ref=e91]:
+              - img [ref=e92]
+          - generic [ref=e96] [cursor=pointer]:
+            - button "GET /api/v1/agent/tasks List Tasks" [ref=e97]:
+              - generic [ref=e98]: GET
+              - generic [ref=e99]:
+                - link "/api/v1/agent/tasks" [ref=e101]:
+                  - /url: "#/Agent/list_tasks_api_v1_agent_tasks_get"
+                  - generic [ref=e102]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent
+                    - text: /tasks
+                - generic [ref=e103]: List Tasks
+            - generic "Copy to clipboard"
+            - button "get /api/v1/agent/tasks" [ref=e106]:
+              - img [ref=e107]
+          - generic [ref=e111] [cursor=pointer]:
+            - 'button "GET /api/v1/agent/tasks/{task_id} Get Task" [ref=e112]':
+              - generic [ref=e113]: GET
+              - generic [ref=e114]:
+                - 'link "/api/v1/agent/tasks/{task_id}" [ref=e116]':
+                  - /url: "#/Agent/get_task_api_v1_agent_tasks__task_id__get"
+                  - generic [ref=e117]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent
+                    - text: /tasks
+                    - text: "/{task_id}"
+                - generic [ref=e118]: Get Task
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/agent/tasks/{task_id}" [ref=e121]':
+              - img [ref=e122]
+          - generic [ref=e126] [cursor=pointer]:
+            - button "POST /api/v1/agent/task/callback Task Callback" [ref=e127]:
+              - generic [ref=e128]: POST
+              - generic [ref=e129]:
+                - link "/api/v1/agent/task/callback" [ref=e131]:
+                  - /url: "#/Agent/task_callback_api_v1_agent_task_callback_post"
+                  - generic [ref=e132]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent
+                    - text: /task
+                    - text: /callback
+                - generic [ref=e133]: Task Callback
+            - generic "Copy to clipboard"
+            - button "post /api/v1/agent/task/callback" [ref=e136]:
+              - img [ref=e137]
+      - generic [ref=e140]:
+        - heading "agent-templates Collapse operation" [level=3] [ref=e141] [cursor=pointer]:
+          - link "agent-templates" [ref=e142]:
+            - /url: "#/agent-templates"
+          - button "Collapse operation" [expanded] [ref=e143]:
+            - img [ref=e144]
+        - generic [ref=e147]:
+          - generic [ref=e150] [cursor=pointer]:
+            - button "GET /api/v1/agent-templates 获取启用的模板列表" [ref=e151]:
+              - generic [ref=e152]: GET
+              - generic [ref=e153]:
+                - link "/api/v1/agent-templates" [ref=e155]:
+                  - /url: "#/agent-templates/list_templates_api_v1_agent_templates_get"
+                  - generic [ref=e156]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent-templates
+                - generic [ref=e157]: 获取启用的模板列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/agent-templates" [ref=e160]:
+              - img [ref=e161]
+          - generic [ref=e165] [cursor=pointer]:
+            - 'button "GET /api/v1/agent-templates/{template_id} 获取模板详情" [ref=e166]':
+              - generic [ref=e167]: GET
+              - generic [ref=e168]:
+                - 'link "/api/v1/agent-templates/{template_id}" [ref=e170]':
+                  - /url: "#/agent-templates/get_template_api_v1_agent_templates__template_id__get"
+                  - generic [ref=e171]:
+                    - text: /api
+                    - text: /v1
+                    - text: /agent-templates
+                    - text: "/{template_id}"
+                - generic [ref=e172]: 获取模板详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/agent-templates/{template_id}" [ref=e175]':
+              - img [ref=e176]
+      - generic [ref=e179]:
+        - heading "callback Collapse operation" [level=3] [ref=e180] [cursor=pointer]:
+          - link "callback" [ref=e181]:
+            - /url: "#/callback"
+          - button "Collapse operation" [expanded] [ref=e182]:
+            - img [ref=e183]
+        - generic [ref=e186]:
+          - generic [ref=e189] [cursor=pointer]:
+            - button "POST /api/v1/callback/im Handle Im Callback" [ref=e190]:
+              - generic [ref=e191]: POST
+              - generic [ref=e192]:
+                - link "/api/v1/callback/im" [ref=e194]:
+                  - /url: "#/callback/handle_im_callback_api_v1_callback_im_post"
+                  - generic [ref=e195]:
+                    - text: /api
+                    - text: /v1
+                    - text: /callback
+                    - text: /im
+                - generic [ref=e196]: Handle Im Callback
+            - generic "Copy to clipboard"
+            - button "post /api/v1/callback/im" [ref=e199]:
+              - img [ref=e200]
+          - generic [ref=e204] [cursor=pointer]:
+            - button "GET /api/v1/callback/im/health Im Health Check" [ref=e205]:
+              - generic [ref=e206]: GET
+              - generic [ref=e207]:
+                - link "/api/v1/callback/im/health" [ref=e209]:
+                  - /url: "#/callback/im_health_check_api_v1_callback_im_health_get"
+                  - generic [ref=e210]:
+                    - text: /api
+                    - text: /v1
+                    - text: /callback
+                    - text: /im
+                    - text: /health
+                - generic [ref=e211]: Im Health Check
+            - generic "Copy to clipboard"
+            - button "get /api/v1/callback/im/health" [ref=e214]:
+              - img [ref=e215]
+          - generic [ref=e219] [cursor=pointer]:
+            - button "POST /api/v1/callback/tingwu/test Handle Tingwu Callback Test" [ref=e220]:
+              - generic [ref=e221]: POST
+              - generic [ref=e222]:
+                - link "/api/v1/callback/tingwu/test" [ref=e224]:
+                  - /url: "#/callback/handle_tingwu_callback_test_api_v1_callback_tingwu_test_post"
+                  - generic [ref=e225]:
+                    - text: /api
+                    - text: /v1
+                    - text: /callback
+                    - text: /tingwu
+                    - text: /test
+                - generic [ref=e226]: Handle Tingwu Callback Test
+            - generic "Copy to clipboard"
+            - button "post /api/v1/callback/tingwu/test" [ref=e229]:
+              - img [ref=e230]
+          - generic [ref=e234] [cursor=pointer]:
+            - button "POST /api/v1/callback/tingwu Handle Tingwu Callback" [ref=e235]:
+              - generic [ref=e236]: POST
+              - generic [ref=e237]:
+                - link "/api/v1/callback/tingwu" [ref=e239]:
+                  - /url: "#/callback/handle_tingwu_callback_api_v1_callback_tingwu_post"
+                  - generic [ref=e240]:
+                    - text: /api
+                    - text: /v1
+                    - text: /callback
+                    - text: /tingwu
+                - generic [ref=e241]: Handle Tingwu Callback
+            - generic "Copy to clipboard"
+            - button "post /api/v1/callback/tingwu" [ref=e244]:
+              - img [ref=e245]
+      - generic [ref=e248]:
+        - heading "案例仿真 Collapse operation" [level=3] [ref=e249] [cursor=pointer]:
+          - link "案例仿真" [ref=e250]:
+            - /url: "#/案例仿真"
+          - button "Collapse operation" [expanded] [ref=e251]:
+            - img [ref=e252]
+        - generic [ref=e255]:
+          - generic [ref=e258] [cursor=pointer]:
+            - button "POST /api/v1/case_simulation/session/start Start Session" [ref=e259]:
+              - generic [ref=e260]: POST
+              - generic [ref=e261]:
+                - link "/api/v1/case_simulation/session/start" [ref=e263]:
+                  - /url: "#/案例仿真/start_session_api_v1_case_simulation_session_start_post"
+                  - generic [ref=e264]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /session
+                    - text: /start
+                - generic [ref=e265]: Start Session
+            - generic "Copy to clipboard"
+            - button "post /api/v1/case_simulation/session/start" [ref=e268]:
+              - img [ref=e269]
+          - generic [ref=e273] [cursor=pointer]:
+            - button "POST /api/v1/case_simulation/session/regenerate Regenerate Session" [ref=e274]:
+              - generic [ref=e275]: POST
+              - generic [ref=e276]:
+                - link "/api/v1/case_simulation/session/regenerate" [ref=e278]:
+                  - /url: "#/案例仿真/regenerate_session_api_v1_case_simulation_session_regenerate_post"
+                  - generic [ref=e279]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /session
+                    - text: /regenerate
+                - generic [ref=e280]: Regenerate Session
+            - generic "Copy to clipboard"
+            - button "post /api/v1/case_simulation/session/regenerate" [ref=e283]:
+              - img [ref=e284]
+          - generic [ref=e288] [cursor=pointer]:
+            - 'button "GET /api/v1/case_simulation/status/{runtime_session_id} Get Status" [ref=e289]':
+              - generic [ref=e290]: GET
+              - generic [ref=e291]:
+                - 'link "/api/v1/case_simulation/status/{runtime_session_id}" [ref=e293]':
+                  - /url: "#/案例仿真/get_status_api_v1_case_simulation_status__runtime_session_id__get"
+                  - generic [ref=e294]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /status
+                    - text: "/{runtime_session_id}"
+                - generic [ref=e295]: Get Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/case_simulation/status/{runtime_session_id}" [ref=e298]':
+              - img [ref=e299]
+          - generic [ref=e303] [cursor=pointer]:
+            - 'button "GET /api/v1/case_simulation/session/card/{runtime_session_id} Get Session Card" [ref=e304]':
+              - generic [ref=e305]: GET
+              - generic [ref=e306]:
+                - 'link "/api/v1/case_simulation/session/card/{runtime_session_id}" [ref=e308]':
+                  - /url: "#/案例仿真/get_session_card_api_v1_case_simulation_session_card__runtime_session_id__get"
+                  - generic [ref=e309]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /session
+                    - text: /card
+                    - text: "/{runtime_session_id}"
+                - generic [ref=e310]: Get Session Card
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/case_simulation/session/card/{runtime_session_id}" [ref=e313]':
+              - img [ref=e314]
+          - generic [ref=e318] [cursor=pointer]:
+            - 'button "GET /api/v1/case_simulation/review_report/{runtime_session_id}/download Download Review Report" [ref=e319]':
+              - generic [ref=e320]: GET
+              - generic [ref=e321]:
+                - 'link "/api/v1/case_simulation/review_report/{runtime_session_id}/download" [ref=e323]':
+                  - /url: "#/案例仿真/download_review_report_api_v1_case_simulation_review_report__runtime_session_id__download_get"
+                  - generic [ref=e324]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /review_report
+                    - text: "/{runtime_session_id}"
+                    - text: /download
+                - generic [ref=e325]: Download Review Report
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/case_simulation/review_report/{runtime_session_id}/download" [ref=e328]':
+              - img [ref=e329]
+          - generic [ref=e333] [cursor=pointer]:
+            - 'button "GET /api/v1/case_simulation/simulation/{runtime_session_id} Get Simulation Detail" [ref=e334]':
+              - generic [ref=e335]: GET
+              - generic [ref=e336]:
+                - 'link "/api/v1/case_simulation/simulation/{runtime_session_id}" [ref=e338]':
+                  - /url: "#/案例仿真/get_simulation_detail_api_v1_case_simulation_simulation__runtime_session_id__get"
+                  - generic [ref=e339]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /simulation
+                    - text: "/{runtime_session_id}"
+                - generic [ref=e340]: Get Simulation Detail
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/case_simulation/simulation/{runtime_session_id}" [ref=e343]':
+              - img [ref=e344]
+          - generic [ref=e348] [cursor=pointer]:
+            - button "POST /api/v1/case_simulation/answer Answer Question" [ref=e349]:
+              - generic [ref=e350]: POST
+              - generic [ref=e351]:
+                - link "/api/v1/case_simulation/answer" [ref=e353]:
+                  - /url: "#/案例仿真/answer_question_api_v1_case_simulation_answer_post"
+                  - generic [ref=e354]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /answer
+                - generic [ref=e355]: Answer Question
+            - generic "Copy to clipboard"
+            - button "post /api/v1/case_simulation/answer" [ref=e358]:
+              - img [ref=e359]
+          - generic [ref=e363] [cursor=pointer]:
+            - 'button "POST /api/v1/case_simulation/answer/restart/{runtime_session_id} Restart Answer" [ref=e364]':
+              - generic [ref=e365]: POST
+              - generic [ref=e366]:
+                - 'link "/api/v1/case_simulation/answer/restart/{runtime_session_id}" [ref=e368]':
+                  - /url: "#/案例仿真/restart_answer_api_v1_case_simulation_answer_restart__runtime_session_id__post"
+                  - generic [ref=e369]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /answer
+                    - text: /restart
+                    - text: "/{runtime_session_id}"
+                - generic [ref=e370]: Restart Answer
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/case_simulation/answer/restart/{runtime_session_id}" [ref=e373]':
+              - img [ref=e374]
+          - generic [ref=e378] [cursor=pointer]:
+            - 'button "GET /api/v1/case_simulation/simulation/{runtime_session_id}/progress Get Progress" [ref=e379]':
+              - generic [ref=e380]: GET
+              - generic [ref=e381]:
+                - 'link "/api/v1/case_simulation/simulation/{runtime_session_id}/progress" [ref=e383]':
+                  - /url: "#/案例仿真/get_progress_api_v1_case_simulation_simulation__runtime_session_id__progress_get"
+                  - generic [ref=e384]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /simulation
+                    - text: "/{runtime_session_id}"
+                    - text: /progress
+                - generic [ref=e385]: Get Progress
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/case_simulation/simulation/{runtime_session_id}/progress" [ref=e388]':
+              - img [ref=e389]
+          - generic [ref=e393] [cursor=pointer]:
+            - button "POST /api/v1/case_simulation/scene/validate Validate Scene Input" [ref=e394]:
+              - generic [ref=e395]: POST
+              - generic [ref=e396]:
+                - link "/api/v1/case_simulation/scene/validate" [ref=e398]:
+                  - /url: "#/案例仿真/validate_scene_input_api_v1_case_simulation_scene_validate_post"
+                  - generic [ref=e399]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /scene
+                    - text: /validate
+                - generic [ref=e400]: Validate Scene Input
+            - generic "Copy to clipboard"
+            - button "post /api/v1/case_simulation/scene/validate" [ref=e403]:
+              - img [ref=e404]
+          - generic [ref=e408] [cursor=pointer]:
+            - 'button "GET /api/v1/case_simulation/chat/history/{session_id} Get History" [ref=e409]':
+              - generic [ref=e410]: GET
+              - generic [ref=e411]:
+                - 'link "/api/v1/case_simulation/chat/history/{session_id}" [ref=e413]':
+                  - /url: "#/案例仿真/get_history_api_v1_case_simulation_chat_history__session_id__get"
+                  - generic [ref=e414]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /chat
+                    - text: /history
+                    - text: "/{session_id}"
+                - generic [ref=e415]: Get History
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/case_simulation/chat/history/{session_id}" [ref=e418]':
+              - img [ref=e419]
+          - generic [ref=e423] [cursor=pointer]:
+            - button "GET /api/v1/case_simulation/health Health Check" [ref=e424]:
+              - generic [ref=e425]: GET
+              - generic [ref=e426]:
+                - link "/api/v1/case_simulation/health" [ref=e428]:
+                  - /url: "#/案例仿真/health_check_api_v1_case_simulation_health_get"
+                  - generic [ref=e429]:
+                    - text: /api
+                    - text: /v1
+                    - text: /case_simulation
+                    - text: /health
+                - generic [ref=e430]: Health Check
+            - generic "Copy to clipboard"
+            - button "get /api/v1/case_simulation/health" [ref=e433]:
+              - img [ref=e434]
+      - generic [ref=e437]:
+        - heading "Chat Collapse operation" [level=3] [ref=e438] [cursor=pointer]:
+          - link "Chat" [ref=e439]:
+            - /url: "#/Chat"
+          - button "Collapse operation" [expanded] [ref=e440]:
+            - img [ref=e441]
+        - generic [ref=e444]:
+          - generic [ref=e447] [cursor=pointer]:
+            - button "POST /api/v1/chat/sessions Create Session" [ref=e448]:
+              - generic [ref=e449]: POST
+              - generic [ref=e450]:
+                - link "/api/v1/chat/sessions" [ref=e452]:
+                  - /url: "#/Chat/create_session_api_v1_chat_sessions_post"
+                  - generic [ref=e453]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                - generic [ref=e454]: Create Session
+            - generic "Copy to clipboard"
+            - button "post /api/v1/chat/sessions" [ref=e457]:
+              - img [ref=e458]
+          - generic [ref=e462] [cursor=pointer]:
+            - button "GET /api/v1/chat/sessions List Sessions" [ref=e463]:
+              - generic [ref=e464]: GET
+              - generic [ref=e465]:
+                - link "/api/v1/chat/sessions" [ref=e467]:
+                  - /url: "#/Chat/list_sessions_api_v1_chat_sessions_get"
+                  - generic [ref=e468]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                - generic [ref=e469]: List Sessions
+            - generic "Copy to clipboard"
+            - button "get /api/v1/chat/sessions" [ref=e472]:
+              - img [ref=e473]
+          - generic [ref=e477] [cursor=pointer]:
+            - 'button "GET /api/v1/chat/sessions/{session_id} Get Session" [ref=e478]':
+              - generic [ref=e479]: GET
+              - generic [ref=e480]:
+                - 'link "/api/v1/chat/sessions/{session_id}" [ref=e482]':
+                  - /url: "#/Chat/get_session_api_v1_chat_sessions__session_id__get"
+                  - generic [ref=e483]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                - generic [ref=e484]: Get Session
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/chat/sessions/{session_id}" [ref=e487]':
+              - img [ref=e488]
+          - generic [ref=e492] [cursor=pointer]:
+            - 'button "DELETE /api/v1/chat/sessions/{session_id} Delete Session" [ref=e493]':
+              - generic [ref=e494]: DELETE
+              - generic [ref=e495]:
+                - 'link "/api/v1/chat/sessions/{session_id}" [ref=e497]':
+                  - /url: "#/Chat/delete_session_api_v1_chat_sessions__session_id__delete"
+                  - generic [ref=e498]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                - generic [ref=e499]: Delete Session
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/chat/sessions/{session_id}" [ref=e502]':
+              - img [ref=e503]
+          - generic [ref=e507] [cursor=pointer]:
+            - 'button "GET /api/v1/chat/sessions/{session_id}/files/preview Preview File" [ref=e508]':
+              - generic [ref=e509]: GET
+              - generic [ref=e510]:
+                - 'link "/api/v1/chat/sessions/{session_id}/files/preview" [ref=e512]':
+                  - /url: "#/Chat/preview_file_api_v1_chat_sessions__session_id__files_preview_get"
+                  - generic [ref=e513]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                    - text: /files
+                    - text: /preview
+                - generic [ref=e514]: Preview File
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/chat/sessions/{session_id}/files/preview" [ref=e517]':
+              - img [ref=e518]
+          - generic [ref=e522] [cursor=pointer]:
+            - button "GET /api/v1/chat/files/preview Preview File Generic" [ref=e523]:
+              - generic [ref=e524]: GET
+              - generic [ref=e525]:
+                - link "/api/v1/chat/files/preview" [ref=e527]:
+                  - /url: "#/Chat/preview_file_generic_api_v1_chat_files_preview_get"
+                  - generic [ref=e528]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /files
+                    - text: /preview
+                - generic [ref=e529]: Preview File Generic
+            - generic "Copy to clipboard"
+            - button "get /api/v1/chat/files/preview" [ref=e532]:
+              - img [ref=e533]
+          - generic [ref=e537] [cursor=pointer]:
+            - 'button "GET /api/v1/chat/sessions/{session_id}/messages/recent Get Recent Messages" [ref=e538]':
+              - generic [ref=e539]: GET
+              - generic [ref=e540]:
+                - 'link "/api/v1/chat/sessions/{session_id}/messages/recent" [ref=e542]':
+                  - /url: "#/Chat/get_recent_messages_api_v1_chat_sessions__session_id__messages_recent_get"
+                  - generic [ref=e543]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                    - text: /messages
+                    - text: /recent
+                - generic [ref=e544]: Get Recent Messages
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/chat/sessions/{session_id}/messages/recent" [ref=e547]':
+              - img [ref=e548]
+          - generic [ref=e552] [cursor=pointer]:
+            - 'button "GET /api/v1/chat/sessions/{session_id}/messages/before Get Messages Before" [ref=e553]':
+              - generic [ref=e554]: GET
+              - generic [ref=e555]:
+                - 'link "/api/v1/chat/sessions/{session_id}/messages/before" [ref=e557]':
+                  - /url: "#/Chat/get_messages_before_api_v1_chat_sessions__session_id__messages_before_get"
+                  - generic [ref=e558]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                    - text: /messages
+                    - text: /before
+                - generic [ref=e559]: Get Messages Before
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/chat/sessions/{session_id}/messages/before" [ref=e562]':
+              - img [ref=e563]
+          - generic [ref=e567] [cursor=pointer]:
+            - button "GET /api/v1/chat/files/download-url Download Url" [ref=e568]:
+              - generic [ref=e569]: GET
+              - generic [ref=e570]:
+                - link "/api/v1/chat/files/download-url" [ref=e572]:
+                  - /url: "#/Chat/download_url_api_v1_chat_files_download_url_get"
+                  - generic [ref=e573]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /files
+                    - text: /download-url
+                - generic [ref=e574]: Download Url
+            - generic "Copy to clipboard"
+            - button "get /api/v1/chat/files/download-url" [ref=e577]:
+              - img [ref=e578]
+          - generic [ref=e582] [cursor=pointer]:
+            - 'button "POST /api/v1/chat/sessions/{session_id}/stream Stream Events V2" [ref=e583]':
+              - generic [ref=e584]: POST
+              - generic [ref=e585]:
+                - 'link "/api/v1/chat/sessions/{session_id}/stream" [ref=e587]':
+                  - /url: "#/Chat/stream_events_v2_api_v1_chat_sessions__session_id__stream_post"
+                  - generic [ref=e588]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                    - text: /stream
+                - generic [ref=e589]: Stream Events V2
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/chat/sessions/{session_id}/stream" [ref=e592]':
+              - img [ref=e593]
+          - generic [ref=e597] [cursor=pointer]:
+            - 'button "GET /api/v1/chat/sessions/{session_id}/stream Resume Stream Events" [ref=e598]':
+              - generic [ref=e599]: GET
+              - generic [ref=e600]:
+                - 'link "/api/v1/chat/sessions/{session_id}/stream" [ref=e602]':
+                  - /url: "#/Chat/resume_stream_events_api_v1_chat_sessions__session_id__stream_get"
+                  - generic [ref=e603]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                    - text: /stream
+                - generic [ref=e604]: Resume Stream Events
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/chat/sessions/{session_id}/stream" [ref=e607]':
+              - img [ref=e608]
+          - generic [ref=e612] [cursor=pointer]:
+            - 'button "POST /api/v1/chat/sessions/{session_id}/stream/stop Stop Stream Events" [ref=e613]':
+              - generic [ref=e614]: POST
+              - generic [ref=e615]:
+                - 'link "/api/v1/chat/sessions/{session_id}/stream/stop" [ref=e617]':
+                  - /url: "#/Chat/stop_stream_events_api_v1_chat_sessions__session_id__stream_stop_post"
+                  - generic [ref=e618]:
+                    - text: /api
+                    - text: /v1
+                    - text: /chat
+                    - text: /sessions
+                    - text: "/{session_id}"
+                    - text: /stream
+                    - text: /stop
+                - generic [ref=e619]: Stop Stream Events
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/chat/sessions/{session_id}/stream/stop" [ref=e622]':
+              - img [ref=e623]
+      - generic [ref=e626]:
+        - heading "ClawHub Collapse operation" [level=3] [ref=e627] [cursor=pointer]:
+          - link "ClawHub" [ref=e628]:
+            - /url: "#/ClawHub"
+          - button "Collapse operation" [expanded] [ref=e629]:
+            - img [ref=e630]
+        - generic [ref=e633]:
+          - generic [ref=e636] [cursor=pointer]:
+            - button "GET /api/v1/skills/clawhub/search Clawhub Search" [ref=e637]:
+              - generic [ref=e638]: GET
+              - generic [ref=e639]:
+                - link "/api/v1/skills/clawhub/search" [ref=e641]:
+                  - /url: "#/ClawHub/clawhub_search_skills"
+                  - generic [ref=e642]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /clawhub
+                    - text: /search
+                - generic [ref=e643]: Clawhub Search
+            - generic "Copy to clipboard"
+            - button "get /api/v1/skills/clawhub/search" [ref=e646]:
+              - img [ref=e647]
+          - generic [ref=e651] [cursor=pointer]:
+            - button "GET /api/v1/skills/clawhub/browse Clawhub Browse" [ref=e652]:
+              - generic [ref=e653]: GET
+              - generic [ref=e654]:
+                - link "/api/v1/skills/clawhub/browse" [ref=e656]:
+                  - /url: "#/ClawHub/clawhub_browse_skills"
+                  - generic [ref=e657]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /clawhub
+                    - text: /browse
+                - generic [ref=e658]: Clawhub Browse
+            - generic "Copy to clipboard"
+            - button "get /api/v1/skills/clawhub/browse" [ref=e661]:
+              - img [ref=e662]
+          - generic [ref=e666] [cursor=pointer]:
+            - 'button "GET /api/v1/skills/clawhub/{slug} Clawhub Detail" [ref=e667]':
+              - generic [ref=e668]: GET
+              - generic [ref=e669]:
+                - 'link "/api/v1/skills/clawhub/{slug}" [ref=e671]':
+                  - /url: "#/ClawHub/clawhub_skill_detail"
+                  - generic [ref=e672]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /clawhub
+                    - text: "/{slug}"
+                - generic [ref=e673]: Clawhub Detail
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/skills/clawhub/{slug}" [ref=e676]':
+              - img [ref=e677]
+          - generic [ref=e681] [cursor=pointer]:
+            - 'button "POST /api/v1/skills/clawhub/{slug}/install Clawhub Install" [ref=e682]':
+              - generic [ref=e683]: POST
+              - generic [ref=e684]:
+                - 'link "/api/v1/skills/clawhub/{slug}/install" [ref=e686]':
+                  - /url: "#/ClawHub/clawhub_skill_install"
+                  - generic [ref=e687]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /clawhub
+                    - text: "/{slug}"
+                    - text: /install
+                - generic [ref=e688]: Clawhub Install
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/skills/clawhub/{slug}/install" [ref=e691]':
+              - img [ref=e692]
+      - generic [ref=e695]:
+        - heading "commands Collapse operation" [level=3] [ref=e696] [cursor=pointer]:
+          - link "commands" [ref=e697]:
+            - /url: "#/commands"
+          - button "Collapse operation" [expanded] [ref=e698]:
+            - img [ref=e699]
+        - generic [ref=e702]:
+          - generic [ref=e705] [cursor=pointer]:
+            - button "GET /api/v1/commands 获取所有指令数据" [ref=e706]:
+              - generic [ref=e707]: GET
+              - generic [ref=e708]:
+                - link "/api/v1/commands" [ref=e710]:
+                  - /url: "#/commands/get_commands_api_v1_commands_get"
+                  - generic [ref=e711]:
+                    - text: /api
+                    - text: /v1
+                    - text: /commands
+                - generic [ref=e712]: 获取所有指令数据
+            - generic "Copy to clipboard"
+            - button "get /api/v1/commands" [ref=e715]:
+              - img [ref=e716]
+          - generic [ref=e720] [cursor=pointer]:
+            - button "POST /api/v1/my-commands/generate 从历史对话生成指令（不保存）" [ref=e721]:
+              - generic [ref=e722]: POST
+              - generic [ref=e723]:
+                - link "/api/v1/my-commands/generate" [ref=e725]:
+                  - /url: "#/commands/generate_command_from_history_api_v1_my_commands_generate_post"
+                  - generic [ref=e726]:
+                    - text: /api
+                    - text: /v1
+                    - text: /my-commands
+                    - text: /generate
+                - generic [ref=e727]: 从历史对话生成指令（不保存）
+            - generic "Copy to clipboard"
+            - button "post /api/v1/my-commands/generate" [ref=e730]:
+              - img [ref=e731]
+          - generic [ref=e735] [cursor=pointer]:
+            - button "POST /api/v1/my-commands 保存我的指令" [ref=e736]:
+              - generic [ref=e737]: POST
+              - generic [ref=e738]:
+                - link "/api/v1/my-commands" [ref=e740]:
+                  - /url: "#/commands/save_user_command_api_v1_my_commands_post"
+                  - generic [ref=e741]:
+                    - text: /api
+                    - text: /v1
+                    - text: /my-commands
+                - generic [ref=e742]: 保存我的指令
+            - generic "Copy to clipboard"
+            - button "post /api/v1/my-commands" [ref=e745]:
+              - img [ref=e746]
+          - generic [ref=e750] [cursor=pointer]:
+            - 'button "PUT /api/v1/my-commands/{command_id} 更新我的指令" [ref=e751]':
+              - generic [ref=e752]: PUT
+              - generic [ref=e753]:
+                - 'link "/api/v1/my-commands/{command_id}" [ref=e755]':
+                  - /url: "#/commands/update_user_command_api_v1_my_commands__command_id__put"
+                  - generic [ref=e756]:
+                    - text: /api
+                    - text: /v1
+                    - text: /my-commands
+                    - text: "/{command_id}"
+                - generic [ref=e757]: 更新我的指令
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/my-commands/{command_id}" [ref=e760]':
+              - img [ref=e761]
+          - generic [ref=e765] [cursor=pointer]:
+            - 'button "DELETE /api/v1/my-commands/{command_id} 删除我的指令" [ref=e766]':
+              - generic [ref=e767]: DELETE
+              - generic [ref=e768]:
+                - 'link "/api/v1/my-commands/{command_id}" [ref=e770]':
+                  - /url: "#/commands/delete_user_command_api_v1_my_commands__command_id__delete"
+                  - generic [ref=e771]:
+                    - text: /api
+                    - text: /v1
+                    - text: /my-commands
+                    - text: "/{command_id}"
+                - generic [ref=e772]: 删除我的指令
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/my-commands/{command_id}" [ref=e775]':
+              - img [ref=e776]
+      - generic [ref=e779]:
+        - heading "CustomAgent Collapse operation" [level=3] [ref=e780] [cursor=pointer]:
+          - link "CustomAgent" [ref=e781]:
+            - /url: "#/CustomAgent"
+          - button "Collapse operation" [expanded] [ref=e782]:
+            - img [ref=e783]
+        - generic [ref=e786]:
+          - generic [ref=e789] [cursor=pointer]:
+            - button "POST /api/v1/custom-agents/templates/generate 创建智能体模板生成任务" [ref=e790]:
+              - generic [ref=e791]: POST
+              - generic [ref=e792]:
+                - link "/api/v1/custom-agents/templates/generate" [ref=e794]:
+                  - /url: "#/CustomAgent/create_agent_template_api_v1_custom_agents_templates_generate_post"
+                  - generic [ref=e795]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /templates
+                    - text: /generate
+                - generic [ref=e796]: 创建智能体模板生成任务
+            - generic "Copy to clipboard"
+            - button "post /api/v1/custom-agents/templates/generate" [ref=e799]:
+              - img [ref=e800]
+          - generic [ref=e804] [cursor=pointer]:
+            - 'button "GET /api/v1/custom-agents/templates/tasks/{task_id} 查询智能体模板生成进度" [ref=e805]':
+              - generic [ref=e806]: GET
+              - generic [ref=e807]:
+                - 'link "/api/v1/custom-agents/templates/tasks/{task_id}" [ref=e809]':
+                  - /url: "#/CustomAgent/get_agent_template_progress_api_v1_custom_agents_templates_tasks__task_id__get"
+                  - generic [ref=e810]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /templates
+                    - text: /tasks
+                    - text: "/{task_id}"
+                - generic [ref=e811]: 查询智能体模板生成进度
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/custom-agents/templates/tasks/{task_id}" [ref=e814]':
+              - img [ref=e815]
+          - generic [ref=e819] [cursor=pointer]:
+            - button "POST /api/v1/custom-agents/skills/recommend 推荐技能" [ref=e820]:
+              - generic [ref=e821]: POST
+              - generic [ref=e822]:
+                - link "/api/v1/custom-agents/skills/recommend" [ref=e824]:
+                  - /url: "#/CustomAgent/recommend_skills_api_v1_custom_agents_skills_recommend_post"
+                  - generic [ref=e825]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /skills
+                    - text: /recommend
+                - generic [ref=e826]: 推荐技能
+            - generic "Copy to clipboard"
+            - button "post /api/v1/custom-agents/skills/recommend" [ref=e829]:
+              - img [ref=e830]
+          - generic [ref=e834] [cursor=pointer]:
+            - button "POST /api/v1/custom-agents 创建自定义智能体" [ref=e835]:
+              - generic [ref=e836]: POST
+              - generic [ref=e837]:
+                - link "/api/v1/custom-agents" [ref=e839]:
+                  - /url: "#/CustomAgent/create_custom_agent_api_v1_custom_agents_post"
+                  - generic [ref=e840]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                - generic [ref=e841]: 创建自定义智能体
+            - generic "Copy to clipboard"
+            - button "post /api/v1/custom-agents" [ref=e844]:
+              - img [ref=e845]
+          - generic [ref=e849] [cursor=pointer]:
+            - button "GET /api/v1/custom-agents 获取用户自定义智能体列表" [ref=e850]:
+              - generic [ref=e851]: GET
+              - generic [ref=e852]:
+                - link "/api/v1/custom-agents" [ref=e854]:
+                  - /url: "#/CustomAgent/list_custom_agents_api_v1_custom_agents_get"
+                  - generic [ref=e855]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                - generic [ref=e856]: 获取用户自定义智能体列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/custom-agents" [ref=e859]:
+              - img [ref=e860]
+          - generic [ref=e864] [cursor=pointer]:
+            - button "GET /api/v1/custom-agents/public/list 获取公开智能体列表" [ref=e865]:
+              - generic [ref=e866]: GET
+              - generic [ref=e867]:
+                - link "/api/v1/custom-agents/public/list" [ref=e869]:
+                  - /url: "#/CustomAgent/list_public_agents_api_v1_custom_agents_public_list_get"
+                  - generic [ref=e870]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /public
+                    - text: /list
+                - generic [ref=e871]: 获取公开智能体列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/custom-agents/public/list" [ref=e874]:
+              - img [ref=e875]
+          - generic [ref=e879] [cursor=pointer]:
+            - button "POST /api/v1/custom-agents/usage-logs 新增智能体使用记录" [ref=e880]:
+              - generic [ref=e881]: POST
+              - generic [ref=e882]:
+                - link "/api/v1/custom-agents/usage-logs" [ref=e884]:
+                  - /url: "#/CustomAgent/create_usage_log_api_v1_custom_agents_usage_logs_post"
+                  - generic [ref=e885]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /usage-logs
+                - generic [ref=e886]: 新增智能体使用记录
+            - generic "Copy to clipboard"
+            - button "post /api/v1/custom-agents/usage-logs" [ref=e889]:
+              - img [ref=e890]
+          - generic [ref=e894] [cursor=pointer]:
+            - button "GET /api/v1/custom-agents/usage-logs 获取智能体使用记录列表" [ref=e895]:
+              - generic [ref=e896]: GET
+              - generic [ref=e897]:
+                - link "/api/v1/custom-agents/usage-logs" [ref=e899]:
+                  - /url: "#/CustomAgent/list_usage_logs_api_v1_custom_agents_usage_logs_get"
+                  - generic [ref=e900]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /usage-logs
+                - generic [ref=e901]: 获取智能体使用记录列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/custom-agents/usage-logs" [ref=e904]:
+              - img [ref=e905]
+          - generic [ref=e909] [cursor=pointer]:
+            - 'button "DELETE /api/v1/custom-agents/usage-logs/{agent_id} 移除智能体使用记录" [ref=e910]':
+              - generic [ref=e911]: DELETE
+              - generic [ref=e912]:
+                - 'link "/api/v1/custom-agents/usage-logs/{agent_id}" [ref=e914]':
+                  - /url: "#/CustomAgent/remove_usage_log_api_v1_custom_agents_usage_logs__agent_id__delete"
+                  - generic [ref=e915]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /usage-logs
+                    - text: "/{agent_id}"
+                - generic [ref=e916]: 移除智能体使用记录
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/custom-agents/usage-logs/{agent_id}" [ref=e919]':
+              - img [ref=e920]
+          - generic [ref=e924] [cursor=pointer]:
+            - 'button "GET /api/v1/custom-agents/{agent_id} 获取自定义智能体详情" [ref=e925]':
+              - generic [ref=e926]: GET
+              - generic [ref=e927]:
+                - 'link "/api/v1/custom-agents/{agent_id}" [ref=e929]':
+                  - /url: "#/CustomAgent/get_custom_agent_api_v1_custom_agents__agent_id__get"
+                  - generic [ref=e930]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: "/{agent_id}"
+                - generic [ref=e931]: 获取自定义智能体详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/custom-agents/{agent_id}" [ref=e934]':
+              - img [ref=e935]
+          - generic [ref=e939] [cursor=pointer]:
+            - 'button "PUT /api/v1/custom-agents/{agent_id} 修改智能体设置" [ref=e940]':
+              - generic [ref=e941]: PUT
+              - generic [ref=e942]:
+                - 'link "/api/v1/custom-agents/{agent_id}" [ref=e944]':
+                  - /url: "#/CustomAgent/update_custom_agent_api_v1_custom_agents__agent_id__put"
+                  - generic [ref=e945]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: "/{agent_id}"
+                - generic [ref=e946]: 修改智能体设置
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/custom-agents/{agent_id}" [ref=e949]':
+              - img [ref=e950]
+          - generic [ref=e954] [cursor=pointer]:
+            - 'button "DELETE /api/v1/custom-agents/{agent_id} 删除自定义智能体" [ref=e955]':
+              - generic [ref=e956]: DELETE
+              - generic [ref=e957]:
+                - 'link "/api/v1/custom-agents/{agent_id}" [ref=e959]':
+                  - /url: "#/CustomAgent/delete_custom_agent_api_v1_custom_agents__agent_id__delete"
+                  - generic [ref=e960]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: "/{agent_id}"
+                - generic [ref=e961]: 删除自定义智能体
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/custom-agents/{agent_id}" [ref=e964]':
+              - img [ref=e965]
+          - generic [ref=e969] [cursor=pointer]:
+            - button "POST /api/v1/custom-agents/debug/stream 智能体调试流式对话" [ref=e970]:
+              - generic [ref=e971]: POST
+              - generic [ref=e972]:
+                - link "/api/v1/custom-agents/debug/stream" [ref=e974]:
+                  - /url: "#/CustomAgent/debug_agent_stream_api_v1_custom_agents_debug_stream_post"
+                  - generic [ref=e975]:
+                    - text: /api
+                    - text: /v1
+                    - text: /custom-agents
+                    - text: /debug
+                    - text: /stream
+                - generic [ref=e976]: 智能体调试流式对话
+            - generic "Copy to clipboard"
+            - button "post /api/v1/custom-agents/debug/stream" [ref=e979]:
+              - img [ref=e980]
+      - generic [ref=e983]:
+        - heading "custom-skills Collapse operation" [level=3] [ref=e984] [cursor=pointer]:
+          - link "custom-skills" [ref=e985]:
+            - /url: "#/custom-skills"
+          - button "Collapse operation" [expanded] [ref=e986]:
+            - img [ref=e987]
+        - generic [ref=e990]:
+          - generic [ref=e993] [cursor=pointer]:
+            - button "POST /api/v1/skills/custom/upload Upload Skill" [ref=e994]:
+              - generic [ref=e995]: POST
+              - generic [ref=e996]:
+                - link "/api/v1/skills/custom/upload" [ref=e998]:
+                  - /url: "#/custom-skills/upload_skill_api_v1_skills_custom_upload_post"
+                  - generic [ref=e999]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /custom
+                    - text: /upload
+                - generic [ref=e1000]: Upload Skill
+            - generic "Copy to clipboard"
+            - button "post /api/v1/skills/custom/upload" [ref=e1003]:
+              - img [ref=e1004]
+          - generic [ref=e1008] [cursor=pointer]:
+            - button "GET /api/v1/skills/custom List Custom Skills" [ref=e1009]:
+              - generic [ref=e1010]: GET
+              - generic [ref=e1011]:
+                - link "/api/v1/skills/custom" [ref=e1013]:
+                  - /url: "#/custom-skills/list_custom_skills_api_v1_skills_custom_get"
+                  - generic [ref=e1014]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /custom
+                - generic [ref=e1015]: List Custom Skills
+            - generic "Copy to clipboard"
+            - button "get /api/v1/skills/custom" [ref=e1018]:
+              - img [ref=e1019]
+          - generic [ref=e1023] [cursor=pointer]:
+            - 'button "GET /api/v1/skills/custom/{skill_name} Get Custom Skill" [ref=e1024]':
+              - generic [ref=e1025]: GET
+              - generic [ref=e1026]:
+                - 'link "/api/v1/skills/custom/{skill_name}" [ref=e1028]':
+                  - /url: "#/custom-skills/get_custom_skill_api_v1_skills_custom__skill_name__get"
+                  - generic [ref=e1029]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /custom
+                    - text: "/{skill_name}"
+                - generic [ref=e1030]: Get Custom Skill
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/skills/custom/{skill_name}" [ref=e1033]':
+              - img [ref=e1034]
+          - generic [ref=e1038] [cursor=pointer]:
+            - 'button "PUT /api/v1/skills/custom/{skill_name} Update Custom Skill" [ref=e1039]':
+              - generic [ref=e1040]: PUT
+              - generic [ref=e1041]:
+                - 'link "/api/v1/skills/custom/{skill_name}" [ref=e1043]':
+                  - /url: "#/custom-skills/update_custom_skill_api_v1_skills_custom__skill_name__put"
+                  - generic [ref=e1044]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /custom
+                    - text: "/{skill_name}"
+                - generic [ref=e1045]: Update Custom Skill
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/skills/custom/{skill_name}" [ref=e1048]':
+              - img [ref=e1049]
+          - generic [ref=e1053] [cursor=pointer]:
+            - 'button "DELETE /api/v1/skills/custom/{skill_name} Delete Custom Skill" [ref=e1054]':
+              - generic [ref=e1055]: DELETE
+              - generic [ref=e1056]:
+                - 'link "/api/v1/skills/custom/{skill_name}" [ref=e1058]':
+                  - /url: "#/custom-skills/delete_custom_skill_api_v1_skills_custom__skill_name__delete"
+                  - generic [ref=e1059]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /custom
+                    - text: "/{skill_name}"
+                - generic [ref=e1060]: Delete Custom Skill
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/skills/custom/{skill_name}" [ref=e1063]':
+              - img [ref=e1064]
+          - generic [ref=e1068] [cursor=pointer]:
+            - 'button "GET /api/v1/skills/custom/{skill_name}/download Download Skill Package" [ref=e1069]':
+              - generic [ref=e1070]: GET
+              - generic [ref=e1071]:
+                - 'link "/api/v1/skills/custom/{skill_name}/download" [ref=e1073]':
+                  - /url: "#/custom-skills/download_skill_package_api_v1_skills_custom__skill_name__download_get"
+                  - generic [ref=e1074]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: /custom
+                    - text: "/{skill_name}"
+                    - text: /download
+                - generic [ref=e1075]: Download Skill Package
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/skills/custom/{skill_name}/download" [ref=e1078]':
+              - img [ref=e1079]
+      - generic [ref=e1082]:
+        - heading "Files Collapse operation" [level=3] [ref=e1083] [cursor=pointer]:
+          - link "Files" [ref=e1084]:
+            - /url: "#/Files"
+          - button "Collapse operation" [expanded] [ref=e1085]:
+            - img [ref=e1086]
+        - generic [ref=e1089]:
+          - generic [ref=e1092] [cursor=pointer]:
+            - button "GET /api/v1/files/library List File Library" [ref=e1093]:
+              - generic [ref=e1094]: GET
+              - generic [ref=e1095]:
+                - link "/api/v1/files/library" [ref=e1097]:
+                  - /url: "#/Files/list_file_library_api_v1_files_library_get"
+                  - generic [ref=e1098]:
+                    - text: /api
+                    - text: /v1
+                    - text: /files
+                    - text: /library
+                - generic [ref=e1099]: List File Library
+            - generic "Copy to clipboard"
+            - button "get /api/v1/files/library" [ref=e1102]:
+              - img [ref=e1103]
+          - generic [ref=e1107] [cursor=pointer]:
+            - 'button "GET /api/v1/files/library/{file_id} Get File Detail" [ref=e1108]':
+              - generic [ref=e1109]: GET
+              - generic [ref=e1110]:
+                - 'link "/api/v1/files/library/{file_id}" [ref=e1112]':
+                  - /url: "#/Files/get_file_detail_api_v1_files_library__file_id__get"
+                  - generic [ref=e1113]:
+                    - text: /api
+                    - text: /v1
+                    - text: /files
+                    - text: /library
+                    - text: "/{file_id}"
+                - generic [ref=e1114]: Get File Detail
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/files/library/{file_id}" [ref=e1117]':
+              - img [ref=e1118]
+          - generic [ref=e1122] [cursor=pointer]:
+            - button "POST /api/v1/files/library/save-to-cloud-disk Save To Cloud Disk" [ref=e1123]:
+              - generic [ref=e1124]: POST
+              - generic [ref=e1125]:
+                - link "/api/v1/files/library/save-to-cloud-disk" [ref=e1127]:
+                  - /url: "#/Files/save_to_cloud_disk_api_v1_files_library_save_to_cloud_disk_post"
+                  - generic [ref=e1128]:
+                    - text: /api
+                    - text: /v1
+                    - text: /files
+                    - text: /library
+                    - text: /save-to-cloud-disk
+                - generic [ref=e1129]: Save To Cloud Disk
+            - generic "Copy to clipboard"
+            - button "post /api/v1/files/library/save-to-cloud-disk" [ref=e1132]:
+              - img [ref=e1133]
+      - generic [ref=e1136]:
+        - heading "health Collapse operation" [level=3] [ref=e1137] [cursor=pointer]:
+          - link "health" [ref=e1138]:
+            - /url: "#/health"
+          - button "Collapse operation" [expanded] [ref=e1139]:
+            - img [ref=e1140]
+        - generic [ref=e1146] [cursor=pointer]:
+          - button "GET /api/v1/health Health Check" [ref=e1147]:
+            - generic [ref=e1148]: GET
+            - generic [ref=e1149]:
+              - link "/api/v1/health" [ref=e1151]:
+                - /url: "#/health/health_check_api_v1_health_get"
+                - generic [ref=e1152]:
+                  - text: /api
+                  - text: /v1
+                  - text: /health
+              - generic [ref=e1153]: Health Check
+          - generic "Copy to clipboard"
+          - button "get /api/v1/health" [ref=e1156]:
+            - img [ref=e1157]
+      - generic [ref=e1160]:
+        - heading "media Collapse operation" [level=3] [ref=e1161] [cursor=pointer]:
+          - link "media" [ref=e1162]:
+            - /url: "#/media"
+          - button "Collapse operation" [expanded] [ref=e1163]:
+            - img [ref=e1164]
+        - generic [ref=e1167]:
+          - generic [ref=e1170] [cursor=pointer]:
+            - button "GET /api/v1/media/list List Media Tasks" [ref=e1171]:
+              - generic [ref=e1172]: GET
+              - generic [ref=e1173]:
+                - link "/api/v1/media/list" [ref=e1175]:
+                  - /url: "#/media/list_media_tasks_api_v1_media_list_get"
+                  - generic [ref=e1176]:
+                    - text: /api
+                    - text: /v1
+                    - text: /media
+                    - text: /list
+                - generic [ref=e1177]: List Media Tasks
+            - generic "Copy to clipboard"
+            - button "get /api/v1/media/list" [ref=e1180]:
+              - img [ref=e1181]
+          - generic [ref=e1185] [cursor=pointer]:
+            - 'button "GET /api/v1/media/{task_id} Get Media Task Status" [ref=e1186]':
+              - generic [ref=e1187]: GET
+              - generic [ref=e1188]:
+                - 'link "/api/v1/media/{task_id}" [ref=e1190]':
+                  - /url: "#/media/get_media_task_status_api_v1_media__task_id__get"
+                  - generic [ref=e1191]:
+                    - text: /api
+                    - text: /v1
+                    - text: /media
+                    - text: "/{task_id}"
+                - generic [ref=e1192]: Get Media Task Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/media/{task_id}" [ref=e1195]':
+              - img [ref=e1196]
+      - generic [ref=e1199]:
+        - heading "openmaic Collapse operation" [level=3] [ref=e1200] [cursor=pointer]:
+          - link "openmaic" [ref=e1201]:
+            - /url: "#/openmaic"
+          - button "Collapse operation" [expanded] [ref=e1202]:
+            - img [ref=e1203]
+        - generic [ref=e1206]:
+          - generic [ref=e1209] [cursor=pointer]:
+            - button "POST /api/v1/openmaic/classroom/generate Submit Openmaic Classroom Generate" [ref=e1210]:
+              - generic [ref=e1211]: POST
+              - generic [ref=e1212]:
+                - link "/api/v1/openmaic/classroom/generate" [ref=e1214]:
+                  - /url: "#/openmaic/submit_openmaic_classroom_generate_api_v1_openmaic_classroom_generate_post"
+                  - generic [ref=e1215]:
+                    - text: /api
+                    - text: /v1
+                    - text: /openmaic
+                    - text: /classroom
+                    - text: /generate
+                - generic [ref=e1216]: Submit Openmaic Classroom Generate
+            - generic "Copy to clipboard"
+            - button "post /api/v1/openmaic/classroom/generate" [ref=e1219]:
+              - img [ref=e1220]
+          - generic [ref=e1224] [cursor=pointer]:
+            - 'button "GET /api/v1/openmaic/classroom/generate/{task_id} Get Openmaic Classroom Generate Status" [ref=e1225]':
+              - generic [ref=e1226]: GET
+              - generic [ref=e1227]:
+                - 'link "/api/v1/openmaic/classroom/generate/{task_id}" [ref=e1229]':
+                  - /url: "#/openmaic/get_openmaic_classroom_generate_status_api_v1_openmaic_classroom_generate__task_id__get"
+                  - generic [ref=e1230]:
+                    - text: /api
+                    - text: /v1
+                    - text: /openmaic
+                    - text: /classroom
+                    - text: /generate
+                    - text: "/{task_id}"
+                - generic [ref=e1231]: Get Openmaic Classroom Generate Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/openmaic/classroom/generate/{task_id}" [ref=e1234]':
+              - img [ref=e1235]
+      - generic [ref=e1238]:
+        - heading "parse Collapse operation" [level=3] [ref=e1239] [cursor=pointer]:
+          - link "parse" [ref=e1240]:
+            - /url: "#/parse"
+          - button "Collapse operation" [expanded] [ref=e1241]:
+            - img [ref=e1242]
+        - generic [ref=e1245]:
+          - generic [ref=e1248] [cursor=pointer]:
+            - button "POST /api/v1/parse Submit Parse Task" [ref=e1249]:
+              - generic [ref=e1250]: POST
+              - generic [ref=e1251]:
+                - link "/api/v1/parse" [ref=e1253]:
+                  - /url: "#/parse/submit_parse_task_api_v1_parse_post"
+                  - generic [ref=e1254]:
+                    - text: /api
+                    - text: /v1
+                    - text: /parse
+                - generic [ref=e1255]: Submit Parse Task
+            - generic "Copy to clipboard"
+            - button "post /api/v1/parse" [ref=e1258]:
+              - img [ref=e1259]
+          - generic [ref=e1263] [cursor=pointer]:
+            - 'button "GET /api/v1/parse/{task_id} Get Task Status" [ref=e1264]':
+              - generic [ref=e1265]: GET
+              - generic [ref=e1266]:
+                - 'link "/api/v1/parse/{task_id}" [ref=e1268]':
+                  - /url: "#/parse/get_task_status_api_v1_parse__task_id__get"
+                  - generic [ref=e1269]:
+                    - text: /api
+                    - text: /v1
+                    - text: /parse
+                    - text: "/{task_id}"
+                - generic [ref=e1270]: Get Task Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/parse/{task_id}" [ref=e1273]':
+              - img [ref=e1274]
+          - generic [ref=e1278] [cursor=pointer]:
+            - button "POST /api/v1/parse/batch Submit Batch Parse Task" [ref=e1279]:
+              - generic [ref=e1280]: POST
+              - generic [ref=e1281]:
+                - link "/api/v1/parse/batch" [ref=e1283]:
+                  - /url: "#/parse/submit_batch_parse_task_api_v1_parse_batch_post"
+                  - generic [ref=e1284]:
+                    - text: /api
+                    - text: /v1
+                    - text: /parse
+                    - text: /batch
+                - generic [ref=e1285]: Submit Batch Parse Task
+            - generic "Copy to clipboard"
+            - button "post /api/v1/parse/batch" [ref=e1288]:
+              - img [ref=e1289]
+          - generic [ref=e1293] [cursor=pointer]:
+            - button "GET /api/v1/parse/batch List Batches" [ref=e1294]:
+              - generic [ref=e1295]: GET
+              - generic [ref=e1296]:
+                - link "/api/v1/parse/batch" [ref=e1298]:
+                  - /url: "#/parse/list_batches_api_v1_parse_batch_get"
+                  - generic [ref=e1299]:
+                    - text: /api
+                    - text: /v1
+                    - text: /parse
+                    - text: /batch
+                - generic [ref=e1300]: List Batches
+            - generic "Copy to clipboard"
+            - button "get /api/v1/parse/batch" [ref=e1303]:
+              - img [ref=e1304]
+          - generic [ref=e1308] [cursor=pointer]:
+            - 'button "GET /api/v1/parse/batch/{batch_id} Get Batch Status" [ref=e1309]':
+              - generic [ref=e1310]: GET
+              - generic [ref=e1311]:
+                - 'link "/api/v1/parse/batch/{batch_id}" [ref=e1313]':
+                  - /url: "#/parse/get_batch_status_api_v1_parse_batch__batch_id__get"
+                  - generic [ref=e1314]:
+                    - text: /api
+                    - text: /v1
+                    - text: /parse
+                    - text: /batch
+                    - text: "/{batch_id}"
+                - generic [ref=e1315]: Get Batch Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/parse/batch/{batch_id}" [ref=e1318]':
+              - img [ref=e1319]
+          - generic [ref=e1323] [cursor=pointer]:
+            - 'button "POST /api/v1/parse/batch/{batch_id}/retry Retry Failed Files" [ref=e1324]':
+              - generic [ref=e1325]: POST
+              - generic [ref=e1326]:
+                - 'link "/api/v1/parse/batch/{batch_id}/retry" [ref=e1328]':
+                  - /url: "#/parse/retry_failed_files_api_v1_parse_batch__batch_id__retry_post"
+                  - generic [ref=e1329]:
+                    - text: /api
+                    - text: /v1
+                    - text: /parse
+                    - text: /batch
+                    - text: "/{batch_id}"
+                    - text: /retry
+                - generic [ref=e1330]: Retry Failed Files
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/parse/batch/{batch_id}/retry" [ref=e1333]':
+              - img [ref=e1334]
+      - generic [ref=e1337]:
+        - heading "Podcast Collapse operation" [level=3] [ref=e1338] [cursor=pointer]:
+          - link "Podcast" [ref=e1339]:
+            - /url: "#/Podcast"
+          - button "Collapse operation" [expanded] [ref=e1340]:
+            - img [ref=e1341]
+        - generic [ref=e1344]:
+          - generic [ref=e1347] [cursor=pointer]:
+            - button "POST /api/v1/podcast/generate Generate Podcast" [ref=e1348]:
+              - generic [ref=e1349]: POST
+              - generic [ref=e1350]:
+                - link "/api/v1/podcast/generate" [ref=e1352]:
+                  - /url: "#/Podcast/generate_podcast_api_v1_podcast_generate_post"
+                  - generic [ref=e1353]:
+                    - text: /api
+                    - text: /v1
+                    - text: /podcast
+                    - text: /generate
+                - generic [ref=e1354]: Generate Podcast
+            - generic "Copy to clipboard"
+            - button "post /api/v1/podcast/generate" [ref=e1357]:
+              - img [ref=e1358]
+          - generic [ref=e1362] [cursor=pointer]:
+            - 'button "GET /api/v1/podcast/status/{task_id} Get Podcast Status" [ref=e1363]':
+              - generic [ref=e1364]: GET
+              - generic [ref=e1365]:
+                - 'link "/api/v1/podcast/status/{task_id}" [ref=e1367]':
+                  - /url: "#/Podcast/get_podcast_status_api_v1_podcast_status__task_id__get"
+                  - generic [ref=e1368]:
+                    - text: /api
+                    - text: /v1
+                    - text: /podcast
+                    - text: /status
+                    - text: "/{task_id}"
+                - generic [ref=e1369]: Get Podcast Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/podcast/status/{task_id}" [ref=e1372]':
+              - img [ref=e1373]
+          - generic [ref=e1377] [cursor=pointer]:
+            - 'button "GET /api/v1/podcast/result/{task_id} Get Podcast Result" [ref=e1378]':
+              - generic [ref=e1379]: GET
+              - generic [ref=e1380]:
+                - 'link "/api/v1/podcast/result/{task_id}" [ref=e1382]':
+                  - /url: "#/Podcast/get_podcast_result_api_v1_podcast_result__task_id__get"
+                  - generic [ref=e1383]:
+                    - text: /api
+                    - text: /v1
+                    - text: /podcast
+                    - text: /result
+                    - text: "/{task_id}"
+                - generic [ref=e1384]: Get Podcast Result
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/podcast/result/{task_id}" [ref=e1387]':
+              - img [ref=e1388]
+      - generic [ref=e1391]:
+        - heading "questions Collapse operation" [level=3] [ref=e1392] [cursor=pointer]:
+          - link "questions" [ref=e1393]:
+            - /url: "#/questions"
+          - button "Collapse operation" [expanded] [ref=e1394]:
+            - img [ref=e1395]
+        - generic [ref=e1398]:
+          - generic [ref=e1401] [cursor=pointer]:
+            - button "POST /api/v1/questions Get Questions" [ref=e1402]:
+              - generic [ref=e1403]: POST
+              - generic [ref=e1404]:
+                - link "/api/v1/questions" [ref=e1406]:
+                  - /url: "#/questions/get_questions_api_v1_questions_post"
+                  - generic [ref=e1407]:
+                    - text: /api
+                    - text: /v1
+                    - text: /questions
+                - generic [ref=e1408]: Get Questions
+            - generic "Copy to clipboard"
+            - button "post /api/v1/questions" [ref=e1411]:
+              - img [ref=e1412]
+          - generic [ref=e1416] [cursor=pointer]:
+            - button "POST /api/v1/themes/summary Generate Theme Summary" [ref=e1417]:
+              - generic [ref=e1418]: POST
+              - generic [ref=e1419]:
+                - link "/api/v1/themes/summary" [ref=e1421]:
+                  - /url: "#/questions/generate_theme_summary_api_v1_themes_summary_post"
+                  - generic [ref=e1422]:
+                    - text: /api
+                    - text: /v1
+                    - text: /themes
+                    - text: /summary
+                - generic [ref=e1423]: Generate Theme Summary
+            - generic "Copy to clipboard"
+            - button "post /api/v1/themes/summary" [ref=e1426]:
+              - img [ref=e1427]
+      - generic [ref=e1430]:
+        - heading "ShortVideo Collapse operation" [level=3] [ref=e1431] [cursor=pointer]:
+          - link "ShortVideo" [ref=e1432]:
+            - /url: "#/ShortVideo"
+          - button "Collapse operation" [expanded] [ref=e1433]:
+            - img [ref=e1434]
+        - generic [ref=e1437]:
+          - generic [ref=e1440] [cursor=pointer]:
+            - button "POST /api/v1/short-video/generate Generate Short Video" [ref=e1441]:
+              - generic [ref=e1442]: POST
+              - generic [ref=e1443]:
+                - link "/api/v1/short-video/generate" [ref=e1445]:
+                  - /url: "#/ShortVideo/generate_short_video_api_v1_short_video_generate_post"
+                  - generic [ref=e1446]:
+                    - text: /api
+                    - text: /v1
+                    - text: /short-video
+                    - text: /generate
+                - generic [ref=e1447]: Generate Short Video
+            - generic "Copy to clipboard"
+            - button "post /api/v1/short-video/generate" [ref=e1450]:
+              - img [ref=e1451]
+          - generic [ref=e1455] [cursor=pointer]:
+            - 'button "GET /api/v1/short-video/status/{task_id} Get Task Status" [ref=e1456]':
+              - generic [ref=e1457]: GET
+              - generic [ref=e1458]:
+                - 'link "/api/v1/short-video/status/{task_id}" [ref=e1460]':
+                  - /url: "#/ShortVideo/get_task_status_api_v1_short_video_status__task_id__get"
+                  - generic [ref=e1461]:
+                    - text: /api
+                    - text: /v1
+                    - text: /short-video
+                    - text: /status
+                    - text: "/{task_id}"
+                - generic [ref=e1462]: Get Task Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/short-video/status/{task_id}" [ref=e1465]':
+              - img [ref=e1466]
+          - generic [ref=e1470] [cursor=pointer]:
+            - 'button "GET /api/v1/short-video/result/{task_id} Get Task Result" [ref=e1471]':
+              - generic [ref=e1472]: GET
+              - generic [ref=e1473]:
+                - 'link "/api/v1/short-video/result/{task_id}" [ref=e1475]':
+                  - /url: "#/ShortVideo/get_task_result_api_v1_short_video_result__task_id__get"
+                  - generic [ref=e1476]:
+                    - text: /api
+                    - text: /v1
+                    - text: /short-video
+                    - text: /result
+                    - text: "/{task_id}"
+                - generic [ref=e1477]: Get Task Result
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/short-video/result/{task_id}" [ref=e1480]':
+              - img [ref=e1481]
+      - generic [ref=e1484]:
+        - heading "simulation Collapse operation" [level=3] [ref=e1485] [cursor=pointer]:
+          - link "simulation" [ref=e1486]:
+            - /url: "#/simulation"
+          - button "Collapse operation" [expanded] [ref=e1487]:
+            - img [ref=e1488]
+        - generic [ref=e1491]:
+          - generic [ref=e1494] [cursor=pointer]:
+            - button "POST /api/v1/simulation/start Submit Simulation Start" [ref=e1495]:
+              - generic [ref=e1496]: POST
+              - generic [ref=e1497]:
+                - link "/api/v1/simulation/start" [ref=e1499]:
+                  - /url: "#/simulation/submit_simulation_start_api_v1_simulation_start_post"
+                  - generic [ref=e1500]:
+                    - text: /api
+                    - text: /v1
+                    - text: /simulation
+                    - text: /start
+                - generic [ref=e1501]: Submit Simulation Start
+            - generic "Copy to clipboard"
+            - button "post /api/v1/simulation/start" [ref=e1504]:
+              - img [ref=e1505]
+          - generic [ref=e1509] [cursor=pointer]:
+            - 'button "GET /api/v1/simulation/{task_id} Get Simulation Task Status" [ref=e1510]':
+              - generic [ref=e1511]: GET
+              - generic [ref=e1512]:
+                - 'link "/api/v1/simulation/{task_id}" [ref=e1514]':
+                  - /url: "#/simulation/get_simulation_task_status_api_v1_simulation__task_id__get"
+                  - generic [ref=e1515]:
+                    - text: /api
+                    - text: /v1
+                    - text: /simulation
+                    - text: "/{task_id}"
+                - generic [ref=e1516]: Get Simulation Task Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/simulation/{task_id}" [ref=e1519]':
+              - img [ref=e1520]
+          - generic [ref=e1524] [cursor=pointer]:
+            - button "POST /api/v1/simulation/start_with_resources Start Simulation With Resources" [ref=e1525]:
+              - generic [ref=e1526]: POST
+              - generic [ref=e1527]:
+                - link "/api/v1/simulation/start_with_resources" [ref=e1529]:
+                  - /url: "#/simulation/start_simulation_with_resources_api_v1_simulation_start_with_resources_post"
+                  - generic [ref=e1530]:
+                    - text: /api
+                    - text: /v1
+                    - text: /simulation
+                    - text: /start_with_resources
+                - generic [ref=e1531]: Start Simulation With Resources
+            - generic "Copy to clipboard"
+            - button "post /api/v1/simulation/start_with_resources" [ref=e1534]:
+              - img [ref=e1535]
+          - generic [ref=e1539] [cursor=pointer]:
+            - 'button "GET /api/v1/simulation/content/{runtime_session_id} Get Simulation Content" [ref=e1540]':
+              - generic [ref=e1541]: GET
+              - generic [ref=e1542]:
+                - 'link "/api/v1/simulation/content/{runtime_session_id}" [ref=e1544]':
+                  - /url: "#/simulation/get_simulation_content_api_v1_simulation_content__runtime_session_id__get"
+                  - generic [ref=e1545]:
+                    - text: /api
+                    - text: /v1
+                    - text: /simulation
+                    - text: /content
+                    - text: "/{runtime_session_id}"
+                - generic [ref=e1546]: Get Simulation Content
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/simulation/content/{runtime_session_id}" [ref=e1549]':
+              - img [ref=e1550]
+      - generic [ref=e1553]:
+        - heading "skills Collapse operation" [level=3] [ref=e1554] [cursor=pointer]:
+          - link "skills" [ref=e1555]:
+            - /url: "#/skills"
+          - button "Collapse operation" [expanded] [ref=e1556]:
+            - img [ref=e1557]
+        - generic [ref=e1560]:
+          - generic [ref=e1563] [cursor=pointer]:
+            - button "GET /api/v1/skills 查询系统技能列表" [ref=e1564]:
+              - generic [ref=e1565]: GET
+              - generic [ref=e1566]:
+                - link "/api/v1/skills" [ref=e1568]:
+                  - /url: "#/skills/list_skills_api_v1_skills_get"
+                  - generic [ref=e1569]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                - generic [ref=e1570]: 查询系统技能列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/skills" [ref=e1573]:
+              - img [ref=e1574]
+          - generic [ref=e1578] [cursor=pointer]:
+            - 'button "GET /api/v1/skills/{skill_name} 查询技能详情（统一接口）" [ref=e1579]':
+              - generic [ref=e1580]: GET
+              - generic [ref=e1581]:
+                - 'link "/api/v1/skills/{skill_name}" [ref=e1583]':
+                  - /url: "#/skills/get_skill_detail_api_v1_skills__skill_name__get"
+                  - generic [ref=e1584]:
+                    - text: /api
+                    - text: /v1
+                    - text: /skills
+                    - text: "/{skill_name}"
+                - generic [ref=e1585]: 查询技能详情（统一接口）
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/skills/{skill_name}" [ref=e1588]':
+              - img [ref=e1589]
+      - generic [ref=e1592]:
+        - heading "tasks Collapse operation" [level=3] [ref=e1593] [cursor=pointer]:
+          - link "tasks" [ref=e1594]:
+            - /url: "#/tasks"
+          - button "Collapse operation" [expanded] [ref=e1595]:
+            - img [ref=e1596]
+        - generic [ref=e1602] [cursor=pointer]:
+          - 'button "POST /api/v1/tasks/{task_id}/cancel Cancel Task" [ref=e1603]':
+            - generic [ref=e1604]: POST
+            - generic [ref=e1605]:
+              - 'link "/api/v1/tasks/{task_id}/cancel" [ref=e1607]':
+                - /url: "#/tasks/cancel_task_api_v1_tasks__task_id__cancel_post"
+                - generic [ref=e1608]:
+                  - text: /api
+                  - text: /v1
+                  - text: /tasks
+                  - text: "/{task_id}"
+                  - text: /cancel
+              - generic [ref=e1609]: Cancel Task
+          - generic "Copy to clipboard"
+          - 'button "post /api/v1/tasks/{task_id}/cancel" [ref=e1612]':
+            - img [ref=e1613]
+      - generic [ref=e1616]:
+        - heading "tool-tasks Collapse operation" [level=3] [ref=e1617] [cursor=pointer]:
+          - link "tool-tasks" [ref=e1618]:
+            - /url: "#/tool-tasks"
+          - button "Collapse operation" [expanded] [ref=e1619]:
+            - img [ref=e1620]
+        - generic [ref=e1623]:
+          - generic [ref=e1626] [cursor=pointer]:
+            - 'button "GET /api/v1/themes/{theme_id}/tool-tasks Get Tool Tasks" [ref=e1627]':
+              - generic [ref=e1628]: GET
+              - generic [ref=e1629]:
+                - 'link "/api/v1/themes/{theme_id}/tool-tasks" [ref=e1631]':
+                  - /url: "#/tool-tasks/get_tool_tasks_api_v1_themes__theme_id__tool_tasks_get"
+                  - generic [ref=e1632]:
+                    - text: /api
+                    - text: /v1
+                    - text: /themes
+                    - text: "/{theme_id}"
+                    - text: /tool-tasks
+                - generic [ref=e1633]: Get Tool Tasks
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/themes/{theme_id}/tool-tasks" [ref=e1636]':
+              - img [ref=e1637]
+          - generic [ref=e1641] [cursor=pointer]:
+            - 'button "POST /api/v1/themes/{theme_id}/tool-tasks Create Tool Task" [ref=e1642]':
+              - generic [ref=e1643]: POST
+              - generic [ref=e1644]:
+                - 'link "/api/v1/themes/{theme_id}/tool-tasks" [ref=e1646]':
+                  - /url: "#/tool-tasks/create_tool_task_api_v1_themes__theme_id__tool_tasks_post"
+                  - generic [ref=e1647]:
+                    - text: /api
+                    - text: /v1
+                    - text: /themes
+                    - text: "/{theme_id}"
+                    - text: /tool-tasks
+                - generic [ref=e1648]: Create Tool Task
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/themes/{theme_id}/tool-tasks" [ref=e1651]':
+              - img [ref=e1652]
+          - generic [ref=e1656] [cursor=pointer]:
+            - 'button "PUT /api/v1/themes/{theme_id}/tool-tasks/{task_id} Update Tool Task" [ref=e1657]':
+              - generic [ref=e1658]: PUT
+              - generic [ref=e1659]:
+                - 'link "/api/v1/themes/{theme_id}/tool-tasks/{task_id}" [ref=e1661]':
+                  - /url: "#/tool-tasks/update_tool_task_api_v1_themes__theme_id__tool_tasks__task_id__put"
+                  - generic [ref=e1662]:
+                    - text: /api
+                    - text: /v1
+                    - text: /themes
+                    - text: "/{theme_id}"
+                    - text: /tool-tasks
+                    - text: "/{task_id}"
+                - generic [ref=e1663]: Update Tool Task
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/themes/{theme_id}/tool-tasks/{task_id}" [ref=e1666]':
+              - img [ref=e1667]
+          - generic [ref=e1671] [cursor=pointer]:
+            - 'button "DELETE /api/v1/themes/{theme_id}/tool-tasks/{task_id} Delete Tool Task" [ref=e1672]':
+              - generic [ref=e1673]: DELETE
+              - generic [ref=e1674]:
+                - 'link "/api/v1/themes/{theme_id}/tool-tasks/{task_id}" [ref=e1676]':
+                  - /url: "#/tool-tasks/delete_tool_task_api_v1_themes__theme_id__tool_tasks__task_id__delete"
+                  - generic [ref=e1677]:
+                    - text: /api
+                    - text: /v1
+                    - text: /themes
+                    - text: "/{theme_id}"
+                    - text: /tool-tasks
+                    - text: "/{task_id}"
+                - generic [ref=e1678]: Delete Tool Task
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/themes/{theme_id}/tool-tasks/{task_id}" [ref=e1681]':
+              - img [ref=e1682]
+      - generic [ref=e1685]:
+        - heading "user-images Collapse operation" [level=3] [ref=e1686] [cursor=pointer]:
+          - link "user-images" [ref=e1687]:
+            - /url: "#/user-images"
+          - button "Collapse operation" [expanded] [ref=e1688]:
+            - img [ref=e1689]
+        - generic [ref=e1692]:
+          - generic [ref=e1695] [cursor=pointer]:
+            - button "GET /api/v1/user-images/library 浏览系统图片库" [ref=e1696]:
+              - generic [ref=e1697]: GET
+              - generic [ref=e1698]:
+                - link "/api/v1/user-images/library" [ref=e1700]:
+                  - /url: "#/user-images/browse_library_api_v1_user_images_library_get"
+                  - generic [ref=e1701]:
+                    - text: /api
+                    - text: /v1
+                    - text: /user-images
+                    - text: /library
+                - generic [ref=e1702]: 浏览系统图片库
+            - generic "Copy to clipboard"
+            - button "get /api/v1/user-images/library" [ref=e1705]:
+              - img [ref=e1706]
+          - generic [ref=e1710] [cursor=pointer]:
+            - button "POST /api/v1/user-images/upload 用户上传图片" [ref=e1711]:
+              - generic [ref=e1712]: POST
+              - generic [ref=e1713]:
+                - link "/api/v1/user-images/upload" [ref=e1715]:
+                  - /url: "#/user-images/upload_user_image_api_v1_user_images_upload_post"
+                  - generic [ref=e1716]:
+                    - text: /api
+                    - text: /v1
+                    - text: /user-images
+                    - text: /upload
+                - generic [ref=e1717]: 用户上传图片
+            - generic "Copy to clipboard"
+            - button "post /api/v1/user-images/upload" [ref=e1720]:
+              - img [ref=e1721]
+          - generic [ref=e1725] [cursor=pointer]:
+            - button "POST /api/v1/user-images/generate 用户 AI 生图" [ref=e1726]:
+              - generic [ref=e1727]: POST
+              - generic [ref=e1728]:
+                - link "/api/v1/user-images/generate" [ref=e1730]:
+                  - /url: "#/user-images/generate_user_image_api_v1_user_images_generate_post"
+                  - generic [ref=e1731]:
+                    - text: /api
+                    - text: /v1
+                    - text: /user-images
+                    - text: /generate
+                - generic [ref=e1732]: 用户 AI 生图
+            - generic "Copy to clipboard"
+            - button "post /api/v1/user-images/generate" [ref=e1735]:
+              - img [ref=e1736]
+      - generic [ref=e1739]:
+        - heading "user-skills Collapse operation" [level=3] [ref=e1740] [cursor=pointer]:
+          - link "user-skills" [ref=e1741]:
+            - /url: "#/user-skills"
+          - button "Collapse operation" [expanded] [ref=e1742]:
+            - img [ref=e1743]
+        - generic [ref=e1746]:
+          - generic [ref=e1749] [cursor=pointer]:
+            - 'button "GET /api/v1/users/{user_id}/skills 查询用户已选技能" [ref=e1750]':
+              - generic [ref=e1751]: GET
+              - generic [ref=e1752]:
+                - 'link "/api/v1/users/{user_id}/skills" [ref=e1754]':
+                  - /url: "#/user-skills/list_user_skills_api_v1_users__user_id__skills_get"
+                  - generic [ref=e1755]:
+                    - text: /api
+                    - text: /v1
+                    - text: /users
+                    - text: "/{user_id}"
+                    - text: /skills
+                - generic [ref=e1756]: 查询用户已选技能
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/users/{user_id}/skills" [ref=e1759]':
+              - img [ref=e1760]
+          - generic [ref=e1764] [cursor=pointer]:
+            - 'button "POST /api/v1/users/{user_id}/skills 添加单个技能" [ref=e1765]':
+              - generic [ref=e1766]: POST
+              - generic [ref=e1767]:
+                - 'link "/api/v1/users/{user_id}/skills" [ref=e1769]':
+                  - /url: "#/user-skills/add_user_skill_api_v1_users__user_id__skills_post"
+                  - generic [ref=e1770]:
+                    - text: /api
+                    - text: /v1
+                    - text: /users
+                    - text: "/{user_id}"
+                    - text: /skills
+                - generic [ref=e1771]: 添加单个技能
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/users/{user_id}/skills" [ref=e1774]':
+              - img [ref=e1775]
+          - generic [ref=e1779] [cursor=pointer]:
+            - 'button "PUT /api/v1/users/{user_id}/skills 批量设置用户技能" [ref=e1780]':
+              - generic [ref=e1781]: PUT
+              - generic [ref=e1782]:
+                - 'link "/api/v1/users/{user_id}/skills" [ref=e1784]':
+                  - /url: "#/user-skills/batch_set_user_skills_api_v1_users__user_id__skills_put"
+                  - generic [ref=e1785]:
+                    - text: /api
+                    - text: /v1
+                    - text: /users
+                    - text: "/{user_id}"
+                    - text: /skills
+                - generic [ref=e1786]: 批量设置用户技能
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/users/{user_id}/skills" [ref=e1789]':
+              - img [ref=e1790]
+          - generic [ref=e1794] [cursor=pointer]:
+            - 'button "DELETE /api/v1/users/{user_id}/skills/{skill_name} 移除单个技能" [ref=e1795]':
+              - generic [ref=e1796]: DELETE
+              - generic [ref=e1797]:
+                - 'link "/api/v1/users/{user_id}/skills/{skill_name}" [ref=e1799]':
+                  - /url: "#/user-skills/remove_user_skill_api_v1_users__user_id__skills__skill_name__delete"
+                  - generic [ref=e1800]:
+                    - text: /api
+                    - text: /v1
+                    - text: /users
+                    - text: "/{user_id}"
+                    - text: /skills
+                    - text: "/{skill_name}"
+                - generic [ref=e1801]: 移除单个技能
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/users/{user_id}/skills/{skill_name}" [ref=e1804]':
+              - img [ref=e1805]
+      - generic [ref=e1808]:
+        - heading "video-download Collapse operation" [level=3] [ref=e1809] [cursor=pointer]:
+          - link "video-download" [ref=e1810]:
+            - /url: "#/video-download"
+          - button "Collapse operation" [expanded] [ref=e1811]:
+            - img [ref=e1812]
+        - generic [ref=e1815]:
+          - generic [ref=e1818] [cursor=pointer]:
+            - button "POST /api/v1/video-download Submit Video Download" [ref=e1819]:
+              - generic [ref=e1820]: POST
+              - generic [ref=e1821]:
+                - link "/api/v1/video-download" [ref=e1823]:
+                  - /url: "#/video-download/submit_video_download_api_v1_video_download_post"
+                  - generic [ref=e1824]:
+                    - text: /api
+                    - text: /v1
+                    - text: /video-download
+                - generic [ref=e1825]: Submit Video Download
+            - generic "Copy to clipboard"
+            - button "post /api/v1/video-download" [ref=e1828]:
+              - img [ref=e1829]
+          - generic [ref=e1833] [cursor=pointer]:
+            - button "POST /api/v1/video-download/bilibili/playlist Get Bilibili Playlist Info" [ref=e1834]:
+              - generic [ref=e1835]: POST
+              - generic [ref=e1836]:
+                - link "/api/v1/video-download/bilibili/playlist" [ref=e1838]:
+                  - /url: "#/video-download/get_bilibili_playlist_info_api_v1_video_download_bilibili_playlist_post"
+                  - generic [ref=e1839]:
+                    - text: /api
+                    - text: /v1
+                    - text: /video-download
+                    - text: /bilibili
+                    - text: /playlist
+                - generic [ref=e1840]: Get Bilibili Playlist Info
+            - generic "Copy to clipboard"
+            - button "post /api/v1/video-download/bilibili/playlist" [ref=e1843]:
+              - img [ref=e1844]
+          - generic [ref=e1848] [cursor=pointer]:
+            - 'button "GET /api/v1/video-download/{task_id} Get Video Download Status" [ref=e1849]':
+              - generic [ref=e1850]: GET
+              - generic [ref=e1851]:
+                - 'link "/api/v1/video-download/{task_id}" [ref=e1853]':
+                  - /url: "#/video-download/get_video_download_status_api_v1_video_download__task_id__get"
+                  - generic [ref=e1854]:
+                    - text: /api
+                    - text: /v1
+                    - text: /video-download
+                    - text: "/{task_id}"
+                - generic [ref=e1855]: Get Video Download Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/video-download/{task_id}" [ref=e1858]':
+              - img [ref=e1859]
+          - generic [ref=e1863] [cursor=pointer]:
+            - button "POST /api/v1/video-download/bilibili/batch Submit Bilibili Batch Download" [ref=e1864]:
+              - generic [ref=e1865]: POST
+              - generic [ref=e1866]:
+                - link "/api/v1/video-download/bilibili/batch" [ref=e1868]:
+                  - /url: "#/video-download/submit_bilibili_batch_download_api_v1_video_download_bilibili_batch_post"
+                  - generic [ref=e1869]:
+                    - text: /api
+                    - text: /v1
+                    - text: /video-download
+                    - text: /bilibili
+                    - text: /batch
+                - generic [ref=e1870]: Submit Bilibili Batch Download
+            - generic "Copy to clipboard"
+            - button "post /api/v1/video-download/bilibili/batch" [ref=e1873]:
+              - img [ref=e1874]
+          - generic [ref=e1878] [cursor=pointer]:
+            - 'button "GET /api/v1/video-download/bilibili/batch/{batch_id} Get Bilibili Batch Status" [ref=e1879]':
+              - generic [ref=e1880]: GET
+              - generic [ref=e1881]:
+                - 'link "/api/v1/video-download/bilibili/batch/{batch_id}" [ref=e1883]':
+                  - /url: "#/video-download/get_bilibili_batch_status_api_v1_video_download_bilibili_batch__batch_id__get"
+                  - generic [ref=e1884]:
+                    - text: /api
+                    - text: /v1
+                    - text: /video-download
+                    - text: /bilibili
+                    - text: /batch
+                    - text: "/{batch_id}"
+                - generic [ref=e1885]: Get Bilibili Batch Status
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/video-download/bilibili/batch/{batch_id}" [ref=e1888]':
+              - img [ref=e1889]
+      - generic [ref=e1892]:
+        - heading "admin Collapse operation" [level=3] [ref=e1893] [cursor=pointer]:
+          - link "admin" [ref=e1894]:
+            - /url: "#/admin"
+          - button "Collapse operation" [expanded] [ref=e1895]:
+            - img [ref=e1896]
+        - generic [ref=e1899]:
+          - generic [ref=e1902] [cursor=pointer]:
+            - button "GET /api/v1/admin/agents 获取官方智能体列表" [ref=e1903]:
+              - generic [ref=e1904]: GET
+              - generic [ref=e1905]:
+                - link "/api/v1/admin/agents" [ref=e1907]:
+                  - /url: "#/admin/list_official_agents_api_v1_admin_agents_get"
+                  - generic [ref=e1908]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /agents
+                - generic [ref=e1909]: 获取官方智能体列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/agents" [ref=e1912]:
+              - img [ref=e1913]
+          - generic [ref=e1917] [cursor=pointer]:
+            - button "POST /api/v1/admin/agents 创建官方智能体" [ref=e1918]:
+              - generic [ref=e1919]: POST
+              - generic [ref=e1920]:
+                - link "/api/v1/admin/agents" [ref=e1922]:
+                  - /url: "#/admin/create_official_agent_api_v1_admin_agents_post"
+                  - generic [ref=e1923]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /agents
+                - generic [ref=e1924]: 创建官方智能体
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/agents" [ref=e1927]:
+              - img [ref=e1928]
+          - generic [ref=e1932] [cursor=pointer]:
+            - 'button "GET /api/v1/admin/agents/{agent_id} 获取官方智能体详情" [ref=e1933]':
+              - generic [ref=e1934]: GET
+              - generic [ref=e1935]:
+                - 'link "/api/v1/admin/agents/{agent_id}" [ref=e1937]':
+                  - /url: "#/admin/get_official_agent_api_v1_admin_agents__agent_id__get"
+                  - generic [ref=e1938]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /agents
+                    - text: "/{agent_id}"
+                - generic [ref=e1939]: 获取官方智能体详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/admin/agents/{agent_id}" [ref=e1942]':
+              - img [ref=e1943]
+          - generic [ref=e1947] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/agents/{agent_id} 更新官方智能体" [ref=e1948]':
+              - generic [ref=e1949]: PUT
+              - generic [ref=e1950]:
+                - 'link "/api/v1/admin/agents/{agent_id}" [ref=e1952]':
+                  - /url: "#/admin/update_official_agent_api_v1_admin_agents__agent_id__put"
+                  - generic [ref=e1953]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /agents
+                    - text: "/{agent_id}"
+                - generic [ref=e1954]: 更新官方智能体
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/agents/{agent_id}" [ref=e1957]':
+              - img [ref=e1958]
+          - generic [ref=e1962] [cursor=pointer]:
+            - 'button "DELETE /api/v1/admin/agents/{agent_id} 删除官方智能体" [ref=e1963]':
+              - generic [ref=e1964]: DELETE
+              - generic [ref=e1965]:
+                - 'link "/api/v1/admin/agents/{agent_id}" [ref=e1967]':
+                  - /url: "#/admin/delete_official_agent_api_v1_admin_agents__agent_id__delete"
+                  - generic [ref=e1968]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /agents
+                    - text: "/{agent_id}"
+                - generic [ref=e1969]: 删除官方智能体
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/admin/agents/{agent_id}" [ref=e1972]':
+              - img [ref=e1973]
+          - generic [ref=e1977] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/agents/{agent_id}/toggle 启用/禁用官方智能体" [ref=e1978]':
+              - generic [ref=e1979]: PUT
+              - generic [ref=e1980]:
+                - 'link "/api/v1/admin/agents/{agent_id}/toggle" [ref=e1982]':
+                  - /url: "#/admin/toggle_official_agent_api_v1_admin_agents__agent_id__toggle_put"
+                  - generic [ref=e1983]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /agents
+                    - text: "/{agent_id}"
+                    - text: /toggle
+                - generic [ref=e1984]: 启用/禁用官方智能体
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/agents/{agent_id}/toggle" [ref=e1987]':
+              - img [ref=e1988]
+          - generic [ref=e1992] [cursor=pointer]:
+            - button "GET /api/v1/admin/commands 获取官方指令列表" [ref=e1993]:
+              - generic [ref=e1994]: GET
+              - generic [ref=e1995]:
+                - link "/api/v1/admin/commands" [ref=e1997]:
+                  - /url: "#/admin/list_official_commands_api_v1_admin_commands_get"
+                  - generic [ref=e1998]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /commands
+                - generic [ref=e1999]: 获取官方指令列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/commands" [ref=e2002]:
+              - img [ref=e2003]
+          - generic [ref=e2007] [cursor=pointer]:
+            - button "POST /api/v1/admin/commands 创建官方指令" [ref=e2008]:
+              - generic [ref=e2009]: POST
+              - generic [ref=e2010]:
+                - link "/api/v1/admin/commands" [ref=e2012]:
+                  - /url: "#/admin/create_official_command_api_v1_admin_commands_post"
+                  - generic [ref=e2013]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /commands
+                - generic [ref=e2014]: 创建官方指令
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/commands" [ref=e2017]:
+              - img [ref=e2018]
+          - generic [ref=e2022] [cursor=pointer]:
+            - button "PUT /api/v1/admin/commands/reorder 批量排序官方指令" [ref=e2023]:
+              - generic [ref=e2024]: PUT
+              - generic [ref=e2025]:
+                - link "/api/v1/admin/commands/reorder" [ref=e2027]:
+                  - /url: "#/admin/reorder_official_commands_api_v1_admin_commands_reorder_put"
+                  - generic [ref=e2028]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /commands
+                    - text: /reorder
+                - generic [ref=e2029]: 批量排序官方指令
+            - generic "Copy to clipboard"
+            - button "put /api/v1/admin/commands/reorder" [ref=e2032]:
+              - img [ref=e2033]
+          - generic [ref=e2037] [cursor=pointer]:
+            - 'button "GET /api/v1/admin/commands/{command_id} 获取官方指令详情" [ref=e2038]':
+              - generic [ref=e2039]: GET
+              - generic [ref=e2040]:
+                - 'link "/api/v1/admin/commands/{command_id}" [ref=e2042]':
+                  - /url: "#/admin/get_official_command_api_v1_admin_commands__command_id__get"
+                  - generic [ref=e2043]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /commands
+                    - text: "/{command_id}"
+                - generic [ref=e2044]: 获取官方指令详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/admin/commands/{command_id}" [ref=e2047]':
+              - img [ref=e2048]
+          - generic [ref=e2052] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/commands/{command_id} 更新官方指令" [ref=e2053]':
+              - generic [ref=e2054]: PUT
+              - generic [ref=e2055]:
+                - 'link "/api/v1/admin/commands/{command_id}" [ref=e2057]':
+                  - /url: "#/admin/update_official_command_api_v1_admin_commands__command_id__put"
+                  - generic [ref=e2058]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /commands
+                    - text: "/{command_id}"
+                - generic [ref=e2059]: 更新官方指令
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/commands/{command_id}" [ref=e2062]':
+              - img [ref=e2063]
+          - generic [ref=e2067] [cursor=pointer]:
+            - 'button "DELETE /api/v1/admin/commands/{command_id} 删除官方指令" [ref=e2068]':
+              - generic [ref=e2069]: DELETE
+              - generic [ref=e2070]:
+                - 'link "/api/v1/admin/commands/{command_id}" [ref=e2072]':
+                  - /url: "#/admin/delete_official_command_api_v1_admin_commands__command_id__delete"
+                  - generic [ref=e2073]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /commands
+                    - text: "/{command_id}"
+                - generic [ref=e2074]: 删除官方指令
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/admin/commands/{command_id}" [ref=e2077]':
+              - img [ref=e2078]
+          - generic [ref=e2082] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/commands/{command_id}/toggle 启用/禁用官方指令" [ref=e2083]':
+              - generic [ref=e2084]: PUT
+              - generic [ref=e2085]:
+                - 'link "/api/v1/admin/commands/{command_id}/toggle" [ref=e2087]':
+                  - /url: "#/admin/toggle_official_command_api_v1_admin_commands__command_id__toggle_put"
+                  - generic [ref=e2088]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /commands
+                    - text: "/{command_id}"
+                    - text: /toggle
+                - generic [ref=e2089]: 启用/禁用官方指令
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/commands/{command_id}/toggle" [ref=e2092]':
+              - img [ref=e2093]
+          - generic [ref=e2097] [cursor=pointer]:
+            - button "GET /api/v1/admin/images 获取系统图片列表" [ref=e2098]:
+              - generic [ref=e2099]: GET
+              - generic [ref=e2100]:
+                - link "/api/v1/admin/images" [ref=e2102]:
+                  - /url: "#/admin/list_images_api_v1_admin_images_get"
+                  - generic [ref=e2103]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /images
+                - generic [ref=e2104]: 获取系统图片列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/images" [ref=e2107]:
+              - img [ref=e2108]
+          - generic [ref=e2112] [cursor=pointer]:
+            - 'button "GET /api/v1/admin/images/{image_id} 获取系统图片详情" [ref=e2113]':
+              - generic [ref=e2114]: GET
+              - generic [ref=e2115]:
+                - 'link "/api/v1/admin/images/{image_id}" [ref=e2117]':
+                  - /url: "#/admin/get_image_api_v1_admin_images__image_id__get"
+                  - generic [ref=e2118]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /images
+                    - text: "/{image_id}"
+                - generic [ref=e2119]: 获取系统图片详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/admin/images/{image_id}" [ref=e2122]':
+              - img [ref=e2123]
+          - generic [ref=e2127] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/images/{image_id} 更新系统图片元数据" [ref=e2128]':
+              - generic [ref=e2129]: PUT
+              - generic [ref=e2130]:
+                - 'link "/api/v1/admin/images/{image_id}" [ref=e2132]':
+                  - /url: "#/admin/update_image_api_v1_admin_images__image_id__put"
+                  - generic [ref=e2133]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /images
+                    - text: "/{image_id}"
+                - generic [ref=e2134]: 更新系统图片元数据
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/images/{image_id}" [ref=e2137]':
+              - img [ref=e2138]
+          - generic [ref=e2142] [cursor=pointer]:
+            - 'button "DELETE /api/v1/admin/images/{image_id} 删除系统图片" [ref=e2143]':
+              - generic [ref=e2144]: DELETE
+              - generic [ref=e2145]:
+                - 'link "/api/v1/admin/images/{image_id}" [ref=e2147]':
+                  - /url: "#/admin/delete_image_api_v1_admin_images__image_id__delete"
+                  - generic [ref=e2148]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /images
+                    - text: "/{image_id}"
+                - generic [ref=e2149]: 删除系统图片
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/admin/images/{image_id}" [ref=e2152]':
+              - img [ref=e2153]
+          - generic [ref=e2157] [cursor=pointer]:
+            - button "POST /api/v1/admin/images/upload 上传系统图片" [ref=e2158]:
+              - generic [ref=e2159]: POST
+              - generic [ref=e2160]:
+                - link "/api/v1/admin/images/upload" [ref=e2162]:
+                  - /url: "#/admin/upload_image_api_v1_admin_images_upload_post"
+                  - generic [ref=e2163]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /images
+                    - text: /upload
+                - generic [ref=e2164]: 上传系统图片
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/images/upload" [ref=e2167]:
+              - img [ref=e2168]
+          - generic [ref=e2172] [cursor=pointer]:
+            - button "POST /api/v1/admin/images/generate AI 生成系统图片" [ref=e2173]:
+              - generic [ref=e2174]: POST
+              - generic [ref=e2175]:
+                - link "/api/v1/admin/images/generate" [ref=e2177]:
+                  - /url: "#/admin/generate_image_api_v1_admin_images_generate_post"
+                  - generic [ref=e2178]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /images
+                    - text: /generate
+                - generic [ref=e2179]: AI 生成系统图片
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/images/generate" [ref=e2182]:
+              - img [ref=e2183]
+          - generic [ref=e2187] [cursor=pointer]:
+            - button "GET /api/v1/admin/practices 获取最佳实践列表" [ref=e2188]:
+              - generic [ref=e2189]: GET
+              - generic [ref=e2190]:
+                - link "/api/v1/admin/practices" [ref=e2192]:
+                  - /url: "#/admin/list_best_practices_api_v1_admin_practices_get"
+                  - generic [ref=e2193]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /practices
+                - generic [ref=e2194]: 获取最佳实践列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/practices" [ref=e2197]:
+              - img [ref=e2198]
+          - generic [ref=e2202] [cursor=pointer]:
+            - button "POST /api/v1/admin/practices 创建最佳实践" [ref=e2203]:
+              - generic [ref=e2204]: POST
+              - generic [ref=e2205]:
+                - link "/api/v1/admin/practices" [ref=e2207]:
+                  - /url: "#/admin/create_best_practice_api_v1_admin_practices_post"
+                  - generic [ref=e2208]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /practices
+                - generic [ref=e2209]: 创建最佳实践
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/practices" [ref=e2212]:
+              - img [ref=e2213]
+          - generic [ref=e2217] [cursor=pointer]:
+            - button "PUT /api/v1/admin/practices/reorder 批量排序最佳实践" [ref=e2218]:
+              - generic [ref=e2219]: PUT
+              - generic [ref=e2220]:
+                - link "/api/v1/admin/practices/reorder" [ref=e2222]:
+                  - /url: "#/admin/reorder_best_practices_api_v1_admin_practices_reorder_put"
+                  - generic [ref=e2223]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /practices
+                    - text: /reorder
+                - generic [ref=e2224]: 批量排序最佳实践
+            - generic "Copy to clipboard"
+            - button "put /api/v1/admin/practices/reorder" [ref=e2227]:
+              - img [ref=e2228]
+          - generic [ref=e2232] [cursor=pointer]:
+            - 'button "GET /api/v1/admin/practices/{practice_id} 获取最佳实践详情" [ref=e2233]':
+              - generic [ref=e2234]: GET
+              - generic [ref=e2235]:
+                - 'link "/api/v1/admin/practices/{practice_id}" [ref=e2237]':
+                  - /url: "#/admin/get_best_practice_api_v1_admin_practices__practice_id__get"
+                  - generic [ref=e2238]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /practices
+                    - text: "/{practice_id}"
+                - generic [ref=e2239]: 获取最佳实践详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/admin/practices/{practice_id}" [ref=e2242]':
+              - img [ref=e2243]
+          - generic [ref=e2247] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/practices/{practice_id} 更新最佳实践" [ref=e2248]':
+              - generic [ref=e2249]: PUT
+              - generic [ref=e2250]:
+                - 'link "/api/v1/admin/practices/{practice_id}" [ref=e2252]':
+                  - /url: "#/admin/update_best_practice_api_v1_admin_practices__practice_id__put"
+                  - generic [ref=e2253]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /practices
+                    - text: "/{practice_id}"
+                - generic [ref=e2254]: 更新最佳实践
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/practices/{practice_id}" [ref=e2257]':
+              - img [ref=e2258]
+          - generic [ref=e2262] [cursor=pointer]:
+            - 'button "DELETE /api/v1/admin/practices/{practice_id} 删除最佳实践" [ref=e2263]':
+              - generic [ref=e2264]: DELETE
+              - generic [ref=e2265]:
+                - 'link "/api/v1/admin/practices/{practice_id}" [ref=e2267]':
+                  - /url: "#/admin/delete_best_practice_api_v1_admin_practices__practice_id__delete"
+                  - generic [ref=e2268]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /practices
+                    - text: "/{practice_id}"
+                - generic [ref=e2269]: 删除最佳实践
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/admin/practices/{practice_id}" [ref=e2272]':
+              - img [ref=e2273]
+          - generic [ref=e2277] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/practices/{practice_id}/toggle 启用/禁用最佳实践" [ref=e2278]':
+              - generic [ref=e2279]: PUT
+              - generic [ref=e2280]:
+                - 'link "/api/v1/admin/practices/{practice_id}/toggle" [ref=e2282]':
+                  - /url: "#/admin/toggle_best_practice_api_v1_admin_practices__practice_id__toggle_put"
+                  - generic [ref=e2283]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /practices
+                    - text: "/{practice_id}"
+                    - text: /toggle
+                - generic [ref=e2284]: 启用/禁用最佳实践
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/practices/{practice_id}/toggle" [ref=e2287]':
+              - img [ref=e2288]
+          - generic [ref=e2292] [cursor=pointer]:
+            - button "GET /api/v1/admin/skills 查询所有系统技能列表" [ref=e2293]:
+              - generic [ref=e2294]: GET
+              - generic [ref=e2295]:
+                - link "/api/v1/admin/skills" [ref=e2297]:
+                  - /url: "#/admin/list_system_skills_api_v1_admin_skills_get"
+                  - generic [ref=e2298]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                - generic [ref=e2299]: 查询所有系统技能列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/skills" [ref=e2302]:
+              - img [ref=e2303]
+          - generic [ref=e2307] [cursor=pointer]:
+            - button "POST /api/v1/admin/skills 创建系统技能" [ref=e2308]:
+              - generic [ref=e2309]: POST
+              - generic [ref=e2310]:
+                - link "/api/v1/admin/skills" [ref=e2312]:
+                  - /url: "#/admin/create_system_skill_api_v1_admin_skills_post"
+                  - generic [ref=e2313]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                - generic [ref=e2314]: 创建系统技能
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/skills" [ref=e2317]:
+              - img [ref=e2318]
+          - generic [ref=e2322] [cursor=pointer]:
+            - 'button "GET /api/v1/admin/skills/{name}/files/{path} 查看技能文件内容" [ref=e2323]':
+              - generic [ref=e2324]: GET
+              - generic [ref=e2325]:
+                - 'link "/api/v1/admin/skills/{name}/files/{path}" [ref=e2327]':
+                  - /url: "#/admin/get_skill_file_content_api_v1_admin_skills__name__files__path__get"
+                  - generic [ref=e2328]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: "/{name}"
+                    - text: /files
+                    - text: "/{path}"
+                - generic [ref=e2329]: 查看技能文件内容
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/admin/skills/{name}/files/{path}" [ref=e2332]':
+              - img [ref=e2333]
+          - generic [ref=e2337] [cursor=pointer]:
+            - 'button "GET /api/v1/admin/skills/{name} 获取系统技能详情" [ref=e2338]':
+              - generic [ref=e2339]: GET
+              - generic [ref=e2340]:
+                - 'link "/api/v1/admin/skills/{name}" [ref=e2342]':
+                  - /url: "#/admin/get_system_skill_api_v1_admin_skills__name__get"
+                  - generic [ref=e2343]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: "/{name}"
+                - generic [ref=e2344]: 获取系统技能详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/admin/skills/{name}" [ref=e2347]':
+              - img [ref=e2348]
+          - generic [ref=e2352] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/skills/{name} 更新系统技能" [ref=e2353]':
+              - generic [ref=e2354]: PUT
+              - generic [ref=e2355]:
+                - 'link "/api/v1/admin/skills/{name}" [ref=e2357]':
+                  - /url: "#/admin/update_system_skill_api_v1_admin_skills__name__put"
+                  - generic [ref=e2358]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: "/{name}"
+                - generic [ref=e2359]: 更新系统技能
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/skills/{name}" [ref=e2362]':
+              - img [ref=e2363]
+          - generic [ref=e2367] [cursor=pointer]:
+            - 'button "DELETE /api/v1/admin/skills/{name} 删除系统技能" [ref=e2368]':
+              - generic [ref=e2369]: DELETE
+              - generic [ref=e2370]:
+                - 'link "/api/v1/admin/skills/{name}" [ref=e2372]':
+                  - /url: "#/admin/delete_system_skill_api_v1_admin_skills__name__delete"
+                  - generic [ref=e2373]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: "/{name}"
+                - generic [ref=e2374]: 删除系统技能
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/admin/skills/{name}" [ref=e2377]':
+              - img [ref=e2378]
+          - generic [ref=e2382] [cursor=pointer]:
+            - button "POST /api/v1/admin/skills/upload-zip 上传 ZIP 批量导入/更新技能" [ref=e2383]:
+              - generic [ref=e2384]: POST
+              - generic [ref=e2385]:
+                - link "/api/v1/admin/skills/upload-zip" [ref=e2387]:
+                  - /url: "#/admin/upload_skill_zip_api_v1_admin_skills_upload_zip_post"
+                  - generic [ref=e2388]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: /upload-zip
+                - generic [ref=e2389]: 上传 ZIP 批量导入/更新技能
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/skills/upload-zip" [ref=e2392]:
+              - img [ref=e2393]
+          - generic [ref=e2397] [cursor=pointer]:
+            - button "GET /api/v1/admin/skills/clawhub/search 搜索 ClawHub 技能" [ref=e2398]:
+              - generic [ref=e2399]: GET
+              - generic [ref=e2400]:
+                - link "/api/v1/admin/skills/clawhub/search" [ref=e2402]:
+                  - /url: "#/admin/admin_clawhub_search"
+                  - generic [ref=e2403]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: /clawhub
+                    - text: /search
+                - generic [ref=e2404]: 搜索 ClawHub 技能
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/skills/clawhub/search" [ref=e2407]:
+              - img [ref=e2408]
+          - generic [ref=e2412] [cursor=pointer]:
+            - button "GET /api/v1/admin/skills/clawhub/browse 浏览 ClawHub 热门技能" [ref=e2413]:
+              - generic [ref=e2414]: GET
+              - generic [ref=e2415]:
+                - link "/api/v1/admin/skills/clawhub/browse" [ref=e2417]:
+                  - /url: "#/admin/admin_clawhub_browse"
+                  - generic [ref=e2418]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: /clawhub
+                    - text: /browse
+                - generic [ref=e2419]: 浏览 ClawHub 热门技能
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/skills/clawhub/browse" [ref=e2422]:
+              - img [ref=e2423]
+          - generic [ref=e2427] [cursor=pointer]:
+            - 'button "GET /api/v1/admin/skills/clawhub/{slug}/detail 获取 ClawHub 技能详情" [ref=e2428]':
+              - generic [ref=e2429]: GET
+              - generic [ref=e2430]:
+                - 'link "/api/v1/admin/skills/clawhub/{slug}/detail" [ref=e2432]':
+                  - /url: "#/admin/admin_clawhub_detail"
+                  - generic [ref=e2433]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: /clawhub
+                    - text: "/{slug}"
+                    - text: /detail
+                - generic [ref=e2434]: 获取 ClawHub 技能详情
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/admin/skills/clawhub/{slug}/detail" [ref=e2437]':
+              - img [ref=e2438]
+          - generic [ref=e2442] [cursor=pointer]:
+            - 'button "POST /api/v1/admin/skills/clawhub/{slug}/install 安装 ClawHub 技能为系统内置" [ref=e2443]':
+              - generic [ref=e2444]: POST
+              - generic [ref=e2445]:
+                - 'link "/api/v1/admin/skills/clawhub/{slug}/install" [ref=e2447]':
+                  - /url: "#/admin/admin_clawhub_install"
+                  - generic [ref=e2448]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /skills
+                    - text: /clawhub
+                    - text: "/{slug}"
+                    - text: /install
+                - generic [ref=e2449]: 安装 ClawHub 技能为系统内置
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/admin/skills/clawhub/{slug}/install" [ref=e2452]':
+              - img [ref=e2453]
+          - generic [ref=e2457] [cursor=pointer]:
+            - button "GET /api/v1/admin/templates 获取所有模板列表" [ref=e2458]:
+              - generic [ref=e2459]: GET
+              - generic [ref=e2460]:
+                - link "/api/v1/admin/templates" [ref=e2462]:
+                  - /url: "#/admin/list_all_templates_api_v1_admin_templates_get"
+                  - generic [ref=e2463]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /templates
+                - generic [ref=e2464]: 获取所有模板列表
+            - generic "Copy to clipboard"
+            - button "get /api/v1/admin/templates" [ref=e2467]:
+              - img [ref=e2468]
+          - generic [ref=e2472] [cursor=pointer]:
+            - button "POST /api/v1/admin/templates 创建模板" [ref=e2473]:
+              - generic [ref=e2474]: POST
+              - generic [ref=e2475]:
+                - link "/api/v1/admin/templates" [ref=e2477]:
+                  - /url: "#/admin/create_template_api_v1_admin_templates_post"
+                  - generic [ref=e2478]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /templates
+                - generic [ref=e2479]: 创建模板
+            - generic "Copy to clipboard"
+            - button "post /api/v1/admin/templates" [ref=e2482]:
+              - img [ref=e2483]
+          - generic [ref=e2487] [cursor=pointer]:
+            - 'button "PUT /api/v1/admin/templates/{template_id} 更新模板" [ref=e2488]':
+              - generic [ref=e2489]: PUT
+              - generic [ref=e2490]:
+                - 'link "/api/v1/admin/templates/{template_id}" [ref=e2492]':
+                  - /url: "#/admin/update_template_api_v1_admin_templates__template_id__put"
+                  - generic [ref=e2493]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /templates
+                    - text: "/{template_id}"
+                - generic [ref=e2494]: 更新模板
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/admin/templates/{template_id}" [ref=e2497]':
+              - img [ref=e2498]
+          - generic [ref=e2502] [cursor=pointer]:
+            - 'button "DELETE /api/v1/admin/templates/{template_id} 删除模板" [ref=e2503]':
+              - generic [ref=e2504]: DELETE
+              - generic [ref=e2505]:
+                - 'link "/api/v1/admin/templates/{template_id}" [ref=e2507]':
+                  - /url: "#/admin/delete_template_api_v1_admin_templates__template_id__delete"
+                  - generic [ref=e2508]:
+                    - text: /api
+                    - text: /v1
+                    - text: /admin
+                    - text: /templates
+                    - text: "/{template_id}"
+                - generic [ref=e2509]: 删除模板
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/admin/templates/{template_id}" [ref=e2512]':
+              - img [ref=e2513]
+      - generic [ref=e2516]:
+        - heading "TaskCenter-3 附件 (飞书:任务附件) Collapse operation" [level=3] [ref=e2517] [cursor=pointer]:
+          - link "TaskCenter-3 附件 (飞书:任务附件)" [ref=e2518]:
+            - /url: "#/TaskCenter-3%20附件%20(飞书:任务附件)"
+          - button "Collapse operation" [expanded] [ref=e2519]:
+            - img [ref=e2520]
+        - generic [ref=e2523]:
+          - generic [ref=e2526] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/tasks/{task_id}/attachments Upload Attachment" [ref=e2527]':
+              - generic [ref=e2528]: POST
+              - generic [ref=e2529]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/attachments" [ref=e2531]':
+                  - /url: "#/TaskCenter-3%20附件%20(飞书:任务附件)/upload_attachment_api_v1_task_center_tasks__task_id__attachments_post"
+                  - generic [ref=e2532]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /attachments
+                - generic [ref=e2533]: Upload Attachment
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/tasks/{task_id}/attachments" [ref=e2536]':
+              - img [ref=e2537]
+          - generic [ref=e2541] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/tasks/{task_id}/attachments List Attachments" [ref=e2542]':
+              - generic [ref=e2543]: GET
+              - generic [ref=e2544]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/attachments" [ref=e2546]':
+                  - /url: "#/TaskCenter-3%20附件%20(飞书:任务附件)/list_attachments_api_v1_task_center_tasks__task_id__attachments_get"
+                  - generic [ref=e2547]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /attachments
+                - generic [ref=e2548]: List Attachments
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/tasks/{task_id}/attachments" [ref=e2551]':
+              - img [ref=e2552]
+          - generic [ref=e2556] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/attachments/{attachment_id} Get Attachment" [ref=e2557]':
+              - generic [ref=e2558]: GET
+              - generic [ref=e2559]:
+                - 'link "/api/v1/task-center/attachments/{attachment_id}" [ref=e2561]':
+                  - /url: "#/TaskCenter-3%20附件%20(飞书:任务附件)/get_attachment_api_v1_task_center_attachments__attachment_id__get"
+                  - generic [ref=e2562]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /attachments
+                    - text: "/{attachment_id}"
+                - generic [ref=e2563]: Get Attachment
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/attachments/{attachment_id}" [ref=e2566]':
+              - img [ref=e2567]
+          - generic [ref=e2571] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/attachments/{attachment_id} Delete Attachment" [ref=e2572]':
+              - generic [ref=e2573]: DELETE
+              - generic [ref=e2574]:
+                - 'link "/api/v1/task-center/attachments/{attachment_id}" [ref=e2576]':
+                  - /url: "#/TaskCenter-3%20附件%20(飞书:任务附件)/delete_attachment_api_v1_task_center_attachments__attachment_id__delete"
+                  - generic [ref=e2577]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /attachments
+                    - text: "/{attachment_id}"
+                - generic [ref=e2578]: Delete Attachment
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/attachments/{attachment_id}" [ref=e2581]':
+              - img [ref=e2582]
+          - generic [ref=e2586] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/attachments/{attachment_id}/download Download Attachment" [ref=e2587]':
+              - generic [ref=e2588]: GET
+              - generic [ref=e2589]:
+                - 'link "/api/v1/task-center/attachments/{attachment_id}/download" [ref=e2591]':
+                  - /url: "#/TaskCenter-3%20附件%20(飞书:任务附件)/download_attachment_api_v1_task_center_attachments__attachment_id__download_get"
+                  - generic [ref=e2592]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /attachments
+                    - text: "/{attachment_id}"
+                    - text: /download
+                - generic [ref=e2593]: Download Attachment
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/attachments/{attachment_id}/download" [ref=e2596]':
+              - img [ref=e2597]
+      - generic [ref=e2600]:
+        - heading "TaskCenter-3 评论 (飞书:任务评论区) Collapse operation" [level=3] [ref=e2601] [cursor=pointer]:
+          - link "TaskCenter-3 评论 (飞书:任务评论区)" [ref=e2602]:
+            - /url: "#/TaskCenter-3%20评论%20(飞书:任务评论区)"
+          - button "Collapse operation" [expanded] [ref=e2603]:
+            - img [ref=e2604]
+        - generic [ref=e2607]:
+          - generic [ref=e2610] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/tasks/{task_id}/comments Create Comment" [ref=e2611]':
+              - generic [ref=e2612]: POST
+              - generic [ref=e2613]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/comments" [ref=e2615]':
+                  - /url: "#/TaskCenter-3%20评论%20(飞书:任务评论区)/create_comment_api_v1_task_center_tasks__task_id__comments_post"
+                  - generic [ref=e2616]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /comments
+                - generic [ref=e2617]: Create Comment
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/tasks/{task_id}/comments" [ref=e2620]':
+              - img [ref=e2621]
+          - generic [ref=e2625] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/tasks/{task_id}/comments List Comments" [ref=e2626]':
+              - generic [ref=e2627]: GET
+              - generic [ref=e2628]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/comments" [ref=e2630]':
+                  - /url: "#/TaskCenter-3%20评论%20(飞书:任务评论区)/list_comments_api_v1_task_center_tasks__task_id__comments_get"
+                  - generic [ref=e2631]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /comments
+                - generic [ref=e2632]: List Comments
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/tasks/{task_id}/comments" [ref=e2635]':
+              - img [ref=e2636]
+          - generic [ref=e2640] [cursor=pointer]:
+            - 'button "PUT /api/v1/task-center/tasks/{task_id}/comments/{comment_id} Update Comment" [ref=e2641]':
+              - generic [ref=e2642]: PUT
+              - generic [ref=e2643]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/comments/{comment_id}" [ref=e2645]':
+                  - /url: "#/TaskCenter-3%20评论%20(飞书:任务评论区)/update_comment_api_v1_task_center_tasks__task_id__comments__comment_id__put"
+                  - generic [ref=e2646]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /comments
+                    - text: "/{comment_id}"
+                - generic [ref=e2647]: Update Comment
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/task-center/tasks/{task_id}/comments/{comment_id}" [ref=e2650]':
+              - img [ref=e2651]
+          - generic [ref=e2655] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/tasks/{task_id}/comments/{comment_id} Delete Comment" [ref=e2656]':
+              - generic [ref=e2657]: DELETE
+              - generic [ref=e2658]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/comments/{comment_id}" [ref=e2660]':
+                  - /url: "#/TaskCenter-3%20评论%20(飞书:任务评论区)/delete_comment_api_v1_task_center_tasks__task_id__comments__comment_id__delete"
+                  - generic [ref=e2661]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /comments
+                    - text: "/{comment_id}"
+                - generic [ref=e2662]: Delete Comment
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/tasks/{task_id}/comments/{comment_id}" [ref=e2665]':
+              - img [ref=e2666]
+      - generic [ref=e2669]:
+        - heading "TaskCenter-4 通知 (飞书:站内通知) Collapse operation" [level=3] [ref=e2670] [cursor=pointer]:
+          - link "TaskCenter-4 通知 (飞书:站内通知)" [ref=e2671]:
+            - /url: "#/TaskCenter-4%20通知%20(飞书:站内通知)"
+          - button "Collapse operation" [expanded] [ref=e2672]:
+            - img [ref=e2673]
+        - generic [ref=e2676]:
+          - generic [ref=e2679] [cursor=pointer]:
+            - button "GET /api/v1/task-center/notifications List Notifications" [ref=e2680]:
+              - generic [ref=e2681]: GET
+              - generic [ref=e2682]:
+                - link "/api/v1/task-center/notifications" [ref=e2684]:
+                  - /url: "#/TaskCenter-4%20通知%20(飞书:站内通知)/list_notifications_api_v1_task_center_notifications_get"
+                  - generic [ref=e2685]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /notifications
+                - generic [ref=e2686]: List Notifications
+            - generic "Copy to clipboard"
+            - button "get /api/v1/task-center/notifications" [ref=e2689]:
+              - img [ref=e2690]
+          - generic [ref=e2694] [cursor=pointer]:
+            - button "GET /api/v1/task-center/notifications/unread-count Unread Count" [ref=e2695]:
+              - generic [ref=e2696]: GET
+              - generic [ref=e2697]:
+                - link "/api/v1/task-center/notifications/unread-count" [ref=e2699]:
+                  - /url: "#/TaskCenter-4%20通知%20(飞书:站内通知)/unread_count_api_v1_task_center_notifications_unread_count_get"
+                  - generic [ref=e2700]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /notifications
+                    - text: /unread-count
+                - generic [ref=e2701]: Unread Count
+            - generic "Copy to clipboard"
+            - button "get /api/v1/task-center/notifications/unread-count" [ref=e2704]:
+              - img [ref=e2705]
+          - generic [ref=e2709] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/notifications/{notification_id}/read Mark Read" [ref=e2710]':
+              - generic [ref=e2711]: POST
+              - generic [ref=e2712]:
+                - 'link "/api/v1/task-center/notifications/{notification_id}/read" [ref=e2714]':
+                  - /url: "#/TaskCenter-4%20通知%20(飞书:站内通知)/mark_read_api_v1_task_center_notifications__notification_id__read_post"
+                  - generic [ref=e2715]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /notifications
+                    - text: "/{notification_id}"
+                    - text: /read
+                - generic [ref=e2716]: Mark Read
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/notifications/{notification_id}/read" [ref=e2719]':
+              - img [ref=e2720]
+          - generic [ref=e2724] [cursor=pointer]:
+            - button "POST /api/v1/task-center/notifications/read-all Mark All Read" [ref=e2725]:
+              - generic [ref=e2726]: POST
+              - generic [ref=e2727]:
+                - link "/api/v1/task-center/notifications/read-all" [ref=e2729]:
+                  - /url: "#/TaskCenter-4%20通知%20(飞书:站内通知)/mark_all_read_api_v1_task_center_notifications_read_all_post"
+                  - generic [ref=e2730]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /notifications
+                    - text: /read-all
+                - generic [ref=e2731]: Mark All Read
+            - generic "Copy to clipboard"
+            - button "post /api/v1/task-center/notifications/read-all" [ref=e2734]:
+              - img [ref=e2735]
+          - generic [ref=e2739] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/notifications/{notification_id} Delete Notification" [ref=e2740]':
+              - generic [ref=e2741]: DELETE
+              - generic [ref=e2742]:
+                - 'link "/api/v1/task-center/notifications/{notification_id}" [ref=e2744]':
+                  - /url: "#/TaskCenter-4%20通知%20(飞书:站内通知)/delete_notification_api_v1_task_center_notifications__notification_id__delete"
+                  - generic [ref=e2745]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /notifications
+                    - text: "/{notification_id}"
+                - generic [ref=e2746]: Delete Notification
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/notifications/{notification_id}" [ref=e2749]':
+              - img [ref=e2750]
+      - generic [ref=e2753]:
+        - heading "TaskCenter-1 清单分组 (飞书:空间内对清单的分类，有默认分组'未分组') Collapse operation" [level=3] [ref=e2754] [cursor=pointer]:
+          - link "TaskCenter-1 清单分组 (飞书:空间内对清单的分类，有默认分组'未分组')" [ref=e2755]:
+            - /url: "#/TaskCenter-1%20清单分组%20(飞书:空间内对清单的分类，有默认分组'未分组')"
+          - button "Collapse operation" [expanded] [ref=e2756]:
+            - img [ref=e2757]
+        - generic [ref=e2760]:
+          - generic [ref=e2763] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/teams/{team_id}/project-groups Create Project Group" [ref=e2764]':
+              - generic [ref=e2765]: POST
+              - generic [ref=e2766]:
+                - 'link "/api/v1/task-center/teams/{team_id}/project-groups" [ref=e2768]':
+                  - /url: "#/TaskCenter-1%20清单分组%20(飞书:空间内对清单的分类，有默认分组'未分组')/create_project_group_api_v1_task_center_teams__team_id__project_groups_post"
+                  - generic [ref=e2769]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                    - text: /project-groups
+                - generic [ref=e2770]: Create Project Group
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/teams/{team_id}/project-groups" [ref=e2773]':
+              - img [ref=e2774]
+          - generic [ref=e2778] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/teams/{team_id}/project-groups List Project Groups" [ref=e2779]':
+              - generic [ref=e2780]: GET
+              - generic [ref=e2781]:
+                - 'link "/api/v1/task-center/teams/{team_id}/project-groups" [ref=e2783]':
+                  - /url: "#/TaskCenter-1%20清单分组%20(飞书:空间内对清单的分类，有默认分组'未分组')/list_project_groups_api_v1_task_center_teams__team_id__project_groups_get"
+                  - generic [ref=e2784]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                    - text: /project-groups
+                - generic [ref=e2785]: List Project Groups
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/teams/{team_id}/project-groups" [ref=e2788]':
+              - img [ref=e2789]
+          - generic [ref=e2793] [cursor=pointer]:
+            - 'button "PUT /api/v1/task-center/project-groups/{group_id} Update Project Group" [ref=e2794]':
+              - generic [ref=e2795]: PUT
+              - generic [ref=e2796]:
+                - 'link "/api/v1/task-center/project-groups/{group_id}" [ref=e2798]':
+                  - /url: "#/TaskCenter-1%20清单分组%20(飞书:空间内对清单的分类，有默认分组'未分组')/update_project_group_api_v1_task_center_project_groups__group_id__put"
+                  - generic [ref=e2799]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /project-groups
+                    - text: "/{group_id}"
+                - generic [ref=e2800]: Update Project Group
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/task-center/project-groups/{group_id}" [ref=e2803]':
+              - img [ref=e2804]
+          - generic [ref=e2808] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/project-groups/{group_id} Delete Project Group" [ref=e2809]':
+              - generic [ref=e2810]: DELETE
+              - generic [ref=e2811]:
+                - 'link "/api/v1/task-center/project-groups/{group_id}" [ref=e2813]':
+                  - /url: "#/TaskCenter-1%20清单分组%20(飞书:空间内对清单的分类，有默认分组'未分组')/delete_project_group_api_v1_task_center_project_groups__group_id__delete"
+                  - generic [ref=e2814]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /project-groups
+                    - text: "/{group_id}"
+                - generic [ref=e2815]: Delete Project Group
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/project-groups/{group_id}" [ref=e2818]':
+              - img [ref=e2819]
+          - generic [ref=e2823] [cursor=pointer]:
+            - 'button "PATCH /api/v1/task-center/project-groups/{group_id}/sort-order Update Group Sort Order" [ref=e2824]':
+              - generic [ref=e2825]: PATCH
+              - generic [ref=e2826]:
+                - 'link "/api/v1/task-center/project-groups/{group_id}/sort-order" [ref=e2828]':
+                  - /url: "#/TaskCenter-1%20清单分组%20(飞书:空间内对清单的分类，有默认分组'未分组')/update_group_sort_order_api_v1_task_center_project_groups__group_id__sort_order_patch"
+                  - generic [ref=e2829]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /project-groups
+                    - text: "/{group_id}"
+                    - text: /sort-order
+                - generic [ref=e2830]: Update Group Sort Order
+            - generic "Copy to clipboard"
+            - 'button "patch /api/v1/task-center/project-groups/{group_id}/sort-order" [ref=e2833]':
+              - img [ref=e2834]
+          - generic [ref=e2838] [cursor=pointer]:
+            - 'button "PATCH /api/v1/task-center/projects/{project_id}/group Move Project To Group" [ref=e2839]':
+              - generic [ref=e2840]: PATCH
+              - generic [ref=e2841]:
+                - 'link "/api/v1/task-center/projects/{project_id}/group" [ref=e2843]':
+                  - /url: "#/TaskCenter-1%20清单分组%20(飞书:空间内对清单的分类，有默认分组'未分组')/move_project_to_group_api_v1_task_center_projects__project_id__group_patch"
+                  - generic [ref=e2844]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                    - text: /group
+                - generic [ref=e2845]: Move Project To Group
+            - generic "Copy to clipboard"
+            - 'button "patch /api/v1/task-center/projects/{project_id}/group" [ref=e2848]':
+              - img [ref=e2849]
+      - generic [ref=e2852]:
+        - heading "TaskCenter-1 清单/项目 (飞书:清单，任务的容器) Collapse operation" [level=3] [ref=e2853] [cursor=pointer]:
+          - link "TaskCenter-1 清单/项目 (飞书:清单，任务的容器)" [ref=e2854]:
+            - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)"
+          - button "Collapse operation" [expanded] [ref=e2855]:
+            - img [ref=e2856]
+        - generic [ref=e2859]:
+          - generic [ref=e2862] [cursor=pointer]:
+            - button "POST /api/v1/task-center/projects Create Project" [ref=e2863]:
+              - generic [ref=e2864]: POST
+              - generic [ref=e2865]:
+                - link "/api/v1/task-center/projects" [ref=e2867]:
+                  - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)/create_project_api_v1_task_center_projects_post"
+                  - generic [ref=e2868]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                - generic [ref=e2869]: Create Project
+            - generic "Copy to clipboard"
+            - button "post /api/v1/task-center/projects" [ref=e2872]:
+              - img [ref=e2873]
+          - generic [ref=e2877] [cursor=pointer]:
+            - button "GET /api/v1/task-center/projects List Projects" [ref=e2878]:
+              - generic [ref=e2879]: GET
+              - generic [ref=e2880]:
+                - link "/api/v1/task-center/projects" [ref=e2882]:
+                  - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)/list_projects_api_v1_task_center_projects_get"
+                  - generic [ref=e2883]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                - generic [ref=e2884]: List Projects
+            - generic "Copy to clipboard"
+            - button "get /api/v1/task-center/projects" [ref=e2887]:
+              - img [ref=e2888]
+          - generic [ref=e2892] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/projects/{project_id} Get Project" [ref=e2893]':
+              - generic [ref=e2894]: GET
+              - generic [ref=e2895]:
+                - 'link "/api/v1/task-center/projects/{project_id}" [ref=e2897]':
+                  - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)/get_project_api_v1_task_center_projects__project_id__get"
+                  - generic [ref=e2898]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                - generic [ref=e2899]: Get Project
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/projects/{project_id}" [ref=e2902]':
+              - img [ref=e2903]
+          - generic [ref=e2907] [cursor=pointer]:
+            - 'button "PUT /api/v1/task-center/projects/{project_id} Update Project" [ref=e2908]':
+              - generic [ref=e2909]: PUT
+              - generic [ref=e2910]:
+                - 'link "/api/v1/task-center/projects/{project_id}" [ref=e2912]':
+                  - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)/update_project_api_v1_task_center_projects__project_id__put"
+                  - generic [ref=e2913]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                - generic [ref=e2914]: Update Project
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/task-center/projects/{project_id}" [ref=e2917]':
+              - img [ref=e2918]
+          - generic [ref=e2922] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/projects/{project_id} Delete Project" [ref=e2923]':
+              - generic [ref=e2924]: DELETE
+              - generic [ref=e2925]:
+                - 'link "/api/v1/task-center/projects/{project_id}" [ref=e2927]':
+                  - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)/delete_project_api_v1_task_center_projects__project_id__delete"
+                  - generic [ref=e2928]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                - generic [ref=e2929]: Delete Project
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/projects/{project_id}" [ref=e2932]':
+              - img [ref=e2933]
+          - generic [ref=e2937] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/projects/{project_id}/archive Archive Project" [ref=e2938]':
+              - generic [ref=e2939]: POST
+              - generic [ref=e2940]:
+                - 'link "/api/v1/task-center/projects/{project_id}/archive" [ref=e2942]':
+                  - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)/archive_project_api_v1_task_center_projects__project_id__archive_post"
+                  - generic [ref=e2943]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                    - text: /archive
+                - generic [ref=e2944]: Archive Project
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/projects/{project_id}/archive" [ref=e2947]':
+              - img [ref=e2948]
+          - generic [ref=e2952] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/projects/{project_id}/summary Get Project Summary" [ref=e2953]':
+              - generic [ref=e2954]: GET
+              - generic [ref=e2955]:
+                - 'link "/api/v1/task-center/projects/{project_id}/summary" [ref=e2957]':
+                  - /url: "#/TaskCenter-1%20清单/项目%20(飞书:清单，任务的容器)/get_project_summary_api_v1_task_center_projects__project_id__summary_get"
+                  - generic [ref=e2958]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                    - text: /summary
+                - generic [ref=e2959]: Get Project Summary
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/projects/{project_id}/summary" [ref=e2962]':
+              - img [ref=e2963]
+      - generic [ref=e2966]:
+        - heading "TaskCenter-2 任务分组 (飞书:清单内对任务的分类，有默认分组'未分组') Collapse operation" [level=3] [ref=e2967] [cursor=pointer]:
+          - link "TaskCenter-2 任务分组 (飞书:清单内对任务的分类，有默认分组'未分组')" [ref=e2968]:
+            - /url: "#/TaskCenter-2%20任务分组%20(飞书:清单内对任务的分类，有默认分组'未分组')"
+          - button "Collapse operation" [expanded] [ref=e2969]:
+            - img [ref=e2970]
+        - generic [ref=e2973]:
+          - generic [ref=e2976] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/projects/{project_id}/sections Create Section" [ref=e2977]':
+              - generic [ref=e2978]: POST
+              - generic [ref=e2979]:
+                - 'link "/api/v1/task-center/projects/{project_id}/sections" [ref=e2981]':
+                  - /url: "#/TaskCenter-2%20任务分组%20(飞书:清单内对任务的分类，有默认分组'未分组')/create_section_api_v1_task_center_projects__project_id__sections_post"
+                  - generic [ref=e2982]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                    - text: /sections
+                - generic [ref=e2983]: Create Section
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/projects/{project_id}/sections" [ref=e2986]':
+              - img [ref=e2987]
+          - generic [ref=e2991] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/projects/{project_id}/sections List Sections" [ref=e2992]':
+              - generic [ref=e2993]: GET
+              - generic [ref=e2994]:
+                - 'link "/api/v1/task-center/projects/{project_id}/sections" [ref=e2996]':
+                  - /url: "#/TaskCenter-2%20任务分组%20(飞书:清单内对任务的分类，有默认分组'未分组')/list_sections_api_v1_task_center_projects__project_id__sections_get"
+                  - generic [ref=e2997]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /projects
+                    - text: "/{project_id}"
+                    - text: /sections
+                - generic [ref=e2998]: List Sections
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/projects/{project_id}/sections" [ref=e3001]':
+              - img [ref=e3002]
+          - generic [ref=e3006] [cursor=pointer]:
+            - 'button "PUT /api/v1/task-center/sections/{section_id} Update Section" [ref=e3007]':
+              - generic [ref=e3008]: PUT
+              - generic [ref=e3009]:
+                - 'link "/api/v1/task-center/sections/{section_id}" [ref=e3011]':
+                  - /url: "#/TaskCenter-2%20任务分组%20(飞书:清单内对任务的分类，有默认分组'未分组')/update_section_api_v1_task_center_sections__section_id__put"
+                  - generic [ref=e3012]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /sections
+                    - text: "/{section_id}"
+                - generic [ref=e3013]: Update Section
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/task-center/sections/{section_id}" [ref=e3016]':
+              - img [ref=e3017]
+          - generic [ref=e3021] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/sections/{section_id} Delete Section" [ref=e3022]':
+              - generic [ref=e3023]: DELETE
+              - generic [ref=e3024]:
+                - 'link "/api/v1/task-center/sections/{section_id}" [ref=e3026]':
+                  - /url: "#/TaskCenter-2%20任务分组%20(飞书:清单内对任务的分类，有默认分组'未分组')/delete_section_api_v1_task_center_sections__section_id__delete"
+                  - generic [ref=e3027]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /sections
+                    - text: "/{section_id}"
+                - generic [ref=e3028]: Delete Section
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/sections/{section_id}" [ref=e3031]':
+              - img [ref=e3032]
+          - generic [ref=e3036] [cursor=pointer]:
+            - 'button "PATCH /api/v1/task-center/sections/{section_id}/sort-order Update Section Sort Order" [ref=e3037]':
+              - generic [ref=e3038]: PATCH
+              - generic [ref=e3039]:
+                - 'link "/api/v1/task-center/sections/{section_id}/sort-order" [ref=e3041]':
+                  - /url: "#/TaskCenter-2%20任务分组%20(飞书:清单内对任务的分类，有默认分组'未分组')/update_section_sort_order_api_v1_task_center_sections__section_id__sort_order_patch"
+                  - generic [ref=e3042]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /sections
+                    - text: "/{section_id}"
+                    - text: /sort-order
+                - generic [ref=e3043]: Update Section Sort Order
+            - generic "Copy to clipboard"
+            - 'button "patch /api/v1/task-center/sections/{section_id}/sort-order" [ref=e3046]':
+              - img [ref=e3047]
+          - generic [ref=e3051] [cursor=pointer]:
+            - 'button "PATCH /api/v1/task-center/tasks/{task_id}/section Move Task Section" [ref=e3052]':
+              - generic [ref=e3053]: PATCH
+              - generic [ref=e3054]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/section" [ref=e3056]':
+                  - /url: "#/TaskCenter-2%20任务分组%20(飞书:清单内对任务的分类，有默认分组'未分组')/move_task_section_api_v1_task_center_tasks__task_id__section_patch"
+                  - generic [ref=e3057]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /section
+                - generic [ref=e3058]: Move Task Section
+            - generic "Copy to clipboard"
+            - 'button "patch /api/v1/task-center/tasks/{task_id}/section" [ref=e3061]':
+              - img [ref=e3062]
+      - generic [ref=e3065]:
+        - heading "TaskCenter-2 任务 (飞书:任务) Collapse operation" [level=3] [ref=e3066] [cursor=pointer]:
+          - link "TaskCenter-2 任务 (飞书:任务)" [ref=e3067]:
+            - /url: "#/TaskCenter-2%20任务%20(飞书:任务)"
+          - button "Collapse operation" [expanded] [ref=e3068]:
+            - img [ref=e3069]
+        - generic [ref=e3072]:
+          - generic [ref=e3075] [cursor=pointer]:
+            - button "POST /api/v1/task-center/tasks Create Task" [ref=e3076]:
+              - generic [ref=e3077]: POST
+              - generic [ref=e3078]:
+                - link "/api/v1/task-center/tasks" [ref=e3080]:
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/create_task_api_v1_task_center_tasks_post"
+                  - generic [ref=e3081]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                - generic [ref=e3082]: Create Task
+            - generic "Copy to clipboard"
+            - button "post /api/v1/task-center/tasks" [ref=e3085]:
+              - img [ref=e3086]
+          - generic [ref=e3090] [cursor=pointer]:
+            - button "GET /api/v1/task-center/tasks List Tasks" [ref=e3091]:
+              - generic [ref=e3092]: GET
+              - generic [ref=e3093]:
+                - link "/api/v1/task-center/tasks" [ref=e3095]:
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/list_tasks_api_v1_task_center_tasks_get"
+                  - generic [ref=e3096]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                - generic [ref=e3097]: List Tasks
+            - generic "Copy to clipboard"
+            - button "get /api/v1/task-center/tasks" [ref=e3100]:
+              - img [ref=e3101]
+          - generic [ref=e3105] [cursor=pointer]:
+            - button "POST /api/v1/task-center/tasks/batch Batch Tasks" [ref=e3106]:
+              - generic [ref=e3107]: POST
+              - generic [ref=e3108]:
+                - link "/api/v1/task-center/tasks/batch" [ref=e3110]:
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/batch_tasks_api_v1_task_center_tasks_batch_post"
+                  - generic [ref=e3111]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: /batch
+                - generic [ref=e3112]: Batch Tasks
+            - generic "Copy to clipboard"
+            - button "post /api/v1/task-center/tasks/batch" [ref=e3115]:
+              - img [ref=e3116]
+          - generic [ref=e3120] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/tasks/{task_id} Get Task" [ref=e3121]':
+              - generic [ref=e3122]: GET
+              - generic [ref=e3123]:
+                - 'link "/api/v1/task-center/tasks/{task_id}" [ref=e3125]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/get_task_api_v1_task_center_tasks__task_id__get"
+                  - generic [ref=e3126]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                - generic [ref=e3127]: Get Task
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/tasks/{task_id}" [ref=e3130]':
+              - img [ref=e3131]
+          - generic [ref=e3135] [cursor=pointer]:
+            - 'button "PUT /api/v1/task-center/tasks/{task_id} Update Task" [ref=e3136]':
+              - generic [ref=e3137]: PUT
+              - generic [ref=e3138]:
+                - 'link "/api/v1/task-center/tasks/{task_id}" [ref=e3140]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/update_task_api_v1_task_center_tasks__task_id__put"
+                  - generic [ref=e3141]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                - generic [ref=e3142]: Update Task
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/task-center/tasks/{task_id}" [ref=e3145]':
+              - img [ref=e3146]
+          - generic [ref=e3150] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/tasks/{task_id} Delete Task" [ref=e3151]':
+              - generic [ref=e3152]: DELETE
+              - generic [ref=e3153]:
+                - 'link "/api/v1/task-center/tasks/{task_id}" [ref=e3155]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/delete_task_api_v1_task_center_tasks__task_id__delete"
+                  - generic [ref=e3156]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                - generic [ref=e3157]: Delete Task
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/tasks/{task_id}" [ref=e3160]':
+              - img [ref=e3161]
+          - generic [ref=e3165] [cursor=pointer]:
+            - 'button "PATCH /api/v1/task-center/tasks/{task_id}/status Patch Status" [ref=e3166]':
+              - generic [ref=e3167]: PATCH
+              - generic [ref=e3168]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/status" [ref=e3170]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/patch_status_api_v1_task_center_tasks__task_id__status_patch"
+                  - generic [ref=e3171]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /status
+                - generic [ref=e3172]: Patch Status
+            - generic "Copy to clipboard"
+            - 'button "patch /api/v1/task-center/tasks/{task_id}/status" [ref=e3175]':
+              - img [ref=e3176]
+          - generic [ref=e3180] [cursor=pointer]:
+            - 'button "PATCH /api/v1/task-center/tasks/{task_id}/assignee Patch Assignee" [ref=e3181]':
+              - generic [ref=e3182]: PATCH
+              - generic [ref=e3183]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/assignee" [ref=e3185]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/patch_assignee_api_v1_task_center_tasks__task_id__assignee_patch"
+                  - generic [ref=e3186]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /assignee
+                - generic [ref=e3187]: Patch Assignee
+            - generic "Copy to clipboard"
+            - 'button "patch /api/v1/task-center/tasks/{task_id}/assignee" [ref=e3190]':
+              - img [ref=e3191]
+          - generic [ref=e3195] [cursor=pointer]:
+            - 'button "PATCH /api/v1/task-center/tasks/{task_id}/sort-order Patch Sort Order" [ref=e3196]':
+              - generic [ref=e3197]: PATCH
+              - generic [ref=e3198]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/sort-order" [ref=e3200]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/patch_sort_order_api_v1_task_center_tasks__task_id__sort_order_patch"
+                  - generic [ref=e3201]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /sort-order
+                - generic [ref=e3202]: Patch Sort Order
+            - generic "Copy to clipboard"
+            - 'button "patch /api/v1/task-center/tasks/{task_id}/sort-order" [ref=e3205]':
+              - img [ref=e3206]
+          - generic [ref=e3210] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/tasks/{task_id}/participants Add Participants" [ref=e3211]':
+              - generic [ref=e3212]: POST
+              - generic [ref=e3213]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/participants" [ref=e3215]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/add_participants_api_v1_task_center_tasks__task_id__participants_post"
+                  - generic [ref=e3216]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /participants
+                - generic [ref=e3217]: Add Participants
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/tasks/{task_id}/participants" [ref=e3220]':
+              - img [ref=e3221]
+          - generic [ref=e3225] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/tasks/{task_id}/participants/{target_user_id} Remove Participant" [ref=e3226]':
+              - generic [ref=e3227]: DELETE
+              - generic [ref=e3228]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/participants/{target_user_id}" [ref=e3230]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/remove_participant_api_v1_task_center_tasks__task_id__participants__target_user_id__delete"
+                  - generic [ref=e3231]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /participants
+                    - text: "/{target_user_id}"
+                - generic [ref=e3232]: Remove Participant
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/tasks/{task_id}/participants/{target_user_id}" [ref=e3235]':
+              - img [ref=e3236]
+          - generic [ref=e3240] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/tasks/{task_id}/followers Add Follower" [ref=e3241]':
+              - generic [ref=e3242]: POST
+              - generic [ref=e3243]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/followers" [ref=e3245]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/add_follower_api_v1_task_center_tasks__task_id__followers_post"
+                  - generic [ref=e3246]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /followers
+                - generic [ref=e3247]: Add Follower
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/tasks/{task_id}/followers" [ref=e3250]':
+              - img [ref=e3251]
+          - generic [ref=e3255] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/tasks/{task_id}/followers Remove Follower" [ref=e3256]':
+              - generic [ref=e3257]: DELETE
+              - generic [ref=e3258]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/followers" [ref=e3260]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/remove_follower_api_v1_task_center_tasks__task_id__followers_delete"
+                  - generic [ref=e3261]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /followers
+                - generic [ref=e3262]: Remove Follower
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/tasks/{task_id}/followers" [ref=e3265]':
+              - img [ref=e3266]
+          - generic [ref=e3270] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/tasks/{task_id}/star Star Task" [ref=e3271]':
+              - generic [ref=e3272]: POST
+              - generic [ref=e3273]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/star" [ref=e3275]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/star_task_api_v1_task_center_tasks__task_id__star_post"
+                  - generic [ref=e3276]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /star
+                - generic [ref=e3277]: Star Task
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/tasks/{task_id}/star" [ref=e3280]':
+              - img [ref=e3281]
+          - generic [ref=e3285] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/tasks/{task_id}/star Unstar Task" [ref=e3286]':
+              - generic [ref=e3287]: DELETE
+              - generic [ref=e3288]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/star" [ref=e3290]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/unstar_task_api_v1_task_center_tasks__task_id__star_delete"
+                  - generic [ref=e3291]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /star
+                - generic [ref=e3292]: Unstar Task
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/tasks/{task_id}/star" [ref=e3295]':
+              - img [ref=e3296]
+          - generic [ref=e3300] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/tasks/{task_id}/subtasks List Subtasks" [ref=e3301]':
+              - generic [ref=e3302]: GET
+              - generic [ref=e3303]:
+                - 'link "/api/v1/task-center/tasks/{task_id}/subtasks" [ref=e3305]':
+                  - /url: "#/TaskCenter-2%20任务%20(飞书:任务)/list_subtasks_api_v1_task_center_tasks__task_id__subtasks_get"
+                  - generic [ref=e3306]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /tasks
+                    - text: "/{task_id}"
+                    - text: /subtasks
+                - generic [ref=e3307]: List Subtasks
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/tasks/{task_id}/subtasks" [ref=e3310]':
+              - img [ref=e3311]
+      - generic [ref=e3314]:
+        - heading "TaskCenter-1 空间/团队 (飞书:空间) Collapse operation" [level=3] [ref=e3315] [cursor=pointer]:
+          - link "TaskCenter-1 空间/团队 (飞书:空间)" [ref=e3316]:
+            - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)"
+          - button "Collapse operation" [expanded] [ref=e3317]:
+            - img [ref=e3318]
+        - generic [ref=e3321]:
+          - generic [ref=e3324] [cursor=pointer]:
+            - button "POST /api/v1/task-center/teams Create Team" [ref=e3325]:
+              - generic [ref=e3326]: POST
+              - generic [ref=e3327]:
+                - link "/api/v1/task-center/teams" [ref=e3329]:
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/create_team_api_v1_task_center_teams_post"
+                  - generic [ref=e3330]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                - generic [ref=e3331]: Create Team
+            - generic "Copy to clipboard"
+            - button "post /api/v1/task-center/teams" [ref=e3334]:
+              - img [ref=e3335]
+          - generic [ref=e3339] [cursor=pointer]:
+            - button "GET /api/v1/task-center/teams List My Teams" [ref=e3340]:
+              - generic [ref=e3341]: GET
+              - generic [ref=e3342]:
+                - link "/api/v1/task-center/teams" [ref=e3344]:
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/list_my_teams_api_v1_task_center_teams_get"
+                  - generic [ref=e3345]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                - generic [ref=e3346]: List My Teams
+            - generic "Copy to clipboard"
+            - button "get /api/v1/task-center/teams" [ref=e3349]:
+              - img [ref=e3350]
+          - generic [ref=e3354] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/teams/{team_id} Get Team" [ref=e3355]':
+              - generic [ref=e3356]: GET
+              - generic [ref=e3357]:
+                - 'link "/api/v1/task-center/teams/{team_id}" [ref=e3359]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/get_team_api_v1_task_center_teams__team_id__get"
+                  - generic [ref=e3360]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                - generic [ref=e3361]: Get Team
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/teams/{team_id}" [ref=e3364]':
+              - img [ref=e3365]
+          - generic [ref=e3369] [cursor=pointer]:
+            - 'button "PUT /api/v1/task-center/teams/{team_id} Update Team" [ref=e3370]':
+              - generic [ref=e3371]: PUT
+              - generic [ref=e3372]:
+                - 'link "/api/v1/task-center/teams/{team_id}" [ref=e3374]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/update_team_api_v1_task_center_teams__team_id__put"
+                  - generic [ref=e3375]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                - generic [ref=e3376]: Update Team
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/task-center/teams/{team_id}" [ref=e3379]':
+              - img [ref=e3380]
+          - generic [ref=e3384] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/teams/{team_id} Delete Team" [ref=e3385]':
+              - generic [ref=e3386]: DELETE
+              - generic [ref=e3387]:
+                - 'link "/api/v1/task-center/teams/{team_id}" [ref=e3389]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/delete_team_api_v1_task_center_teams__team_id__delete"
+                  - generic [ref=e3390]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                - generic [ref=e3391]: Delete Team
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/teams/{team_id}" [ref=e3394]':
+              - img [ref=e3395]
+          - generic [ref=e3399] [cursor=pointer]:
+            - 'button "GET /api/v1/task-center/teams/{team_id}/members List Members" [ref=e3400]':
+              - generic [ref=e3401]: GET
+              - generic [ref=e3402]:
+                - 'link "/api/v1/task-center/teams/{team_id}/members" [ref=e3404]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/list_members_api_v1_task_center_teams__team_id__members_get"
+                  - generic [ref=e3405]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                    - text: /members
+                - generic [ref=e3406]: List Members
+            - generic "Copy to clipboard"
+            - 'button "get /api/v1/task-center/teams/{team_id}/members" [ref=e3409]':
+              - img [ref=e3410]
+          - generic [ref=e3414] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/teams/{team_id}/members Add Members" [ref=e3415]':
+              - generic [ref=e3416]: POST
+              - generic [ref=e3417]:
+                - 'link "/api/v1/task-center/teams/{team_id}/members" [ref=e3419]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/add_members_api_v1_task_center_teams__team_id__members_post"
+                  - generic [ref=e3420]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                    - text: /members
+                - generic [ref=e3421]: Add Members
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/teams/{team_id}/members" [ref=e3424]':
+              - img [ref=e3425]
+          - generic [ref=e3429] [cursor=pointer]:
+            - 'button "PUT /api/v1/task-center/teams/{team_id}/members/{target_user_id} Update Member Role" [ref=e3430]':
+              - generic [ref=e3431]: PUT
+              - generic [ref=e3432]:
+                - 'link "/api/v1/task-center/teams/{team_id}/members/{target_user_id}" [ref=e3434]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/update_member_role_api_v1_task_center_teams__team_id__members__target_user_id__put"
+                  - generic [ref=e3435]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                    - text: /members
+                    - text: "/{target_user_id}"
+                - generic [ref=e3436]: Update Member Role
+            - generic "Copy to clipboard"
+            - 'button "put /api/v1/task-center/teams/{team_id}/members/{target_user_id}" [ref=e3439]':
+              - img [ref=e3440]
+          - generic [ref=e3444] [cursor=pointer]:
+            - 'button "DELETE /api/v1/task-center/teams/{team_id}/members/{target_user_id} Remove Member" [ref=e3445]':
+              - generic [ref=e3446]: DELETE
+              - generic [ref=e3447]:
+                - 'link "/api/v1/task-center/teams/{team_id}/members/{target_user_id}" [ref=e3449]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/remove_member_api_v1_task_center_teams__team_id__members__target_user_id__delete"
+                  - generic [ref=e3450]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                    - text: /members
+                    - text: "/{target_user_id}"
+                - generic [ref=e3451]: Remove Member
+            - generic "Copy to clipboard"
+            - 'button "delete /api/v1/task-center/teams/{team_id}/members/{target_user_id}" [ref=e3454]':
+              - img [ref=e3455]
+          - generic [ref=e3459] [cursor=pointer]:
+            - 'button "POST /api/v1/task-center/teams/{team_id}/transfer Transfer Owner" [ref=e3460]':
+              - generic [ref=e3461]: POST
+              - generic [ref=e3462]:
+                - 'link "/api/v1/task-center/teams/{team_id}/transfer" [ref=e3464]':
+                  - /url: "#/TaskCenter-1%20空间/团队%20(飞书:空间)/transfer_owner_api_v1_task_center_teams__team_id__transfer_post"
+                  - generic [ref=e3465]:
+                    - text: /api
+                    - text: /v1
+                    - text: /task-center
+                    - text: /teams
+                    - text: "/{team_id}"
+                    - text: /transfer
+                - generic [ref=e3466]: Transfer Owner
+            - generic "Copy to clipboard"
+            - 'button "post /api/v1/task-center/teams/{team_id}/transfer" [ref=e3469]':
+              - img [ref=e3470]
+      - generic [ref=e3473]:
+        - heading "root Collapse operation" [level=3] [ref=e3474] [cursor=pointer]:
+          - link "root" [ref=e3475]:
+            - /url: "#/root"
+          - button "Collapse operation" [expanded] [ref=e3476]:
+            - img [ref=e3477]
+        - generic [ref=e3483] [cursor=pointer]:
+          - button "GET / Root" [ref=e3484]:
+            - generic [ref=e3485]: GET
+            - generic [ref=e3486]:
+              - link / [ref=e3488]:
+                - /url: "#/root/root__get"
+              - generic [ref=e3489]: Root
+          - generic "Copy to clipboard"
+          - button "get /" [ref=e3492]:
+            - img [ref=e3493]
+      - generic [ref=e3496]:
+        - heading "default Collapse operation" [level=3] [ref=e3497] [cursor=pointer]:
+          - link "default" [ref=e3498]:
+            - /url: "#/default"
+          - button "Collapse operation" [expanded] [ref=e3499]:
+            - img [ref=e3500]
+        - generic [ref=e3503]:
+          - generic [ref=e3506] [cursor=pointer]:
+            - button "GET /skills-control Skills Control Redirect" [ref=e3507]:
+              - generic [ref=e3508]: GET
+              - generic [ref=e3509]:
+                - link "/skills-control" [ref=e3511]:
+                  - /url: "#/default/skills_control_redirect_skills_control_get"
+                - generic [ref=e3512]: Skills Control Redirect
+            - generic "Copy to clipboard"
+            - button "get /skills-control" [ref=e3515]:
+              - img [ref=e3516]
+          - generic [ref=e3520] [cursor=pointer]:
+            - button "POST /imcallback Legacy Im Callback" [ref=e3521]:
+              - generic [ref=e3522]: POST
+              - generic [ref=e3523]:
+                - link "/imcallback" [ref=e3525]:
+                  - /url: "#/default/legacy_im_callback_imcallback_post"
+                - generic [ref=e3526]: Legacy Im Callback
+            - generic "Copy to clipboard"
+            - button "post /imcallback" [ref=e3529]:
+              - img [ref=e3530]
+    - generic [ref=e3534]:
+      - heading "Schemas" [level=4] [ref=e3535] [cursor=pointer]:
+        - button "Schemas" [expanded] [ref=e3536]:
+          - generic [ref=e3537]: Schemas
+          - img [ref=e3538]
+      - generic [ref=e3540]:
+        - article [ref=e3541]:
+          - generic [ref=e3542]:
+            - button "AIGenerateImageRequest" [ref=e3543] [cursor=pointer]:
+              - generic [ref=e3545]: AIGenerateImageRequest
+              - img [ref=e3547]
+            - button "Expand all" [ref=e3549] [cursor=pointer]
+            - strong [ref=e3550]: object
+        - article [ref=e3551]:
+          - generic [ref=e3552]:
+            - button "AddMembersRequest" [ref=e3553] [cursor=pointer]:
+              - generic [ref=e3555]: AddMembersRequest
+              - img [ref=e3557]
+            - button "Expand all" [ref=e3559] [cursor=pointer]
+            - strong [ref=e3560]: object
+        - article [ref=e3561]:
+          - generic [ref=e3562]:
+            - button "AdminAgentCreateRequest" [ref=e3563] [cursor=pointer]:
+              - generic [ref=e3565]: AdminAgentCreateRequest
+              - img [ref=e3567]
+            - button "Expand all" [ref=e3569] [cursor=pointer]
+            - strong [ref=e3570]: object
+        - article [ref=e3571]:
+          - generic [ref=e3572]:
+            - button "AdminAgentUpdateRequest" [ref=e3573] [cursor=pointer]:
+              - generic [ref=e3575]: AdminAgentUpdateRequest
+              - img [ref=e3577]
+            - button "Expand all" [ref=e3579] [cursor=pointer]
+            - strong [ref=e3580]: object
+        - article [ref=e3581]:
+          - generic [ref=e3582]:
+            - button "AdminCommandCreateRequest" [ref=e3583] [cursor=pointer]:
+              - generic [ref=e3585]: AdminCommandCreateRequest
+              - img [ref=e3587]
+            - button "Expand all" [ref=e3589] [cursor=pointer]
+            - strong [ref=e3590]: object
+        - article [ref=e3591]:
+          - generic [ref=e3592]:
+            - button "AdminCommandUpdateRequest" [ref=e3593] [cursor=pointer]:
+              - generic [ref=e3595]: AdminCommandUpdateRequest
+              - img [ref=e3597]
+            - button "Expand all" [ref=e3599] [cursor=pointer]
+            - strong [ref=e3600]: object
+        - article [ref=e3601]:
+          - generic [ref=e3602]:
+            - button "AdminPracticeCreateRequest" [ref=e3603] [cursor=pointer]:
+              - generic [ref=e3605]: AdminPracticeCreateRequest
+              - img [ref=e3607]
+            - button "Expand all" [ref=e3609] [cursor=pointer]
+            - strong [ref=e3610]: object
+        - article [ref=e3611]:
+          - generic [ref=e3612]:
+            - button "AdminPracticeUpdateRequest" [ref=e3613] [cursor=pointer]:
+              - generic [ref=e3615]: AdminPracticeUpdateRequest
+              - img [ref=e3617]
+            - button "Expand all" [ref=e3619] [cursor=pointer]
+            - strong [ref=e3620]: object
+        - article [ref=e3621]:
+          - generic [ref=e3622]:
+            - button "AgentFileUploadRequest" [ref=e3623] [cursor=pointer]:
+              - generic [ref=e3625]: AgentFileUploadRequest
+              - img [ref=e3627]
+            - button "Expand all" [ref=e3629] [cursor=pointer]
+            - strong [ref=e3630]: object
+        - article [ref=e3631]:
+          - generic [ref=e3632]:
+            - button "AnswerSubmitRequest" [ref=e3633] [cursor=pointer]:
+              - generic [ref=e3635]: AnswerSubmitRequest
+              - img [ref=e3637]
+            - button "Expand all" [ref=e3639] [cursor=pointer]
+            - strong [ref=e3640]: object
+        - article [ref=e3641]:
+          - generic [ref=e3642]:
+            - button "Attachment" [ref=e3643] [cursor=pointer]:
+              - generic [ref=e3645]: Attachment
+              - img [ref=e3647]
+            - button "Expand all" [ref=e3649] [cursor=pointer]
+            - strong [ref=e3650]: object
+        - article [ref=e3651]:
+          - generic [ref=e3652]:
+            - button "AttachmentRequest" [ref=e3653] [cursor=pointer]:
+              - generic [ref=e3655]: AttachmentRequest
+              - img [ref=e3657]
+            - button "Expand all" [ref=e3659] [cursor=pointer]
+            - strong [ref=e3660]: object
+        - article [ref=e3661]:
+          - generic [ref=e3662]:
+            - button "BatchFileRequest" [ref=e3663] [cursor=pointer]:
+              - generic [ref=e3665]: BatchFileRequest
+              - img [ref=e3667]
+            - button "Expand all" [ref=e3669] [cursor=pointer]
+            - strong [ref=e3670]: object
+        - article [ref=e3671]:
+          - generic [ref=e3672]:
+            - button "BatchFileResult" [ref=e3673] [cursor=pointer]:
+              - generic [ref=e3675]: BatchFileResult
+              - img [ref=e3677]
+            - button "Expand all" [ref=e3679] [cursor=pointer]
+            - strong [ref=e3680]: object
+        - article [ref=e3681]:
+          - generic [ref=e3682]:
+            - button "BatchParseRequest" [ref=e3683] [cursor=pointer]:
+              - generic [ref=e3685]: BatchParseRequest
+              - img [ref=e3687]
+            - button "Expand all" [ref=e3689] [cursor=pointer]
+            - strong [ref=e3690]: object
+        - article [ref=e3691]:
+          - generic [ref=e3692]:
+            - button "BatchParseResponse" [ref=e3693] [cursor=pointer]:
+              - generic [ref=e3695]: BatchParseResponse
+              - img [ref=e3697]
+            - button "Expand all" [ref=e3699] [cursor=pointer]
+            - strong [ref=e3700]: object
+        - article [ref=e3701]:
+          - generic [ref=e3702]:
+            - button "BatchTaskRequest" [ref=e3703] [cursor=pointer]:
+              - generic [ref=e3705]: BatchTaskRequest
+              - img [ref=e3707]
+            - button "Expand all" [ref=e3709] [cursor=pointer]
+            - strong [ref=e3710]: object
+        - article [ref=e3711]:
+          - generic [ref=e3712]:
+            - button "BilibiliBatchDownloadRequest" [ref=e3713] [cursor=pointer]:
+              - generic [ref=e3715]: BilibiliBatchDownloadRequest
+              - img [ref=e3717]
+            - button "Expand all" [ref=e3719] [cursor=pointer]
+            - strong [ref=e3720]: object
+        - article [ref=e3721]:
+          - generic [ref=e3722]:
+            - button "BilibiliBatchDownloadResponse" [ref=e3723] [cursor=pointer]:
+              - generic [ref=e3725]: BilibiliBatchDownloadResponse
+              - img [ref=e3727]
+            - button "Expand all" [ref=e3729] [cursor=pointer]
+            - strong [ref=e3730]: object
+        - article [ref=e3731]:
+          - generic [ref=e3732]:
+            - button "BilibiliBatchProgress" [ref=e3733] [cursor=pointer]:
+              - generic [ref=e3735]: BilibiliBatchProgress
+              - img [ref=e3737]
+            - button "Expand all" [ref=e3739] [cursor=pointer]
+            - strong [ref=e3740]: object
+        - article [ref=e3741]:
+          - generic [ref=e3742]:
+            - button "BilibiliBatchStatusResponse" [ref=e3743] [cursor=pointer]:
+              - generic [ref=e3745]: BilibiliBatchStatusResponse
+              - img [ref=e3747]
+            - button "Expand all" [ref=e3749] [cursor=pointer]
+            - strong [ref=e3750]: object
+        - article [ref=e3751]:
+          - generic [ref=e3752]:
+            - button "BilibiliBatchTaskItem" [ref=e3753] [cursor=pointer]:
+              - generic [ref=e3755]: BilibiliBatchTaskItem
+              - img [ref=e3757]
+            - button "Expand all" [ref=e3759] [cursor=pointer]
+            - strong [ref=e3760]: object
+        - article [ref=e3761]:
+          - generic [ref=e3762]:
+            - button "BilibiliPlaylistRequest" [ref=e3763] [cursor=pointer]:
+              - generic [ref=e3765]: BilibiliPlaylistRequest
+              - img [ref=e3767]
+            - button "Expand all" [ref=e3769] [cursor=pointer]
+            - strong [ref=e3770]: object
+        - article [ref=e3771]:
+          - generic [ref=e3772]:
+            - button "Body_upload_attachment_api_v1_task_center_tasks__task_id__attachments_post" [ref=e3773] [cursor=pointer]:
+              - generic [ref=e3775]: Body_upload_attachment_api_v1_task_center_tasks__task_id__attachments_post
+              - img [ref=e3777]
+            - button "Expand all" [ref=e3779] [cursor=pointer]
+            - strong [ref=e3780]: object
+        - article [ref=e3781]:
+          - generic [ref=e3782]:
+            - button "Body_upload_image_api_v1_admin_images_upload_post" [ref=e3783] [cursor=pointer]:
+              - generic [ref=e3785]: Body_upload_image_api_v1_admin_images_upload_post
+              - img [ref=e3787]
+            - button "Expand all" [ref=e3789] [cursor=pointer]
+            - strong [ref=e3790]: object
+        - article [ref=e3791]:
+          - generic [ref=e3792]:
+            - button "Body_upload_skill_api_v1_skills_custom_upload_post" [ref=e3793] [cursor=pointer]:
+              - generic [ref=e3795]: Body_upload_skill_api_v1_skills_custom_upload_post
+              - img [ref=e3797]
+            - button "Expand all" [ref=e3799] [cursor=pointer]
+            - strong [ref=e3800]: object
+        - article [ref=e3801]:
+          - generic [ref=e3802]:
+            - button "Body_upload_skill_zip_api_v1_admin_skills_upload_zip_post" [ref=e3803] [cursor=pointer]:
+              - generic [ref=e3805]: Body_upload_skill_zip_api_v1_admin_skills_upload_zip_post
+              - img [ref=e3807]
+            - button "Expand all" [ref=e3809] [cursor=pointer]
+            - strong [ref=e3810]: object
+        - article [ref=e3811]:
+          - generic [ref=e3812]:
+            - button "Body_upload_user_image_api_v1_user_images_upload_post" [ref=e3813] [cursor=pointer]:
+              - generic [ref=e3815]: Body_upload_user_image_api_v1_user_images_upload_post
+              - img [ref=e3817]
+            - button "Expand all" [ref=e3819] [cursor=pointer]
+            - strong [ref=e3820]: object
+        - article [ref=e3821]:
+          - generic [ref=e3822]:
+            - button "CeleryStatus" [ref=e3823] [cursor=pointer]:
+              - generic [ref=e3825]: CeleryStatus
+              - img [ref=e3827]
+            - button "Expand all" [ref=e3829] [cursor=pointer]
+            - strong [ref=e3830]: object
+        - article [ref=e3831]:
+          - generic [ref=e3832]:
+            - button "CreateCommentRequest" [ref=e3833] [cursor=pointer]:
+              - generic [ref=e3835]: CreateCommentRequest
+              - img [ref=e3837]
+            - button "Expand all" [ref=e3839] [cursor=pointer]
+            - strong [ref=e3840]: object
+        - article [ref=e3841]:
+          - generic [ref=e3842]:
+            - button "CreateCustomAgentRequest" [ref=e3843] [cursor=pointer]:
+              - generic [ref=e3845]: CreateCustomAgentRequest
+              - img [ref=e3847]
+            - button "Expand all" [ref=e3849] [cursor=pointer]
+            - strong [ref=e3850]: object
+        - article [ref=e3851]:
+          - generic [ref=e3852]:
+            - button "CreateProjectGroupRequest" [ref=e3853] [cursor=pointer]:
+              - generic [ref=e3855]: CreateProjectGroupRequest
+              - img [ref=e3857]
+            - button "Expand all" [ref=e3859] [cursor=pointer]
+            - strong [ref=e3860]: object
+        - article [ref=e3861]:
+          - generic [ref=e3862]:
+            - button "CreateProjectRequest" [ref=e3863] [cursor=pointer]:
+              - generic [ref=e3865]: CreateProjectRequest
+              - img [ref=e3867]
+            - button "Expand all" [ref=e3869] [cursor=pointer]
+            - strong [ref=e3870]: object
+        - article [ref=e3871]:
+          - generic [ref=e3872]:
+            - button "CreateSectionRequest" [ref=e3873] [cursor=pointer]:
+              - generic [ref=e3875]: CreateSectionRequest
+              - img [ref=e3877]
+            - button "Expand all" [ref=e3879] [cursor=pointer]
+            - strong [ref=e3880]: object
+        - article [ref=e3881]:
+          - generic [ref=e3882]:
+            - button "CreateSessionRequest" [ref=e3883] [cursor=pointer]:
+              - generic [ref=e3885]: CreateSessionRequest
+              - img [ref=e3887]
+            - button "Expand all" [ref=e3889] [cursor=pointer]
+            - strong [ref=e3890]: object
+        - article [ref=e3891]:
+          - generic [ref=e3892]:
+            - button "CreateSessionResponse" [ref=e3893] [cursor=pointer]:
+              - generic [ref=e3895]: CreateSessionResponse
+              - img [ref=e3897]
+            - button "Expand all" [ref=e3899] [cursor=pointer]
+            - strong [ref=e3900]: object
+        - article [ref=e3901]:
+          - generic [ref=e3902]:
+            - button "CreateTaskRequest" [ref=e3903] [cursor=pointer]:
+              - generic [ref=e3905]: CreateTaskRequest
+              - img [ref=e3907]
+            - button "Expand all" [ref=e3909] [cursor=pointer]
+            - strong [ref=e3910]: object
+        - article [ref=e3911]:
+          - generic [ref=e3912]:
+            - button "CreateTeamRequest" [ref=e3913] [cursor=pointer]:
+              - generic [ref=e3915]: CreateTeamRequest
+              - img [ref=e3917]
+            - button "Expand all" [ref=e3919] [cursor=pointer]
+            - strong [ref=e3920]: object
+        - article [ref=e3921]:
+          - generic [ref=e3922]:
+            - button "CreateUsageLogRequest" [ref=e3923] [cursor=pointer]:
+              - generic [ref=e3925]: CreateUsageLogRequest
+              - img [ref=e3927]
+            - button "Expand all" [ref=e3929] [cursor=pointer]
+            - strong [ref=e3930]: object
+        - article [ref=e3931]:
+          - generic [ref=e3932]:
+            - button "CreateUserAgentRequest" [ref=e3933] [cursor=pointer]:
+              - generic [ref=e3935]: CreateUserAgentRequest
+              - img [ref=e3937]
+            - button "Expand all" [ref=e3939] [cursor=pointer]
+            - strong [ref=e3940]: object
+        - article [ref=e3941]:
+          - generic [ref=e3942]:
+            - button "DebugAgentChatRequest" [ref=e3943] [cursor=pointer]:
+              - generic [ref=e3945]: DebugAgentChatRequest
+              - img [ref=e3947]
+            - button "Expand all" [ref=e3949] [cursor=pointer]
+            - strong [ref=e3950]: object
+        - article [ref=e3951]:
+          - generic [ref=e3952]:
+            - button "DeleteSessionResponse" [ref=e3953] [cursor=pointer]:
+              - generic [ref=e3955]: DeleteSessionResponse
+              - img [ref=e3957]
+            - button "Expand all" [ref=e3959] [cursor=pointer]
+            - strong [ref=e3960]: object
+        - article [ref=e3961]:
+          - generic [ref=e3962]:
+            - button "EpisodeInfo" [ref=e3963] [cursor=pointer]:
+              - generic [ref=e3965]: EpisodeInfo
+              - img [ref=e3967]
+            - button "Expand all" [ref=e3969] [cursor=pointer]
+            - strong [ref=e3970]: object
+        - article [ref=e3971]:
+          - generic [ref=e3972]:
+            - button "ErrorDetail" [ref=e3973] [cursor=pointer]:
+              - generic [ref=e3975]: ErrorDetail
+              - img [ref=e3977]
+            - button "Expand all" [ref=e3979] [cursor=pointer]
+            - strong [ref=e3980]: object
+        - article [ref=e3981]:
+          - generic [ref=e3982]:
+            - button "FileAttachment" [ref=e3983] [cursor=pointer]:
+              - generic [ref=e3985]: FileAttachment
+              - img [ref=e3987]
+            - button "Expand all" [ref=e3989] [cursor=pointer]
+            - strong [ref=e3990]: object
+        - article [ref=e3991]:
+          - generic [ref=e3992]:
+            - button "FileDetailResponse" [ref=e3993] [cursor=pointer]:
+              - generic [ref=e3995]: FileDetailResponse
+              - img [ref=e3997]
+            - button "Expand all" [ref=e3999] [cursor=pointer]
+            - strong [ref=e4000]: object
+        - article [ref=e4001]:
+          - generic [ref=e4002]:
+            - button "FileItem" [ref=e4003] [cursor=pointer]:
+              - generic [ref=e4005]: FileItem
+              - img [ref=e4007]
+            - button "Expand all" [ref=e4009] [cursor=pointer]
+            - strong [ref=e4010]: object
+        - article [ref=e4011]:
+          - generic [ref=e4012]:
+            - button "FileLibraryResponse" [ref=e4013] [cursor=pointer]:
+              - generic [ref=e4015]: FileLibraryResponse
+              - img [ref=e4017]
+            - button "Expand all" [ref=e4019] [cursor=pointer]
+            - strong [ref=e4020]: object
+        - article [ref=e4021]:
+          - generic [ref=e4022]:
+            - button "GenerateCommandRequest" [ref=e4023] [cursor=pointer]:
+              - generic [ref=e4025]: GenerateCommandRequest
+              - img [ref=e4027]
+            - button "Expand all" [ref=e4029] [cursor=pointer]
+            - strong [ref=e4030]: object
+        - article [ref=e4031]:
+          - generic [ref=e4032]:
+            - button "GenerateRequest" [ref=e4033] [cursor=pointer]:
+              - generic [ref=e4035]: GenerateRequest
+              - img [ref=e4037]
+            - button "Expand all" [ref=e4039] [cursor=pointer]
+            - strong [ref=e4040]: object
+        - article [ref=e4041]:
+          - generic [ref=e4042]:
+            - button "GenerateResponse" [ref=e4043] [cursor=pointer]:
+              - generic [ref=e4045]: GenerateResponse
+              - img [ref=e4047]
+            - button "Expand all" [ref=e4049] [cursor=pointer]
+            - strong [ref=e4050]: object
+        - article [ref=e4051]:
+          - generic [ref=e4052]:
+            - button "GetQuestionsRequest" [ref=e4053] [cursor=pointer]:
+              - generic [ref=e4055]: GetQuestionsRequest
+              - img [ref=e4057]
+            - button "Expand all" [ref=e4059] [cursor=pointer]
+            - strong [ref=e4060]: object
+        - article [ref=e4061]:
+          - generic [ref=e4062]:
+            - button "GetQuestionsResponse" [ref=e4063] [cursor=pointer]:
+              - generic [ref=e4065]: GetQuestionsResponse
+              - img [ref=e4067]
+            - button "Expand all" [ref=e4069] [cursor=pointer]
+            - strong [ref=e4070]: object
+        - article [ref=e4071]:
+          - generic [ref=e4072]:
+            - button "HTTPValidationError" [ref=e4073] [cursor=pointer]:
+              - generic [ref=e4075]: HTTPValidationError
+              - img [ref=e4077]
+            - button "Expand all" [ref=e4079] [cursor=pointer]
+            - strong [ref=e4080]: object
+        - article [ref=e4081]:
+          - generic [ref=e4082]:
+            - button "HealthResponse" [ref=e4083] [cursor=pointer]:
+              - generic [ref=e4085]: HealthResponse
+              - img [ref=e4087]
+            - button "Expand all" [ref=e4089] [cursor=pointer]
+            - strong [ref=e4090]: object
+        - article [ref=e4091]:
+          - generic [ref=e4092]:
+            - button "MediaTaskResult" [ref=e4093] [cursor=pointer]:
+              - generic [ref=e4095]: MediaTaskResult
+              - img [ref=e4097]
+            - button "Expand all" [ref=e4099] [cursor=pointer]
+            - strong [ref=e4100]: object
+        - article [ref=e4101]:
+          - generic [ref=e4102]:
+            - button "MediaTaskStatusResponse" [ref=e4103] [cursor=pointer]:
+              - generic [ref=e4105]: MediaTaskStatusResponse
+              - img [ref=e4107]
+            - button "Expand all" [ref=e4109] [cursor=pointer]
+            - strong [ref=e4110]: object
+        - article [ref=e4111]:
+          - generic [ref=e4112]:
+            - button "Message" [ref=e4113] [cursor=pointer]:
+              - generic [ref=e4115]: Message
+              - img [ref=e4117]
+            - button "Expand all" [ref=e4119] [cursor=pointer]
+            - strong [ref=e4120]: object
+        - article [ref=e4121]:
+          - generic [ref=e4122]:
+            - button "MongoDBStatus" [ref=e4123] [cursor=pointer]:
+              - generic [ref=e4125]: MongoDBStatus
+              - img [ref=e4127]
+            - button "Expand all" [ref=e4129] [cursor=pointer]
+            - strong [ref=e4130]: object
+        - article [ref=e4131]:
+          - generic [ref=e4132]:
+            - button "MoveProjectGroupRequest" [ref=e4133] [cursor=pointer]:
+              - generic [ref=e4135]: MoveProjectGroupRequest
+              - img [ref=e4137]
+            - button "Expand all" [ref=e4139] [cursor=pointer]
+            - strong [ref=e4140]: object
+        - article [ref=e4141]:
+          - generic [ref=e4142]:
+            - button "MoveTaskSectionRequest" [ref=e4143] [cursor=pointer]:
+              - generic [ref=e4145]: MoveTaskSectionRequest
+              - img [ref=e4147]
+            - button "Expand all" [ref=e4149] [cursor=pointer]
+            - strong [ref=e4150]: object
+        - article [ref=e4151]:
+          - generic [ref=e4152]:
+            - button "OpenMAICClassroomGenerateRequest" [ref=e4153] [cursor=pointer]:
+              - generic [ref=e4155]: OpenMAICClassroomGenerateRequest
+              - img [ref=e4157]
+            - button "Expand all" [ref=e4159] [cursor=pointer]
+            - strong [ref=e4160]: object
+        - article [ref=e4161]:
+          - generic [ref=e4162]:
+            - button "OpenMAICClassroomTaskResult" [ref=e4163] [cursor=pointer]:
+              - generic [ref=e4165]: OpenMAICClassroomTaskResult
+              - img [ref=e4167]
+            - button "Expand all" [ref=e4169] [cursor=pointer]
+            - strong [ref=e4170]: object
+        - article [ref=e4171]:
+          - generic [ref=e4172]:
+            - button "OpenMAICClassroomTaskStatusResponse" [ref=e4173] [cursor=pointer]:
+              - generic [ref=e4175]: OpenMAICClassroomTaskStatusResponse
+              - img [ref=e4177]
+            - button "Expand all" [ref=e4179] [cursor=pointer]
+            - strong [ref=e4180]: object
+        - article [ref=e4181]:
+          - generic [ref=e4182]:
+            - button "OpenMAICClassroomTaskSubmitResponse" [ref=e4183] [cursor=pointer]:
+              - generic [ref=e4185]: OpenMAICClassroomTaskSubmitResponse
+              - img [ref=e4187]
+            - button "Expand all" [ref=e4189] [cursor=pointer]
+            - strong [ref=e4190]: object
+        - article [ref=e4191]:
+          - generic [ref=e4192]:
+            - button "OpenMAICPdfContent" [ref=e4193] [cursor=pointer]:
+              - generic [ref=e4195]: OpenMAICPdfContent
+              - img [ref=e4197]
+            - button "Expand all" [ref=e4199] [cursor=pointer]
+            - strong [ref=e4200]: object
+        - article [ref=e4201]:
+          - generic [ref=e4202]:
+            - button "ParseRequest" [ref=e4203] [cursor=pointer]:
+              - generic [ref=e4205]: ParseRequest
+              - img [ref=e4207]
+            - button "Expand all" [ref=e4209] [cursor=pointer]
+            - strong [ref=e4210]: object
+        - article [ref=e4211]:
+          - generic [ref=e4212]:
+            - button "PlaylistInfoResponse" [ref=e4213] [cursor=pointer]:
+              - generic [ref=e4215]: PlaylistInfoResponse
+              - img [ref=e4217]
+            - button "Expand all" [ref=e4219] [cursor=pointer]
+            - strong [ref=e4220]: object
+        - article [ref=e4221]:
+          - generic [ref=e4222]:
+            - button "PodcastCreateResponse" [ref=e4223] [cursor=pointer]:
+              - generic [ref=e4225]: PodcastCreateResponse
+              - img [ref=e4227]
+            - button "Expand all" [ref=e4229] [cursor=pointer]
+            - strong [ref=e4230]: object
+        - article [ref=e4231]:
+          - generic [ref=e4232]:
+            - button "PodcastGenerateRequest" [ref=e4233] [cursor=pointer]:
+              - generic [ref=e4235]: PodcastGenerateRequest
+              - img [ref=e4237]
+            - button "Expand all" [ref=e4239] [cursor=pointer]
+            - strong [ref=e4240]: object
+        - article [ref=e4241]:
+          - generic [ref=e4242]:
+            - button "PodcastResult" [ref=e4243] [cursor=pointer]:
+              - generic [ref=e4245]: PodcastResult
+              - img [ref=e4247]
+            - button "Expand all" [ref=e4249] [cursor=pointer]
+            - strong [ref=e4250]: object
+        - article [ref=e4251]:
+          - generic [ref=e4252]:
+            - button "PodcastResultResponse" [ref=e4253] [cursor=pointer]:
+              - generic [ref=e4255]: PodcastResultResponse
+              - img [ref=e4257]
+            - button "Expand all" [ref=e4259] [cursor=pointer]
+            - strong [ref=e4260]: object
+        - article [ref=e4261]:
+          - generic [ref=e4262]:
+            - button "PodcastStatusResponse" [ref=e4263] [cursor=pointer]:
+              - generic [ref=e4265]: PodcastStatusResponse
+              - img [ref=e4267]
+            - button "Expand all" [ref=e4269] [cursor=pointer]
+            - strong [ref=e4270]: object
+        - article [ref=e4271]:
+          - generic [ref=e4272]:
+            - button "PracticeAttachmentRequest" [ref=e4273] [cursor=pointer]:
+              - generic [ref=e4275]: PracticeAttachmentRequest
+              - img [ref=e4277]
+            - button "Expand all" [ref=e4279] [cursor=pointer]
+            - strong [ref=e4280]: object
+        - article [ref=e4281]:
+          - generic [ref=e4282]:
+            - button "PracticeMessageRequest" [ref=e4283] [cursor=pointer]:
+              - generic [ref=e4285]: PracticeMessageRequest
+              - img [ref=e4287]
+            - button "Expand all" [ref=e4289] [cursor=pointer]
+            - strong [ref=e4290]: object
+        - article [ref=e4291]:
+          - generic [ref=e4292]:
+            - button "PracticeReorderItem" [ref=e4293] [cursor=pointer]:
+              - generic [ref=e4295]: PracticeReorderItem
+              - img [ref=e4297]
+            - button "Expand all" [ref=e4299] [cursor=pointer]
+            - strong [ref=e4300]: object
+        - article [ref=e4301]:
+          - generic [ref=e4302]:
+            - button "PracticeReorderRequest" [ref=e4303] [cursor=pointer]:
+              - generic [ref=e4305]: PracticeReorderRequest
+              - img [ref=e4307]
+            - button "Expand all" [ref=e4309] [cursor=pointer]
+            - strong [ref=e4310]: object
+        - article [ref=e4311]:
+          - generic [ref=e4312]:
+            - button "QuestionResponse" [ref=e4313] [cursor=pointer]:
+              - generic [ref=e4315]: QuestionResponse
+              - img [ref=e4317]
+            - button "Expand all" [ref=e4319] [cursor=pointer]
+            - strong [ref=e4320]: object
+        - article [ref=e4321]:
+          - generic [ref=e4322]:
+            - button "ReorderItem" [ref=e4323] [cursor=pointer]:
+              - generic [ref=e4325]: ReorderItem
+              - img [ref=e4327]
+            - button "Expand all" [ref=e4329] [cursor=pointer]
+            - strong [ref=e4330]: object
+        - article [ref=e4331]:
+          - generic [ref=e4332]:
+            - button "ReorderRequest" [ref=e4333] [cursor=pointer]:
+              - generic [ref=e4335]: ReorderRequest
+              - img [ref=e4337]
+            - button "Expand all" [ref=e4339] [cursor=pointer]
+            - strong [ref=e4340]: object
+        - article [ref=e4341]:
+          - generic [ref=e4342]:
+            - button "ResultResponse" [ref=e4343] [cursor=pointer]:
+              - generic [ref=e4345]: ResultResponse
+              - img [ref=e4347]
+            - button "Expand all" [ref=e4349] [cursor=pointer]
+            - strong [ref=e4350]: object
+        - article [ref=e4351]:
+          - generic [ref=e4352]:
+            - button "SaveCommandRequest" [ref=e4353] [cursor=pointer]:
+              - generic [ref=e4355]: SaveCommandRequest
+              - img [ref=e4357]
+            - button "Expand all" [ref=e4359] [cursor=pointer]
+            - strong [ref=e4360]: object
+        - article [ref=e4361]:
+          - generic [ref=e4362]:
+            - button "SaveToCloudDiskRequest" [ref=e4363] [cursor=pointer]:
+              - generic [ref=e4365]: SaveToCloudDiskRequest
+              - img [ref=e4367]
+            - button "Expand all" [ref=e4369] [cursor=pointer]
+            - strong [ref=e4370]: object
+        - article [ref=e4371]:
+          - generic [ref=e4372]:
+            - button "SaveToCloudDiskResponse" [ref=e4373] [cursor=pointer]:
+              - generic [ref=e4375]: SaveToCloudDiskResponse
+              - img [ref=e4377]
+            - button "Expand all" [ref=e4379] [cursor=pointer]
+            - strong [ref=e4380]: object
+        - article [ref=e4381]:
+          - generic [ref=e4382]:
+            - button "SceneValidateRequest" [ref=e4383] [cursor=pointer]:
+              - generic [ref=e4385]: SceneValidateRequest
+              - img [ref=e4387]
+            - button "Expand all" [ref=e4389] [cursor=pointer]
+            - strong [ref=e4390]: object
+        - article [ref=e4391]:
+          - generic [ref=e4392]:
+            - button "SectionSortOrderRequest" [ref=e4393] [cursor=pointer]:
+              - generic [ref=e4395]: SectionSortOrderRequest
+              - img [ref=e4397]
+            - button "Expand all" [ref=e4399] [cursor=pointer]
+            - strong [ref=e4400]: object
+        - article [ref=e4401]:
+          - generic [ref=e4402]:
+            - button "Session" [ref=e4403] [cursor=pointer]:
+              - generic [ref=e4405]: Session
+              - img [ref=e4407]
+            - button "Expand all" [ref=e4409] [cursor=pointer]
+            - strong [ref=e4410]: object
+        - article [ref=e4411]:
+          - generic [ref=e4412]:
+            - button "SessionDetail" [ref=e4413] [cursor=pointer]:
+              - generic [ref=e4415]: SessionDetail
+              - img [ref=e4417]
+            - button "Expand all" [ref=e4419] [cursor=pointer]
+            - strong [ref=e4420]: object
+        - article [ref=e4421]:
+          - generic [ref=e4422]:
+            - button "SessionListResponse" [ref=e4423] [cursor=pointer]:
+              - generic [ref=e4425]: SessionListResponse
+              - img [ref=e4427]
+            - button "Expand all" [ref=e4429] [cursor=pointer]
+            - strong [ref=e4430]: object
+        - article [ref=e4431]:
+          - generic [ref=e4432]:
+            - button "SessionRegenerateRequest" [ref=e4433] [cursor=pointer]:
+              - generic [ref=e4435]: SessionRegenerateRequest
+              - img [ref=e4437]
+            - button "Expand all" [ref=e4439] [cursor=pointer]
+            - strong [ref=e4440]: object
+        - article [ref=e4441]:
+          - generic [ref=e4442]:
+            - button "SessionStartRequest" [ref=e4443] [cursor=pointer]:
+              - generic [ref=e4445]: SessionStartRequest
+              - img [ref=e4447]
+            - button "Expand all" [ref=e4449] [cursor=pointer]
+            - strong [ref=e4450]: object
+        - article [ref=e4451]:
+          - generic [ref=e4452]:
+            - button "ShortVideoResult" [ref=e4453] [cursor=pointer]:
+              - generic [ref=e4455]: ShortVideoResult
+              - img [ref=e4457]
+            - button "Expand all" [ref=e4459] [cursor=pointer]
+            - strong [ref=e4460]: object
+        - article [ref=e4461]:
+          - generic [ref=e4462]:
+            - button "SimulationRepositoryItem" [ref=e4463] [cursor=pointer]:
+              - generic [ref=e4465]: SimulationRepositoryItem
+              - img [ref=e4467]
+            - button "Expand all" [ref=e4469] [cursor=pointer]
+            - strong [ref=e4470]: object
+        - article [ref=e4471]:
+          - generic [ref=e4472]:
+            - button "SimulationSceneRequest" [ref=e4473] [cursor=pointer]:
+              - generic [ref=e4475]: SimulationSceneRequest
+              - img [ref=e4477]
+            - button "Expand all" [ref=e4479] [cursor=pointer]
+            - strong [ref=e4480]: object
+        - article [ref=e4481]:
+          - generic [ref=e4482]:
+            - button "SimulationStartWithResourcesRequest" [ref=e4483] [cursor=pointer]:
+              - generic [ref=e4485]: SimulationStartWithResourcesRequest
+              - img [ref=e4487]
+            - button "Expand all" [ref=e4489] [cursor=pointer]
+            - strong [ref=e4490]: object
+        - article [ref=e4491]:
+          - generic [ref=e4492]:
+            - button "SimulationTaskResult" [ref=e4493] [cursor=pointer]:
+              - generic [ref=e4495]: SimulationTaskResult
+              - img [ref=e4497]
+            - button "Expand all" [ref=e4499] [cursor=pointer]
+            - strong [ref=e4500]: object
+        - article [ref=e4501]:
+          - generic [ref=e4502]:
+            - button "SimulationTaskStatusResponse" [ref=e4503] [cursor=pointer]:
+              - generic [ref=e4505]: SimulationTaskStatusResponse
+              - img [ref=e4507]
+            - button "Expand all" [ref=e4509] [cursor=pointer]
+            - strong [ref=e4510]: object
+        - article [ref=e4511]:
+          - generic [ref=e4512]:
+            - button "SimulationTaskSubmitResponse" [ref=e4513] [cursor=pointer]:
+              - generic [ref=e4515]: SimulationTaskSubmitResponse
+              - img [ref=e4517]
+            - button "Expand all" [ref=e4519] [cursor=pointer]
+            - strong [ref=e4520]: object
+        - article [ref=e4521]:
+          - generic [ref=e4522]:
+            - button "SkillRecommendationRequest" [ref=e4523] [cursor=pointer]:
+              - generic [ref=e4525]: SkillRecommendationRequest
+              - img [ref=e4527]
+            - button "Expand all" [ref=e4529] [cursor=pointer]
+            - strong [ref=e4530]: object
+        - article [ref=e4531]:
+          - generic [ref=e4532]:
+            - button "StarRequest" [ref=e4533] [cursor=pointer]:
+              - generic [ref=e4535]: StarRequest
+              - img [ref=e4537]
+            - button "Expand all" [ref=e4539] [cursor=pointer]
+            - strong [ref=e4540]: object
+        - article [ref=e4541]:
+          - generic [ref=e4542]:
+            - button "StatusResponse" [ref=e4543] [cursor=pointer]:
+              - generic [ref=e4545]: StatusResponse
+              - img [ref=e4547]
+            - button "Expand all" [ref=e4549] [cursor=pointer]
+            - strong [ref=e4550]: object
+        - article [ref=e4551]:
+          - generic [ref=e4552]:
+            - button "StreamChatRequest" [ref=e4553] [cursor=pointer]:
+              - generic [ref=e4555]: StreamChatRequest
+              - img [ref=e4557]
+            - button "Expand all" [ref=e4559] [cursor=pointer]
+            - strong [ref=e4560]: object
+        - article [ref=e4561]:
+          - generic [ref=e4562]:
+            - button "SystemSkillCreateRequest" [ref=e4563] [cursor=pointer]:
+              - generic [ref=e4565]: SystemSkillCreateRequest
+              - img [ref=e4567]
+            - button "Expand all" [ref=e4569] [cursor=pointer]
+            - strong [ref=e4570]: object
+        - article [ref=e4571]:
+          - generic [ref=e4572]:
+            - button "SystemSkillUpdateRequest" [ref=e4573] [cursor=pointer]:
+              - generic [ref=e4575]: SystemSkillUpdateRequest
+              - img [ref=e4577]
+            - button "Expand all" [ref=e4579] [cursor=pointer]
+            - strong [ref=e4580]: object
+        - article [ref=e4581]:
+          - generic [ref=e4582]:
+            - button "TaskCancelResponse" [ref=e4583] [cursor=pointer]:
+              - generic [ref=e4585]: TaskCancelResponse
+              - img [ref=e4587]
+            - button "Expand all" [ref=e4589] [cursor=pointer]
+            - strong [ref=e4590]: object
+        - article [ref=e4591]:
+          - generic [ref=e4592]:
+            - button "TaskResponse" [ref=e4593] [cursor=pointer]:
+              - generic [ref=e4595]: TaskResponse
+              - img [ref=e4597]
+            - button "Expand all" [ref=e4599] [cursor=pointer]
+            - strong [ref=e4600]: object
+        - article [ref=e4601]:
+          - generic [ref=e4602]:
+            - button "TaskResult" [ref=e4603] [cursor=pointer]:
+              - generic [ref=e4605]: TaskResult
+              - img [ref=e4607]
+            - button "Expand all" [ref=e4609] [cursor=pointer]
+            - strong [ref=e4610]: object
+        - article [ref=e4611]:
+          - generic [ref=e4612]:
+            - button "TaskStatusResponse" [ref=e4613] [cursor=pointer]:
+              - generic [ref=e4615]: TaskStatusResponse
+              - img [ref=e4617]
+            - button "Expand all" [ref=e4619] [cursor=pointer]
+            - strong [ref=e4620]: object
+        - article [ref=e4621]:
+          - generic [ref=e4622]:
+            - button "ThemeSummaryRequest" [ref=e4623] [cursor=pointer]:
+              - generic [ref=e4625]: ThemeSummaryRequest
+              - img [ref=e4627]
+            - button "Expand all" [ref=e4629] [cursor=pointer]
+            - strong [ref=e4630]: object
+        - article [ref=e4631]:
+          - generic [ref=e4632]:
+            - button "ThemeSummaryResponse" [ref=e4633] [cursor=pointer]:
+              - generic [ref=e4635]: ThemeSummaryResponse
+              - img [ref=e4637]
+            - button "Expand all" [ref=e4639] [cursor=pointer]
+            - strong [ref=e4640]: object
+        - article [ref=e4641]:
+          - generic [ref=e4642]:
+            - button "ToolCall" [ref=e4643] [cursor=pointer]:
+              - generic [ref=e4645]: ToolCall
+              - img [ref=e4647]
+            - button "Expand all" [ref=e4649] [cursor=pointer]
+            - strong [ref=e4650]: object
+        - article [ref=e4651]:
+          - generic [ref=e4652]:
+            - button "ToolTaskCreate" [ref=e4653] [cursor=pointer]:
+              - generic [ref=e4655]: ToolTaskCreate
+              - img [ref=e4657]
+            - button "Expand all" [ref=e4659] [cursor=pointer]
+            - strong [ref=e4660]: object
+        - article [ref=e4661]:
+          - generic [ref=e4662]:
+            - button "ToolTaskUpdate" [ref=e4663] [cursor=pointer]:
+              - generic [ref=e4665]: ToolTaskUpdate
+              - img [ref=e4667]
+            - button "Expand all" [ref=e4669] [cursor=pointer]
+            - strong [ref=e4670]: object
+        - article [ref=e4671]:
+          - generic [ref=e4672]:
+            - button "TranscriptItem" [ref=e4673] [cursor=pointer]:
+              - generic [ref=e4675]: TranscriptItem
+              - img [ref=e4677]
+            - button "Expand all" [ref=e4679] [cursor=pointer]
+            - strong [ref=e4680]: object
+        - article [ref=e4681]:
+          - generic [ref=e4682]:
+            - button "TransferOwnerRequest" [ref=e4683] [cursor=pointer]:
+              - generic [ref=e4685]: TransferOwnerRequest
+              - img [ref=e4687]
+            - button "Expand all" [ref=e4689] [cursor=pointer]
+            - strong [ref=e4690]: object
+        - article [ref=e4691]:
+          - generic [ref=e4692]:
+            - button "UpdateAgentRequest" [ref=e4693] [cursor=pointer]:
+              - generic [ref=e4695]: UpdateAgentRequest
+              - img [ref=e4697]
+            - button "Expand all" [ref=e4699] [cursor=pointer]
+            - strong [ref=e4700]: object
+        - article [ref=e4701]:
+          - generic [ref=e4702]:
+            - button "UpdateAgentTemplateRequest" [ref=e4703] [cursor=pointer]:
+              - generic [ref=e4705]: UpdateAgentTemplateRequest
+              - img [ref=e4707]
+            - button "Expand all" [ref=e4709] [cursor=pointer]
+            - strong [ref=e4710]: object
+        - article [ref=e4711]:
+          - generic [ref=e4712]:
+            - button "UpdateAssigneeRequest" [ref=e4713] [cursor=pointer]:
+              - generic [ref=e4715]: UpdateAssigneeRequest
+              - img [ref=e4717]
+            - button "Expand all" [ref=e4719] [cursor=pointer]
+            - strong [ref=e4720]: object
+        - article [ref=e4721]:
+          - generic [ref=e4722]:
+            - button "UpdateCommentRequest" [ref=e4723] [cursor=pointer]:
+              - generic [ref=e4725]: UpdateCommentRequest
+              - img [ref=e4727]
+            - button "Expand all" [ref=e4729] [cursor=pointer]
+            - strong [ref=e4730]: object
+        - article [ref=e4731]:
+          - generic [ref=e4732]:
+            - button "UpdateCustomAgentRequest" [ref=e4733] [cursor=pointer]:
+              - generic [ref=e4735]: UpdateCustomAgentRequest
+              - img [ref=e4737]
+            - button "Expand all" [ref=e4739] [cursor=pointer]
+            - strong [ref=e4740]: object
+        - article [ref=e4741]:
+          - generic [ref=e4742]:
+            - button "UpdateImageRequest" [ref=e4743] [cursor=pointer]:
+              - generic [ref=e4745]: UpdateImageRequest
+              - img [ref=e4747]
+            - button "Expand all" [ref=e4749] [cursor=pointer]
+            - strong [ref=e4750]: object
+        - article [ref=e4751]:
+          - generic [ref=e4752]:
+            - button "UpdateMemberRoleRequest" [ref=e4753] [cursor=pointer]:
+              - generic [ref=e4755]: UpdateMemberRoleRequest
+              - img [ref=e4757]
+            - button "Expand all" [ref=e4759] [cursor=pointer]
+            - strong [ref=e4760]: object
+        - article [ref=e4761]:
+          - generic [ref=e4762]:
+            - button "UpdateProjectGroupRequest" [ref=e4763] [cursor=pointer]:
+              - generic [ref=e4765]: UpdateProjectGroupRequest
+              - img [ref=e4767]
+            - button "Expand all" [ref=e4769] [cursor=pointer]
+            - strong [ref=e4770]: object
+        - article [ref=e4771]:
+          - generic [ref=e4772]:
+            - button "UpdateProjectRequest" [ref=e4773] [cursor=pointer]:
+              - generic [ref=e4775]: UpdateProjectRequest
+              - img [ref=e4777]
+            - button "Expand all" [ref=e4779] [cursor=pointer]
+            - strong [ref=e4780]: object
+        - article [ref=e4781]:
+          - generic [ref=e4782]:
+            - button "UpdateSectionRequest" [ref=e4783] [cursor=pointer]:
+              - generic [ref=e4785]: UpdateSectionRequest
+              - img [ref=e4787]
+            - button "Expand all" [ref=e4789] [cursor=pointer]
+            - strong [ref=e4790]: object
+        - article [ref=e4791]:
+          - generic [ref=e4792]:
+            - button "UpdateSkillRequest" [ref=e4793] [cursor=pointer]:
+              - generic [ref=e4795]: UpdateSkillRequest
+              - img [ref=e4797]
+            - button "Expand all" [ref=e4799] [cursor=pointer]
+            - strong [ref=e4800]: object
+        - article [ref=e4801]:
+          - generic [ref=e4802]:
+            - button "UpdateStatusRequest" [ref=e4803] [cursor=pointer]:
+              - generic [ref=e4805]: UpdateStatusRequest
+              - img [ref=e4807]
+            - button "Expand all" [ref=e4809] [cursor=pointer]
+            - strong [ref=e4810]: object
+        - article [ref=e4811]:
+          - generic [ref=e4812]:
+            - button "UpdateTaskRequest" [ref=e4813] [cursor=pointer]:
+              - generic [ref=e4815]: UpdateTaskRequest
+              - img [ref=e4817]
+            - button "Expand all" [ref=e4819] [cursor=pointer]
+            - strong [ref=e4820]: object
+        - article [ref=e4821]:
+          - generic [ref=e4822]:
+            - button "UpdateTeamRequest" [ref=e4823] [cursor=pointer]:
+              - generic [ref=e4825]: UpdateTeamRequest
+              - img [ref=e4827]
+            - button "Expand all" [ref=e4829] [cursor=pointer]
+            - strong [ref=e4830]: object
+        - article [ref=e4831]:
+          - generic [ref=e4832]:
+            - button "UpdateUserCommandRequest" [ref=e4833] [cursor=pointer]:
+              - generic [ref=e4835]: UpdateUserCommandRequest
+              - img [ref=e4837]
+            - button "Expand all" [ref=e4839] [cursor=pointer]
+            - strong [ref=e4840]: object
+        - article [ref=e4841]:
+          - generic [ref=e4842]:
+            - button "UserAIGenerateImageRequest" [ref=e4843] [cursor=pointer]:
+              - generic [ref=e4845]: UserAIGenerateImageRequest
+              - img [ref=e4847]
+            - button "Expand all" [ref=e4849] [cursor=pointer]
+            - strong [ref=e4850]: object
+        - article [ref=e4851]:
+          - generic [ref=e4852]:
+            - button "UserIdsRequest" [ref=e4853] [cursor=pointer]:
+              - generic [ref=e4855]: UserIdsRequest
+              - img [ref=e4857]
+            - button "Expand all" [ref=e4859] [cursor=pointer]
+            - strong [ref=e4860]: object
+        - article [ref=e4861]:
+          - generic [ref=e4862]:
+            - button "UserSkillAddRequest" [ref=e4863] [cursor=pointer]:
+              - generic [ref=e4865]: UserSkillAddRequest
+              - img [ref=e4867]
+            - button "Expand all" [ref=e4869] [cursor=pointer]
+            - strong [ref=e4870]: object
+        - article [ref=e4871]:
+          - generic [ref=e4872]:
+            - button "UserSkillBatchSetRequest" [ref=e4873] [cursor=pointer]:
+              - generic [ref=e4875]: UserSkillBatchSetRequest
+              - img [ref=e4877]
+            - button "Expand all" [ref=e4879] [cursor=pointer]
+            - strong [ref=e4880]: object
+        - article [ref=e4881]:
+          - generic [ref=e4882]:
+            - button "ValidationError" [ref=e4883] [cursor=pointer]:
+              - generic [ref=e4885]: ValidationError
+              - img [ref=e4887]
+            - button "Expand all" [ref=e4889] [cursor=pointer]
+            - strong [ref=e4890]: object
+        - article [ref=e4891]:
+          - generic [ref=e4892]:
+            - button "VideoDownloadRequest" [ref=e4893] [cursor=pointer]:
+              - generic [ref=e4895]: VideoDownloadRequest
+              - img [ref=e4897]
+            - button "Expand all" [ref=e4899] [cursor=pointer]
+            - strong [ref=e4900]: object
+        - article [ref=e4901]:
+          - generic [ref=e4902]:
+            - button "VideoDownloadResult" [ref=e4903] [cursor=pointer]:
+              - generic [ref=e4905]: VideoDownloadResult
+              - img [ref=e4907]
+            - button "Expand all" [ref=e4909] [cursor=pointer]
+            - strong [ref=e4910]: object
+        - article [ref=e4911]:
+          - generic [ref=e4912]:
+            - button "CreateAgentTemplateRequest" [ref=e4913] [cursor=pointer]:
+              - generic [ref=e4915]: CreateAgentTemplateRequest
+              - img [ref=e4917]
+            - button "Expand all" [ref=e4919] [cursor=pointer]
+            - strong [ref=e4920]: object
+        - article [ref=e4921]:
+          - generic [ref=e4922]:
+            - button "CreateAgentTemplateRequest" [ref=e4923] [cursor=pointer]:
+              - generic [ref=e4925]: CreateAgentTemplateRequest
+              - img [ref=e4927]
+            - button "Expand all" [ref=e4929] [cursor=pointer]
+            - strong [ref=e4930]: object
+        - article [ref=e4931]:
+          - generic [ref=e4932]:
+            - button "UpdateSortOrderRequest" [ref=e4933] [cursor=pointer]:
+              - generic [ref=e4935]: UpdateSortOrderRequest
+              - img [ref=e4937]
+            - button "Expand all" [ref=e4939] [cursor=pointer]
+            - strong [ref=e4940]: object
+        - article [ref=e4941]:
+          - generic [ref=e4942]:
+            - button "UpdateSortOrderRequest" [ref=e4943] [cursor=pointer]:
+              - generic [ref=e4945]: UpdateSortOrderRequest
+              - img [ref=e4947]
+            - button "Expand all" [ref=e4949] [cursor=pointer]
+            - strong [ref=e4950]: object

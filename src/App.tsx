@@ -6,6 +6,7 @@ import Agents from './pages/Agents/Agents'
 import Practices from './pages/Practices/Practices'
 import Commands from './pages/Commands/Commands'
 import ClawHub from './pages/ClawHub/ClawHub'
+import Images from './pages/Images/Images'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/skills" replace />} />
           <Route path="skills" element={<SystemSkills />} />
+          <Route path="images" element={<Images />} />
           <Route path="templates" element={<Templates />} />
           <Route path="agents" element={<Agents />} />
           <Route path="practices" element={<Practices />} />

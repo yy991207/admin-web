@@ -21,6 +21,15 @@ export interface AgentListResponse {
   total: number
 }
 
+function normalizeAgentDetailData(value: unknown): AdminAgent {
+  const raw = value && typeof value === 'object' ? value as Record<string, unknown> : {}
+  const agent = raw.agent && typeof raw.agent === 'object'
+    ? raw.agent as Record<string, unknown>
+    : raw
+
+  return agent as unknown as AdminAgent
+}
+
 export async function fetchAgents(isActive: boolean): Promise<ApiResponse<AgentListResponse>> {
   const url = buildUrl(`api/v1/admin/agents?is_active=${isActive}`)
   return request<AgentListResponse>(url)
@@ -39,7 +48,11 @@ export async function fetchAllAgents(): Promise<AgentListResponse> {
 }
 
 export async function fetchAgentDetail(agent_id: string): Promise<ApiResponse<AdminAgent>> {
-  return request<AdminAgent>(buildUrl(`api/v1/admin/agents/${agent_id}`))
+  const raw = await request<Record<string, unknown>>(buildUrl(`api/v1/admin/agents/${agent_id}`))
+  return {
+    ...raw,
+    data: normalizeAgentDetailData(raw.data),
+  }
 }
 
 export async function createAgent(data: {

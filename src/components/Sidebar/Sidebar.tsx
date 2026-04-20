@@ -1,5 +1,6 @@
 import {
   ThunderboltOutlined,
+  PictureOutlined,
   FileTextOutlined,
   RobotOutlined,
   TrophyOutlined,
@@ -20,6 +21,7 @@ interface NavItem {
 
 const SYSTEM_ITEMS: NavItem[] = [
   { key: 'skills', label: '系统技能', icon: <ThunderboltOutlined />, path: '/skills' },
+  { key: 'images', label: '图片管理', icon: <PictureOutlined />, path: '/images' },
   { key: 'templates', label: '智能体模板', icon: <FileTextOutlined />, path: '/templates' },
   { key: 'agents', label: '智能体', icon: <RobotOutlined />, path: '/agents' },
   { key: 'practices', label: '最佳实践', icon: <TrophyOutlined />, path: '/practices' },

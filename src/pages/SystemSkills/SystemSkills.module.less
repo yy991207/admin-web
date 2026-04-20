@@ -36,6 +36,25 @@
   overflow: hidden;
 }
 
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.summaryCard {
+  border-radius: var(--radius-comfortable);
+}
+
+.summaryLabel {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.summaryValue {
+  margin: 0 !important;
+}
+
 .tableSearch {
   margin: 16px;
   width: 320px;
@@ -204,6 +223,17 @@
 .noConfig {
   color: var(--gray-400);
   font-size: 12px;
+}
+
+@media (max-width: 960px) {
+  .pageHeader {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* 附件编辑器 */
